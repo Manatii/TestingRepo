@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>fancyBox - Fancy jQuery Lightbox Alternative | Demonstration</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="lib/jquery-1.10.1.min.js"></script>
+	<!-- Add mousewheel plugin (this is optional) -->
+	<script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="source/jquery.fancybox.js?v=2.1.5"></script>
+	<link rel="stylesheet" type="text/css" href="source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+	<!-- Add Button helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="source/helpers/jquery.fancybox-buttons.css?v=1.0.5" />
+	<script type="text/javascript" src="source/helpers/jquery.fancybox-buttons.js?v=1.0.5"></script>
+
+
+	
+</head>
+<body>
+    	
+	
+	<a class="fancybox-buttons" data-fancybox-group="button" href="1_b.jpg"><img src="1_s.jpg" alt="" /></a>
+	<a class="fancybox-buttons" data-fancybox-group="button" href="2_b.jpg"><img src="1_s.jpg" alt="" /></a>
+	<a class="fancybox-buttons" data-fancybox-group="button" href="3_b.jpg"><img src="1_s.jpg" alt="" /></a>
+
+	<a class="fancybox-button" rel="fancybox-button" href="1_b.jpg" >
+	<img src="http://farm1.staticflickr.com/288/19353466834_6be3600330_m.jpg" alt="" />
+</a>
+<a class="fancybox-button" rel="fancybox-button" hhref="2_b.jpg" >
+	<img src="1_s.jpg" alt="" /></a>
+</a>
+<a class="fancybox-button" rel="fancybox-button" href="3_b.jpg" >
+	<img src="1_s.jpg" alt="" />
+</a>
+
+
+
+   	<script type="text/javascript">
+			$(document).ready(function() {
+			
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			
+		
+
+
+		});
+   </script>
+
+</body>
+</html>

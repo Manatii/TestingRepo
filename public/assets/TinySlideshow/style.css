@@ -1,0 +1,199 @@
+
+#image img{
+	
+  width: 100%;
+  height: auto;
+
+
+
+}
+}
+#image img {
+
+   
+ 
+}
+#slideshow {list-style:none; }
+
+#wrapper {width:100%; margin:50px}
+#wrapper * {margin:0; padding:0}
+#fullsize {position:relative; width: 60%; height: 565px; border: 4px solid white; overflow: hidden; border-radius: 4px; margin-left:8%;}
+#information {position:absolute; bottom:0; width:500px; height:0;  color:#fff; overflow:hidden; z-index:200;  opacity: 0.5; background: #444;
+
+
+}
+#information h3 {padding:4px 8px 3px; font-size:14px}
+#information p {padding:0 8px 8px}
+#image {width: 100%; height: 100%;
+  text-align: center;
+ 
+
+}
+
+.imgnav {position:absolute; width:10%; height:70px; cursor:pointer; z-index:120; top: 40%;} 
+#imgprev {left:0; background:url(images/left.gif) left center no-repeat}
+#imgnext {right:0; background:url(images/right.gif) right center no-repeat}
+#imglink {position:absolute; height:100%; width:100%; z-index:100; opacity:.4; filter:alpha(opacity=40)}
+
+#thumbnails {margin-top:15px; width: 60%; margin-left: 8%; height: 6px;
+}
+
+#preview{
+  height:100%;
+  width: 100%;
+ 
+ 
+ 
+  opacity: 0.70;
+  position:absolute;
+  cursor: pointer;
+    z-index: 120;
+}
+
+#preview img{
+  margin-top:5%;
+  margin-left: 5%;
+}
+
+
+#slideleft {float:left; width:20px; height:115px; background:url(images/scroll-left.gif) center center no-repeat; background-color:#222; }
+#slideleft:hover {background-color:#333}
+#slideright {float:right; width:20px; height:115px; background:#222 url(images/scroll-right.gif) center center no-repeat}
+#slideright:hover {background-color:#333}
+#slidearea {float:left; position:relative; width:92.60%; margin-left:5px; height:115px; overflow:hidden}
+#slider {position:absolute; left:0; height:81px}
+#slider img {cursor:pointer;
+     border: 1px solid #000;
+ 	padding:2px; width: 160px; 
+    height:115px;
+}
+
+#information p{
+	    color: #fff;
+}
+
+@media (min-width: 501px) and (max-width: 1000px){
+ #slider img {
+      cursor: pointer;
+      border: 1px solid #000;
+      padding: 2px;
+      width: 125px;
+      height: 90px;
+  }
+
+  #slidearea {
+    float: left;
+    position: relative;
+    width: 92.60%;
+    margin-left: 5px;
+    height: 115px;
+    overflow: hidden;
+  }
+
+  #slidearea {
+    width: 90%;
+  }
+
+  #slideleft{
+      height: 90px;
+  }
+
+  #slideright{
+      height: 90px;
+  }
+
+}
+
+@media screen and (max-width: 500px){
+#fullsize {
+  float: left;
+    width: 95%;
+    margin-left: 2.5%;
+       max-height: 280px;
+}
+
+ #fullsize img {
+ 
+    width: 100%;
+   
+   
+}
+
+.imgnav {
+  position:absolute; 
+  width:17%;
+  height:55px; 
+  cursor:pointer;
+  z-index:120;
+  top: 45%;
+  background-color: pink;
+}
+ 
+ #preview {
+    height: 100%;
+    width: 100%;
+   
+   
+    opacity: 0.80;
+    position: absolute;
+    z-index: 120;
+}
+ #preview img{
+    width: 38px;
+    height: 38px;
+    margin-top: 220px;
+    margin-left: 45%;
+ }
+
+#slidearea{
+	float: left;
+	width: 84.60%;
+	margin-left: 1%;
+	
+	height: 80px;
+	
+}
+#slider{
+	position:relative;
+}
+#thumbnails {
+	    position: relative;
+    margin-top: 15px;
+    width: 95%;
+    margin-left: 3%;
+  
+    height: 6px;
+}
+#slider img{
+	width: 95px;
+	height: 75px;
+}
+#slideright {
+	float: right;
+    width: 20px;
+    height: 75;
+}
+
+#slideleft {
+    
+    width: 20px;
+    height: 75;
+
+}
+
+}
+
+@media screen and (max-width:1264px)
+{
+   #fullsize {height: 450px;}
+
+}
+
+@media screen and (max-width: 320px){
+  #slidearea{
+    float: left;
+    width: 82.60%;
+    margin-left: 1%;
+    height: 80px;
+  }
+}
