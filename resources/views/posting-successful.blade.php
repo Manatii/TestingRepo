@@ -15,11 +15,11 @@
                                     <h2 class="no-margin no-padding">&#10004; Congratulations! Your ad will be available
                                         soon.</h2>
 
-                                    @if(isset($pin)) 
+                                    @if(isset($promotionPlan)) 
                                       
                                                                      
                                     <div id="payment-message" style="margin-top:4px; margin-bottom:16px;">
-                                       <p>You have chosen to sell your product quicker, please make your payment through one the following platfoms. Use <b>{{$pin}} AS YOUR PIN</b>. We will help you reach thousands of people in minutes. Please note that we will only promote your ad once you make the payment</p>
+                                       <p>You have chosen to sell your product quicker, please make your payment through one the following platfoms. Use <b> AS YOUR PIN</b>. We will help you reach thousands of people in minutes. Please note that we will only promote your ad once you make the payment</p>
                                     </div>
         <div class="payment-methods">
         
@@ -27,14 +27,8 @@
         <div class="numberlist">    
 
  <ol>
-
   <li><a href="#"><b>Capitec Mobile Banking</b> - send your payment to 0833968710</a> </li>
-  
-  <li><a href="#"><b>FNB E-Wallet</b> - send your payment to the above cellnumber</a></li>
-
-  <li><a href="#"><b>Shoprite Money Market </b> - send Money transfer number via SMS or via our contact form</a></li>
-
-  <li><a href="#"><b>PayPal</b> - use your credit card to make your payment online</a></li>
+  <li><a href="#"><b>EFT</b> - Use your name or cell number as reference, Your name/number must reflect the name/number on your ad</a></li>
 
  </ol>
 

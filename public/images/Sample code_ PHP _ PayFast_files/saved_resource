@@ -1,0 +1,432 @@
+/* font sizes */
+.hentry .entry {
+  font-size: 0.95em;
+}
+#features .payfast-description p {
+  font-size: 1.218em;
+}
+#features .widget_woothemes_features .feature .feature-content {
+  font-size: 0.95em;
+}
+h1 {
+  font-size: 1.744em;
+}
+h2 {
+  font-size: 1.418em;
+}
+.smaller {
+  font-size: 0.9em;
+}
+ul, ol, dl, p, table, form, pre, address {
+  margin: 0 0 1.2em 0;
+  line-height: 1.5em;
+}
+.hentry header {
+  margin: 0 0 1.244em;
+}
+
+/* link colour */
+a {
+  color: #d00000;
+}
+.hentry .post-meta li:before {
+  color: #d00000;
+}
+code {
+  color: #d00000;
+}
+.hentry .entry blockquote {
+  margin: 0 12%;
+  border-left: 0.4em solid #d00000;
+}
+
+/* Slider */
+.flexslider .flex-viewport {
+-webkit-box-shadow: 0px 0px 13px 5px rgba(204,204,204,1);
+-moz-box-shadow: 0px 0px 13px 5px rgba(204,204,204,1);
+box-shadow: 0px 0px 13px 5px rgba(204,204,204,1);
+}
+.flexslider .flex-control-nav {
+ bottom: -30px; 
+}
+
+/* shortcode column styling */
+.twocol-one, .threecol-one, .threecol-two, .fourcol-one, .fourcol-two, .fourcol-three, .fivecol-one, .fivecol-two, .fivecol-three, .fivecol-four, .sixcol-one, .sixcol-two, .sixcol-three, .sixcol-four, .sixcol-five {
+  margin-bottom: 2% !important;
+}
+
+/* Update styling on home page testimonial images */
+#testimonials .slide-nav ul li .avatar {
+  padding: 0;
+  border: 0.2em solid #e6e6e6;
+}
+.home-section {
+  padding: 2.131em 0;
+}
+#integrations .carts {
+  padding: 0 0 2.5em;
+}
+#features .widget_woothemes_features {
+  margin-bottom: 1em;
+}
+
+/* Shopping cart archive */
+#main.shopping-carts .shopping-carts-wrapper article {
+  	min-height: 300px;
+}
+#main.shopping-carts article {
+    margin: 0;
+}
+
+/* Shopping cart single page */
+body.single-cart #sidebar #cart-details .cart-image {
+ 	padding: 20px 0; 
+}
+
+
+/* removes border on Company info page table */
+.companyinfo {
+	border:none;
+	border-collapse:collapse;
+  	border-right: none;
+	padding:5px;
+  	line-height: 1.2;
+}
+
+.companyinfo th {
+	border:none;
+	padding:5px;
+}
+
+.companyinfo td {
+	border:none!important;
+	padding:5px;
+}
+
+.fa-pad {
+  padding-right: 5px;
+}
+
+.contact-form-border {
+background: rgb(247, 247, 247);
+padding-left: 25px;
+padding-top: 5px;
+border: rgb(133, 133, 133) 1px solid;
+}
+
+input[type=text], input.input-text, textarea, input.txt, input[type=tel], input[type=email], input[type=password] {
+border: 1px solid rgb(203, 203, 203);
+background: #FFFFFF;
+}
+
+.gform_wrapper.gf_browser_chrome .gfield_checkbox li input[type=checkbox], .gform_wrapper.gf_browser_chrome .gfield_radio li input[type=radio], .gform_wrapper.gf_browser_chrome .gfield_checkbox li input {
+margin-top: 5px;
+margin-left: 2px;
+}
+
+.contact-grid {
+  line-height: 1.2;
+}
+
+.subscript {
+float: left;
+font-size: 1em;
+color: rgb(255, 54, 54);
+}
+
+.dev-style {
+  	font-family: Courier, Serif;
+	font-size: 0.9em;
+}
+
+.required {
+  color: rgb(226, 51, 51);
+}
+
+.optional {
+  color: rgb(20, 155, 68);
+}
+
+.recommended {
+  color: rgb(226, 137, 51);
+}
+
+.legal-text {
+    font: smaller "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+}
+
+.subsection {
+position: relative;
+margin: 1em 0;
+padding-top: 1.5em;
+padding-bottom: 0em;
+padding-left: 1.5em;
+padding-right: 1.5em;
+border: 1px solid #e6e6e6;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+/* Heading bottom border */
+.archive-header:after {
+  background: #df1d27;
+}
+
+/* bordered sections with columns had too much white space at the bottom */
+.twocol-one, .threecol-one, .threecol-two, .fourcol-one, .fourcol-two, .fourcol-three, .fivecol-one, .fivecol-two, .fivecol-three, .fivecol-four, .sixcol-one, .sixcol-two, .sixcol-three, .sixcol-four, .sixcol-five {
+margin-bottom: 2%;
+}
+
+/* footer color darker */
+#footer-wrapper {
+background: #1B1B1B;
+}
+
+/* larger header image */
+#header #logo img {
+margin-top: -5px;
+width: 210px;
+}
+
+/* Change header wrapper a bit darker */
+#header-wrapper {
+background: #FEFEFE;
+}
+
+/*links in header to grey*/
+#header .contact-header ul li a {
+color: #777777;
+}
+
+/*Removes grey border around gallery items*/
+#gallery-1 img {
+border: none!important;
+}
+
+/*Add padding between shop logos that use PayFast */
+#gallery-1 .gallery-item {
+margin-top: 0px!important;
+margin-bottom: 100px!important;
+}
+/* remove border around gallery images */
+#gallery-2 img {
+	border:none !important;
+}
+#gallery-2 .gallery-item {
+    margin: 1.2em 0 1.2em 0 !important;
+}
+/* uses full thumbnail size for shopping cart logos on homepage */
+#integrations .carts ul li {
+  padding: 0 2em;
+  height: 150px;
+  width: 50%;
+}
+
+/* spaces payment methods correctly on homepage */
+#integrations .payment-methods ul li {
+ 	width: 33%; 
+  	padding: 5%;
+}
+
+/* copy h3 format with float left */
+.h3 {
+  font-size: 1.387em;
+  margin: 0 0 .618em;
+  font-family: 'Cabin', sans-serif;
+  color: #1a212c;
+  margin-left: 1.2em;
+  font-weight:bold;
+}
+
+/* Default shortcode button */
+#wrapper a.woo-sc-button {
+  color: #df1d27 !important;
+  border: 0.146em solid #df1d27; 
+}
+
+/* Formatting documentation pages */
+.post-type-archive-documentation article, .tax-document_section article {
+  margin: 0 0 2em 0;
+  width: 100%;
+}
+.post-type-archive-documentation #main, .tax-document_section #main {
+  margin: 0 2.083333333333333% 4em;
+}
+body.single-documentation article {
+  width: 100%;
+}
+#breadcrumbs {
+  margin: 0;
+}
+body.single-documentation article {
+  margin-bottom: 0;
+}
+#sidebar .toc_widget {
+  background: #eeeeee;
+}
+.ace_line:nth-child(even) {
+ background-color: #f1f1f1; 
+}
+
+/* Pagination */
+.woo-pagination .page-numbers.current {
+  background: #d00000;
+  border-color: #d00000;
+}
+.woo-pagination .page-numbers {
+  color: #d00000;
+  border: 0.146em solid #d00000;
+}
+
+/* blog styling */
+.single article {
+ 	width: 90%; 
+}
+.hentry p.tags a {
+ background: rgb(226, 51, 51); 
+}
+.hentry p.tags a:hover {
+ background: rgb(226, 51, 51); 
+}
+.hentry p.tags a:before {
+  border-color: transparent rgb(226, 51, 51) transparent transparent;
+}
+.hentry p.tags a:hover:before {
+  border-color: transparent rgb(226, 51, 51) transparent transparent;
+}
+#comments .nocomments:before {
+  color: rgb(226, 51, 51);
+}
+/* Start Copy To Live - Ron 04/07/2016 */
+.text-center{
+  text-align: center;
+}
+.font-info{
+  font-size: 1.2em;
+}
+.hr{
+  display: block; 
+  height: 1px; 
+  border: 0; 
+  border-top: 1px solid #ed1c24; 
+  margin: 0 auto 3em; 
+  padding: 0; 
+  width: 100%;
+}
+.pf-red
+{
+  color: #ed1c24;
+}
+/* End Copy To Live - Ron 04/07/2016 */
+
+/* Add responsive css */
+@media only screen and (min-width: 768px) {
+  body #navigation ul.nav li a {
+    font-size: 0.9em;
+    padding: .446em 0 .146em;
+}
+  /* shopping cart logo on home to show 3 per row for full screen widths */
+  #integrations .carts ul li {
+    width: 33%;
+  }
+  #features .why-payfast {
+  	margin-bottom: 2em;
+  }
+  #features .widget_woothemes_features .feature:nth-child(n) img {
+    margin: -2em 5em 0 0;
+  transform: scale(0.55);
+  -webkit-transform: scale(0.55);
+  -moz-transform: scale(0.55);
+  -ms-transform: scale(0.55);
+  -o-transform: scale(0.55);
+  transform: scale(0.55);
+}
+  #features .widget_woothemes_features .feature:nth-child(2n) img {
+  margin: -5em 2em 0 0;
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  transform: scale(0.5);
+}
+  #features .widget_woothemes_features .feature:nth-child(3n) img {
+  margin: 0 2em 0 0;
+}
+  /* styling for main drop down menu */
+  #navigation ul.nav ul:before {
+   	border-color: transparent transparent #eeeeee transparent;
+  }
+  #navigation ul.nav ul li {
+  	background: #eeeeee;
+  }
+  #navigation ul.nav ul li a:hover, #navigation ul.nav li.current-menu-item > a {
+  	color: rgb(226, 51, 51);
+    border-bottom: 0.202em solid rgb(226, 51, 51);
+  }
+  #navigation ul.nav ul li a, #navigation ul.nav ul li.current-menu-item a {
+  	border-bottom: 0.202em solid rgb(226, 51, 51);
+  }
+  #header .contact-header ul .menu-item-2790 {
+  	padding: 0 0 0 1em;
+  	border-left: 1px solid #e6e6e6;
+  }
+  #navigation ul.nav li.current-menu-item > a:hover {
+   border-color: rgb(226, 51, 51); 
+  }
+  /* Heading alignment for homepage features */
+  #features .widget_woothemes_features .feature .feature-title {
+    max-width: 50%;
+}
+
+  
+  /* Single Shopping Cart (Platform) page */
+  body.single-cart #sidebar {
+  	margin-top: 2.5em;
+  }
+  
+  /* Shopping carts archive*/
+  #main.shopping-carts .shopping-carts-wrapper .grid-sizer {
+  	width: 22.75%!important;
+  }
+  #main.shopping-carts article {
+   	width: 22.75%!important; 
+  }
+  
+  /* too big gap between title and top of page */
+  #content {
+	margin-top: 180px;
+  }
+  
+  /* styling to widgets in sidebar */
+  .single-documentation #sidebar .widget, .page-template-template-blog #sidebar .widget, .single-post #sidebar .widget, .post-type-archive-documentation #sidebar .widget {
+    width: 90%;
+  	padding: 5%;
+  	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Documentation pages */
+  .post-type-archive-documentation #main, .single-documentation #main {
+    float:right;
+  }
+  
+  /* Home page */
+  #features .payfast-description {
+   margin: 1.8em auto 3em; 
+  }
+  #features .widget_woothemes_features .feature {
+  	padding: 0em 5em 2.5em;
+  }
+  #features .why-payfast {
+	font-size: 1.418em;
+  }
+  #features .widget_woothemes_features .feature .feature-title {
+  	font-size: 1.418em;
+  }
+  
+  /* Fees page */
+  table td, table th {
+ 	padding: .7em 1.387em;
+    font-size: 0.9em;
+  }
+}

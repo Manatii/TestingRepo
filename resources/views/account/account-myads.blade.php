@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                 
-                 @include('account-sidebar')
+                 @include('account/account-sidebar')
                 <div class="col-sm-9 page-content">
                     <div class="inner-box">
                         <h2 class="title-2"><i class="icon-docs"></i> My Ads </h2>
@@ -36,6 +36,7 @@
                                     <th data-type="numeric" data-sort-initial="true"></th>
                                     <th> Photo</th>
                                     <th data-sort-ignore="true"> Adds Details</th>
+                                    <th data-sort-ignore="true"> Promotion Plan</th>
                                     <th data-type="numeric"> Price</th>
                                     <th> Option</th>
                                 </tr>
@@ -54,21 +55,25 @@
                                             class="thumbnail  img-responsive"
                                             src="<?php echo asset('assets/thumbnail.php?adid=')?><?php echo $userAd->adid;?>"
                                             alt="Image not found" onerror="this.src='{{ url('images/no_image.jpg')}}'"></a></td>
-                                    <td style="width:58%" class="ads-details-td">
+                                    <td style="width:45%" class="ads-details-td">
                                         <div>
                                             <p><strong> <a href="<?php echo asset('/ad-details/');?><?php echo "/".$userAd->adid; ?>" title="{{ $userAd->title }}">{{ $userAd->title }}</a> </strong></p>
 
                                             <p><strong> Posted On </strong>:
                                                {{ $userAd->created_at }} </p>
 
-                                            <p><strong>Visitors </strong>: 221 <strong>Located In:</strong>  {{ $userAd->township}}
+                                            <p><strong>Visitors </strong>: 221 <strong>Located In:</strong>  {{ $userAd->location}}
                                             </p>
                                         </div>
                                     </td>
+
                                     <td style="width:16%" class="price-td">
+                                        <div> {{ ucfirst($userAd->featured) }}</div>
+                                    </td>
+                                    <td style="width:13%" class="price-td">
                                         <div><strong>R{{$userAd->price }}</strong></div>
                                     </td>
-                                    <td style="width:10%" class="action-td">
+                                    <td style="width:13%" class="action-td">
                                         <div>
                                             <p><a href="/edit-ad/{{$userAd->adid}}" class="btn btn-primary btn-xs"> <i class="fa fa-edit"></i> Edit </a>
                                             </p>
@@ -121,6 +126,12 @@
 <script src="{{ asset('assets/js/footable.filter.js?v=2-0-1" type="text/javascript') }}"></script>
 <script type="text/javascript">
     $(function () {
+       $(document).ready(function(){
+          // /  alert('hi');
+            $('.ads').addClass('active');
+            
+         });
+
         $('#addManageTable').footable().bind('footable_filtering', function (e) {
             var selected = $('.filter-status').find(':selected').text();
             if (selected && selected.length > 0) {

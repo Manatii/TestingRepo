@@ -28,9 +28,7 @@
                     <hr class="center-block small text-hr">
                     <div class="col-sm-6">
                         <div class="text-content has-lead-para text-left">
-                            <p class="lead">KasiTree is a classifieds site particularly designed for townships, Here you can sell a shack, Bhangalo, accessories or anything you wish to sell.Until kasiTree came into existence, Folks from townships couldn't sell shacks online, because well known classifieds websites don't include shacks under their catagories.</p>
-
-                            </p> Thanks to KasiTree, if you have a beef with your landlord and he/she chases you out of his backyard shack, you can now do a quick search online for a new shack to rent.</p>
+                            <p class="lead">Wcocular is a classifieds site particularly designed Western Cape, Here you can sell a house, a car, accessories or anything you wish to sell.</p>
 
                             <h3>How it works</h3>
 
@@ -46,7 +44,6 @@
                         <li>This is not a plattform to buy stolen stuff</li>
                         <li>If you lose an item/get robbed, please contact us as soon as possible. We will inform you, should someone post something suspicious</li>
                         <li>The creator of this site will take no resposibility what so ever for what happens between buyers and sellers who use this site</li>
-                        <li>The creator of this site will be able to track you, should you post something sneaky here</li>
                      </ul>
                         </div>
                     </div>

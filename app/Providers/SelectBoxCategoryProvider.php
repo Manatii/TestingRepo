@@ -28,6 +28,6 @@ class SelectBoxCategoryProvider extends ServiceProvider
     }
 
      public function composeSelectBoxCategory(){
-        view()->composer('selectBoxCategories','App\Http\Composers\SelectBoxCategoriesComposer');
+        view()->composer('partials/selectBoxCategories','App\Http\Composers\SelectBoxCategoriesComposer');
     }
 }

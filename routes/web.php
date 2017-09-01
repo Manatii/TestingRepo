@@ -28,6 +28,10 @@
 		'uses' => 'AdsController@displayAdsByLocAndItem',
 	]);
 
+	Route::get('/ads/loc-modal-search-item/{location?}/{searchitem?}', [
+		'uses' => 'AdsController@displayAdsByLocationModalSearchItem',
+	]);
+
 	//get locations by province
 	Route::any('/locations/{province}', [
 		'uses' => 'AdsController@getLocations',
@@ -46,14 +50,14 @@
 		'uses' => 'AdsController@getMainCategories',
 	]);
 
-	Route::get('/ads/search-item-cat-province', array('as'=>'search-item-cat-province','uses'=>'AdsController@displayAdsByItemCatProv'));
+	Route::get('/ads/search-item-cat-loc-cat', array('as'=>'search-item-cat-loc-cat','uses'=>'AdsController@displayAdsByItemCatLocCategory'));
 
-	Route::get('/search-item-loc-cat-prov/{item}/{location}/{catagory}/{province}', [
-		'uses' => 'AdsController@displayAdsByItemCatLocProv',
+	Route::get('/cat-loc/{location}/{catagory}', [
+		'uses' => 'AdsController@displayAdsByCatLoc',
 	]);
 
-	Route::get('/search-item-loc-main-cat-prov/{item}/{location}/{catagory}/{province}', [
-		'uses' => 'AdsController@displayAdsByItemMainCatLocProv',
+	Route::get('/main-cat-loc/{catagory}/{location}', [
+		'uses' => 'AdsController@displayAdsByMainCatLoc',
 	]);
 
 	Route::get('/province/{province}', ['uses'=>'AdsController@displayAdsByProvince',
@@ -71,6 +75,7 @@
 	Route::get('/ads/main-category/{maincategory?}', [
 		'uses' => 'AdsController@displayAdsByMainCategory',
 	]);
+	
 	Route::get('/ads/location/{location?}', [
 		'uses' => 'AdsController@displayAdsByLoc',
 	]);
@@ -87,7 +92,6 @@
 
 	Route::get('/postfreead',array('as'=>'postfreead','uses'=>'postAdsConroller@newAd'));
 
-
 	Route::get('/autocomplete',array('as'=>'autoComplete','uses'=>'postAdsConroller@autoComplete'));
 
 	Route::get('/autoCompleteTownship',array('as'=>'autoCompleteTownship','uses'=>'postAdsConroller@autoCompleteTownship'));
@@ -99,6 +103,11 @@
 	Route::get('/posting-successful', function(){
 		return view('posting-successful');
 	});
+
+	Route::get('/selectors', function(){
+		return view('selectors');
+	});
+
 	Route::get('/adsdetails3', function(){
 		return view('adsdetails3');
 	});
@@ -112,6 +121,10 @@
 
 	  return view('auth\signup');
 
+	});
+
+	Route::get('regularads',function(){
+		return view('/tabs/regularads');
 	});
 
 
@@ -209,6 +222,7 @@
 	Route::get('delete-suburb/{id}',"AdminController@deleteSuburb");
 
 	Route::get('/savead/{adid}', 'AccountController@saveAd');
+	Route::get('/statements','AccountController@displayPayments');
 	Route::get('/account-myads', 'AccountController@displayUserAds');
 	Route::get('/deletead/{adid}','AccountController@deleteAd');
 	Route::get('/account-favourite-ads','AccountController@displayFavouriteAds');

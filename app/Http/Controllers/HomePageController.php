@@ -16,18 +16,24 @@ class HomePageController extends Controller
     	$subCategories = DB::table('subcategory')
             ->get();
 
-        $sponsoredAds = UserAds::where('featured', 'Sponsored')
-        ->orWhere('featured','Business Marketing')
-        ->where('approved', "Approved")
+        $sponsoredAds = UserAds::where('approved', "Approved")
+        ->where('featured', 'Sponsored')
+        ->orWhere('featured','Business Marketing')        
         ->orderBy('created_at', 'desc')->get();
 
     	$locations = Locations::where('province','Western Cape')->get();
     	$adsPerCategory = $this->countAdsPerCatagory($categories);
 
-        $suburbs =  count(DB::table('surbubs')->get());
-        $townships = count(DB::table('locations')->get());
+        $suburbs =  DB::table('surbubs')->orderBy('location', 'asc')->get();
+        $townships = DB::table('locations')
+                    ->where('province',"western cape")
+                    ->orderBy('location', 'asc')
+                    ->get();
 
-        $numLocations = $suburbs+ $townships;
+        $nuSuburbs = count($suburbs);
+        $nuTownships = count($townships);
+
+        $numLocations = $nuSuburbs+$nuTownships;
 
         $sellers = count(DB::table('users')->get());
         $numOfCategogories = count($subCategories); 
@@ -37,7 +43,7 @@ class HomePageController extends Controller
     	return view('main')->with('categories', $categories)->with('locations', $locations)->with('provinces', $provinces)->with('subCategories', $subCategories)
         ->with('sponsoredAds', $sponsoredAds)->with('adsPerCategory', $adsPerCategory)
         ->with('sellers',$sellers)->with('numOfCategogories',$numOfCategogories)
-        ->with('numLocations',$numLocations);
+        ->with('suburbs', $suburbs)->with('numLocations',$numLocations)->with('townships', $townships);
     }
 
     function getAllCategories(){

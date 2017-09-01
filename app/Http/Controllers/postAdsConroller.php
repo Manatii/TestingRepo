@@ -23,9 +23,7 @@ use Mail;
 class postAdsConroller extends Controller
 {
 
-	
-
-    public function subCategories(){
+	public function subCategories(){
        $subCategories = DB::table('subcategory')
             ->get();
         return $subCategories;
@@ -92,8 +90,6 @@ class postAdsConroller extends Controller
 		return response()->json($data);       
     	
     }
-
-
     public function generatePIN($digits = 4){
 	    $i = 0; //counter
 	    $pin = ""; //our default pin is blank.
@@ -105,10 +101,9 @@ class postAdsConroller extends Controller
 	    return $pin;
 	}
 
-    public function postAd(Request $request){ 
+     public function postAd(Request $request){ 
 
-
-    	//Backend validation just in case someone tinker with my front-end validation code.
+       	//Backend validation just in case someone tinker with my front-end validation code.
     	$this->validate($request, [
 			'image1' => 'image',
 			'image2' => 'image',
@@ -116,9 +111,9 @@ class postAdsConroller extends Controller
 			'image4' => 'image',
 			'image5' => 'image',
 			'image6' => 'image',
-			'township' => 'required|max:35',
+			'location' => 'required|max:35',
 			'Adtitle' => 'required|max:45',
-			'textarea' => 'required',			
+			'description' => 'required',			
 		]);
 
       
@@ -135,55 +130,62 @@ class postAdsConroller extends Controller
         	$this->updateEmail($request->email);
     	}
 
-    	$province = Input::get('province');
-    	$location =	Input::get('township');
+    	$province = "Western Cape";
+    	$location =	Input::get('location');
     	$catagory = Input::get('category-group');
-    	$promotionPlan = null;
-   
-    
+    	$paymentMethod = Input::get('payment-method');
 
-    	$catagory = explode('#', $catagory);
-
-    	$main_catagory = $catagory[0];
-
-
-
+		$catagory = explode('#', $catagory);
+		$main_catagory = $catagory[0];
     	$subcategory = $catagory[1];
-
-
-    	$title = Input::get('Adtitle');
-    	$description = Input::get('textarea');
+		
+		$title = Input::get('Adtitle');
+    	$description = Input::get('description');
     	$price = $request->Input('Price');
 		$keywords = $this->generateKeyWords($catagory,$title);
 		$user_id  = Auth::user()->id;
 		$email = Auth::user()->email;
 
-
-
-
-		$promotionPlan = "None";
-		$approved = "Approved";
+		$promotionPlan = "none";
+		$approved = "approved";
 		$negotiable = "";
 
 		$pin = $this->generatePIN();
 		
+		$amountDue = "00.00";
+		$sponsoredAdFee = 0;
+		$bargainFee = 0;
+		$amountDue = 0;
 
-		if (Input::get('optionsRadios',false)){
-			$promotionPlan = Input::get('optionsRadios');
-			$approved = "Pending";
+		$isSponsored = false;
+		$isBargain = false;
+
+		if(Input::get('option-bargain',false)){
+		 	$bargainFee = Input::get('option-bargain',false);
+		 	$promotionPlan = "bargain";
+		 	$approved = "pending";
+		 	$isBargain = true;
+		}		
+		if(Input::get('option-gallery',false)){
+			$sponsoredAdFee = Input::get('option-gallery',false);
+			$promotionPlan = "sponsored";
+			$approved = "pending";
+			$isSponsored = true;
 		}
 
-		if (Input::get('negotiable',false)){
-			$negotiable = Input::get('negotiable');
-			//dd($negotiable);
-		}		
+		if($isSponsored == true && $isBargain  == true){
+			$approved = "pending";
+			$promotionPlan = "all-plans";
+
+		}
+
+		$amountDue = $bargainFee+$sponsoredAdFee;
 		
 		//generating a prefix for the ad Id   
 		$pref = substr($title,0,3);
 		$adId = uniqid("$pref");
 
 		$userAd = new UserAds();
-
 		$township = DB::table('locations')->where('location',$location)
 				->get();
 
@@ -195,7 +197,7 @@ class postAdsConroller extends Controller
 			
 			$userAd->location_category = "suburb";
 		}
-
+		
 		$userAd->adid = $adId;
 		$userAd->title = $title;
 		$userAd->description = $description;
@@ -207,27 +209,22 @@ class postAdsConroller extends Controller
 		$userAd->featured = $promotionPlan;
 		$userAd->location = $location;
 		$userAd->approved = $approved;
+		$userAd->payment_method = $paymentMethod;
+		$userAd->amount_due = $amountDue;
 		$userAd->user_id = $user_id;
 		$userAd->main_catagory = $main_catagory;
 	    
 	    $userAd->save();
         //checks if the user defined township exits in the database, save it if it doesn't exits.
-		
-
-		
 		$this->MoveUploadedFiles($request,$adId);
 		$name = Auth::user()->name;
 		$phonenumber = Auth::user()->phonenumber;
 
 		$subject = "New ad posted on kasocular";
 		
-		
-		//$this->sendEmailToAdmin($subject, $email, $name, $title,$subcategory, $phonenumber,$description, $pin,$promotionPlan);
-
-
-		if (Input::get('optionsRadios',false)){
-			$promotionPlan = Input::get('optionsRadios');
-			return view('posting-successful',['pin'=>$pin]);
+		// $this->sendEmailToAdmin($subject, $email, $name, $title,$subcategory, $phonenumber,$description, $pin,$promotionPlan);
+		if($isSponsored == true || $isBargain  == true ){
+			return view('posting-successful',['promotionPlan'=>$promotionPlan]);
 		}else{
     		return redirect('posting-successful');    		
 		}       
@@ -364,18 +361,11 @@ class postAdsConroller extends Controller
 		imagedestroy($new);
 					
 }
-
-    
-
-
     public function generateKeyWords($catagory, $title){
     	
-    	$keywords = "";
-
-    	
+    	$keywords = "";    	
     	$main_catagory = $catagory[0];
     	$catagory = $catagory[1];
-
    
 	   	if( $catagory == "Houses & Flats For Sale" ){
 		    $keywords = "indlu izindlu  $title $main_catagory $catagory";
@@ -412,6 +402,9 @@ class postAdsConroller extends Controller
 		}
 		else
 			$keywords = " $catagory  $title $main_catagory";
+
+			$keywords = strtolower($keywords);
+			$keywords = str_replace("for sale", "", $keywords);
 
 		return $keywords;
     }

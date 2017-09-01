@@ -1,0 +1,1 @@
+define(["comp/html/html","utils/objectUtils","infra/logger"],function(t,o,e){function n(o){t.call(this,o)}return n.prototype=new t,e.log("text component loaded"),n});

@@ -1,0 +1,58 @@
+/*-----------------------------------------------------------------------------------*/
+/* GENERAL CHILD THEME SCRIPTS */
+/*-----------------------------------------------------------------------------------*/
+
+jQuery(document).ready(function(){
+
+	// 'Sticky' header animation class
+	if( jQuery('#header-wrapper').length > 0 ){
+		
+		var headerTop = jQuery('#wrapper').offset().top;
+		headerTop = headerTop + 40;
+
+		var headerSticky = function(){
+			var scrollTop = jQuery(document).scrollTop();
+
+			if (scrollTop > headerTop) {
+				jQuery('#header-wrapper').addClass('sticky');
+			} else {
+				jQuery('#header-wrapper').removeClass('sticky');
+			}
+		}
+
+		headerSticky();
+
+		jQuery(window).scroll(function() {
+			headerSticky();
+		});
+	}
+
+	//Implement Isotope
+	var $container = jQuery('.shopping-carts-wrapper');
+	// initialize isotope
+	$container.isotope({
+		itemSelector: 'article',
+	    masonry: {
+   			columnWidth: '.grid-sizer',
+   			gutter: 33
+  		}
+	});
+
+	// filter items when filter link is clicked
+	jQuery('#tags li').on('click', function() {
+	    var selector = jQuery(this).data('filter');
+	    $container.isotope({
+	        filter: selector
+	    });
+	    return false;
+	});
+
+	if (jQuery( '#toc' ).length) {
+		jQuery('#toc').sticky({
+		    topSpacing: 180, // Space between element and top of the viewport
+		    zIndex: 100, // z-index
+		    stopper: "#post-entries" // Id, class, or number value
+		});
+	}
+
+});

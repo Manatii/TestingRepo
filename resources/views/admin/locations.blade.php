@@ -95,8 +95,8 @@
                                      @foreach($locations as $location)
                                         <?php                                        
                                         $region = "";
-                                            if(isset($location->region)){
-                                                 $region = $location->region;
+                                            if(isset($location->location)){
+                                                 $region = $location->location;
                                             }
 
                                         ?>
@@ -116,17 +116,17 @@
                                         $locatoin_name = "";
                                         $region = "";
                                             if(isset($location->township)){
-                                                $locatoin_name = $location->township;
+                                                $locatoin_name = $location->location;
                                             }else{
-                                                $locatoin_name = $location->surbub;
-                                                $region = $location->region;
+                                                $locatoin_name = $location->location;
+                                                $region = $location->location;
                                             }
 
                                         ?>
                                         <tr class = ""> 
                                             <td>{{ $location->id }}</td>
-                                            @if(isset($location->region))
-                                               <td>{{ $location->region }}</td>  
+                                            @if(isset($location->location))
+                                               <td>{{ $location->location }}</td>  
                                             @endif 
                                             <td>{{ $locatoin_name }}</td> 
                                             <td>{{ $location->province }}</td> 
@@ -430,7 +430,7 @@
                             
                             $('.suburb-id').val(item.id);
                             $('.provinces-select-box').val(item.province);
-                            $('.suburb-name').val(item.surbub);
+                            $('.suburb-name').val(item.location);
                             console.log(item.id); 
 
                         });

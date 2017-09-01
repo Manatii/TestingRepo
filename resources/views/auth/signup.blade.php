@@ -13,34 +13,15 @@
                                 <form class="form-horizontal" role="form" method="POST" action="{{ url('createuser') }}">
                                      {{ csrf_field() }}
                                     <fieldset>
-                                        <div class="form-group required">
-                                            <label class="col-md-4 control-label">You are a <sup>*</sup></label>
-
-                                            <div class="col-md-6">
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios1"
-                                                               value="option1" checked>
-                                                        Professional </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios2"
-                                                               value="option2">
-                                                        Individual </label>
-                                                </div>
-                                            </div>
-                                        </div>
-
                                         <!-- Text input-->
-                                        <div class="form-group required">
-                                            <label class="col-md-4 control-label">Name <sup>*</sup></label>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Name <sup style="color:#a94442;">*</sup></label>
 
                                             <div class="col-md-6">
-                                                <input name="first_name" placeholder="First Name" class="form-control input-md"
-                                                       required="" type="text">
+                                                <input name="first_name" required placeholder="First Name" class="form-control input-md"
+                                                        type="text">
                                                        @if ($errors->has('first_name'))
-                                            <span class="help-block">
+                                            <span class="help-block" style="color:#a94442;">
                                                 <strong>{{ $errors->first('first_name') }}</strong>
                                             </span>
                                     @endif
@@ -48,14 +29,14 @@
                                         </div>
 
                                         <!-- Text input-->
-                                        <div class="form-group required">
-                                            <label class="col-md-4 control-label">Phone Number <sup>*</sup></label>
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">Phone Number <sup style="color:#a94442;">*</sup></label>
 
                                             <div class="col-md-6">
-                                                <input name="phonenumber" placeholder="Phone Number"
+                                                <input name="phonenumber" required maxlength="10" placeholder="Phone Number"
                                                        class="form-control input-md" type="text">
                                                        @if ($errors->has('phonenumber'))
-                                            <span class="help-block">
+                                            <span class="help-block" style="color:#a94442;">
                                                 <strong>{{ $errors->first('phonenumber') }}</strong>
                                             </span>
                                     @endif
@@ -93,58 +74,58 @@
                                             <label class="col-md-4 control-label" for="textarea">About Yourself</label>
 
                                             <div class="col-md-6">
-                                                <textarea class="form-control" name ="about" id="textarea" name="textarea">About
+                                                <textarea class="form-control"  name ="about" id="textarea" name="textarea">About
                                                     Yourself</textarea>
                                                     @if ($errors->has('about'))
-                                            <span class="help-block">
+                                            <span class="help-block" style="color:#a94442;">
                                                 <strong>{{ $errors->first('about') }}</strong>
                                             </span>
                                     @endif
 
                                             </div>
                                         </div>
-                                        <div class="form-group required">
+                                        <div class="form-group">
                                             <label for="inputEmail3" class="col-md-4 control-label">Email
-                                                <sup>*</sup></label>
+                                                <sup style="color:#a94442;">*</sup></label>
 
                                             <div class="col-md-6">
-                                                <input type="email" name ="email"class="form-control" id="inputEmail3"
+                                                <input type="email" name ="email" required="" class="form-control" id="inputEmail3"
                                                        placeholder="Email">
                                                         @if ($errors->has('email'))
-                                            <span class="help-block">
+                                            <span class="help-block" style="color:#a94442;">
                                                 <strong>{{ $errors->first('email') }}</strong>
                                             </span>
                                     @endif
                                             </div>
                                         </div>
-                                        <div class="form-group required">
+                                        <div class="form-group">
                                             <label for="inputPassword3" class="col-md-4 control-label">Password </label>
 
                                             <div class="col-md-6">
-                                                <input type="password" name ="password"class="form-control" id="inputPassword3"
+                                                <input type="password" name ="password"class="form-control" required  id="inputPassword3"
                                                        placeholder="Password">
 
                                                 <p class="help-block">At least 5 characters
                                                     <!--Example block-level help text here.--></p>
                                                      @if ($errors->has('password'))
-                                            <span class="help-block">
+                                            <span class="help-block" style="color:#a94442;">
                                                 <strong>{{ $errors->first('password') }}</strong>
                                             </span>
                                             @endif
                                           </div>
                                             
                                         </div>
-                                        <div class="form-group required">
+                                        <div class="form-group">
                                             <label for="inputPassword3" class="col-md-4 control-label">Re-enter Password</label>
 
                                             <div class="col-md-6">
-                                                <input type="password" name ="password2"class="form-control" id="inputPassword3"
+                                                <input type="password" required  name ="password2"class="form-control" id="inputPassword3"
                                                        placeholder="Password">
 
                                                 <p class="help-block">At least 5 characters
                                                     <!--Example block-level help text here.--></p>
                                                      @if ($errors->has('password'))
-                                            <span class="help-block">
+                                            <span class="help-block" style="color:#a94442;">
                                                 <strong>{{ $errors->first('password') }}</strong>
                                             </span>
                                             @endif

@@ -6,9 +6,6 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <meta name="description" content="Kasocular is a classifieds site particularly created for townships, Here you can sell a shack, Bhangalo, accessories or anything you wish to sell.Until kasiTree came into existence, Folks from townships couldn't sell shacks online, because well known classifieds websites don't include shacks under their catagories. Thanks to Kasocular, if you have a beef with your landlord and he/she chases you out of his backyard shack, you can now do a quick search online for a new shack to rent" /> 
-    <meta name="keywords" content="Shacks for sale in Western Cape, houses for sale in Western Cape, houses to rent, cars for sale,smartphones for sale, kasocular" /> 
-
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
@@ -16,29 +13,39 @@
     <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
     <link rel="shortcut icon" href="{{ asset('assets/ico/favicon.png')}}">
     @yield('pagetitle')
-   
+    @yield('description')
+    @yield('keywords')
+
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('assets/bootstrap/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/loading/css/jquery.loadingModal.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
- 
-
-    <!-- Custom styles for this template -->
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/plugins/simpleselect/jquery.simpleselect.min.css') }}" rel="stylesheet">
 
-    <link rel='stylesheet' href="{{ asset('assets/plugins/scrollbar/css/perfect-scrollbar.css') }}" />
+
+    <link href="{{ asset('selectorassets/plugins/jquery-nice-select/css/nice-select.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('selectorassets/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+     <!--  photoswipe -->
+     <!-- Core CSS file -->
+     <link rel="stylesheet" href="{{ asset('assets/css/photoswipe/photoswipe.css') }}"> 
+        <!-- Skin CSS file (styling of UI - buttons, caption, etc.)
+             In the folder of skin CSS file there are also:
+             - .png and .svg icons sprite, 
+             - preloader.gif (for browsers that do not support CSS animations) -->
+     <link rel="stylesheet" href="{{ asset('assets/css/photoswipe/default-skin.css') }}">       
+
+     <link rel='stylesheet' href="{{ asset('assets/plugins/scrollbar/css/perfect-scrollbar.css') }}" />
 <style>
   #options{
     position:absolute;
-    top:35.4px;
+    top:40.4px;
     max-height: 260px; /* Or whatever you want (eg. 400px) */
   }
 
   #options2{
     position:absolute;
-    top:35.4px;
+    top:40.4px;
     max-height: 260px; /* Or whatever you want (eg. 400px) */
   }
   #options3{
@@ -69,6 +76,14 @@
             'csrfToken' => csrf_token(),
         ]) !!};
 </script>
+
+<!-- photoswipe -->
+ <!-- Core JS file -->
+<script src="{{ url('assets/js/photoswipe/photoswipe.min.js') }}"></script> 
+<!-- UI JS file -->
+
+<script src="{{ url('assets/js/photoswipe/photoswipe-ui-default.min.js') }}"></script>
+
 <script src="{{ asset('assets/js/jquery/jquery-latest.js') }}"></script>
 <!-- Add fancyBox main JS and CSS files -->
 <script type="text/javascript" src="{{ asset('assets/Fancy_Box/source/jquery.fancybox.js?v=2.1.5') }}"></script>
@@ -96,8 +111,8 @@ j(".fancybox-button").fancybox({
 </script>
 <script src="{{ asset('assets/js/jquery/jquery-latest.js') }}"></script>
 <script src="{{ asset('assets/js/jquery.elevatezoom.js') }}"></script>
-<!-- include custom script for site  -->
-<!-- <script src="{{ url('assets/js/script.js') }}"></script> -->
+<!-- include carousel slider plugin  -->
+<script src="{{ url('assets/js/owl.carousel.min.js')}}"></script>
 
 </head>
 <body>
@@ -112,51 +127,52 @@ j(".fancybox-button").fancybox({
                     <a href="http://localhost:8000" class="navbar-brand logo logo-title">
                         <!-- Original Logo will be placed here  -->
                        <span class="logo-icon"><i class="icon icon-search-1 ln-shadow-logo shape-0"></i> </span>
-                        kas<span id ='better'>ocular <img src="{{url('images/splash_beta_lightgreen.png')}}" style="margin-bottom:8px; width:44px;height:44px;"></span> </a></div>
-                <div class="navbar-collapse collapse">
-                    @if (Auth::guest())                   
+                        wc<span id ='better'>ocular <img src="{{url('images/splash_beta_lightgreen.png')}}" style="margin-bottom:8px; width:44px;height:44px;"></span> </a></div>
+                <div class="navbar-collapse collapse">                                                           
+                     @if (Auth::guest())
                         <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a href="{{ asset('/ads') }}"><i class="icon-th-thumb"></i> All Ads</a>
+                            </li>
                             <li><a href="/login">Login</a></li>
-                            <li><a href="/signup">Signup</a></li>
                             <li class="postadd"><a class="btn btn-block   btn-border btn-post btn-danger"
-                                                   href="{{asset('/login?p-ad=1')}}">Post Free Add</a></li>
+                                                   href="{{asset('/login?p-ad=1')}}">Post Free Add</a>
+                            </li>
                         </ul>
                      @else
                         <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit(); logoutFacebook()">
-
-                                Signout <i class="glyphicon glyphicon-off"></i> </a>
-                                <form id="logout-form" action="{{ url('/logout?out') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                </form>
-                        </li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <span> {{ Auth::user()->name }} </span> <i class="icon-user fa"></i> 
-                            <i class=" icon-down-open-big fa"></i></a>
-                            <ul class="dropdown-menu user-menu">
-                                <li class="active">
-                                    <a href="{{ url('/account') }}"><i class="icon-home"></i> Personal Home</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('/account-myads') }}"><i class="icon-th-thumb"></i> My ads </a></li>
-                                <li>
-                                    <a href="{{ url('/account-favourite-ads') }}"><i class="icon-heart"></i> Favourite ads </a>
-                                </li>
-                                <li>
-                                    <a href=""><i class="icon-star-circled"></i> Saved search</a>
-                                </li>
-                                <li>
-                                    <a href=""><i class="icon-folder-close"></i> Archived ads</a>
-                                </li>
-                                <li>
-                                    <a href=""><i class="icon-hourglass"></i> Pending approval </a>
-                                </li>
-                                <li><a href=""><i class=" icon-money "></i> Payment history </a></li>
-                            </ul>
-                        </li>
-                        <li class="postadd"><a class="btn btn-block   btn-border btn-post btn-danger" href="{{asset('/postfreead')}}">Post Free Add</a></li>
+                            <li><a href="{{ asset('/ads') }}"><i class="icon-th-thumb"></i> All Ads</a></li>                              
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span> {{ Auth::user()->name }} </span> <i class="icon-user fa"></i> 
+                                <i class=" icon-down-open-big fa"></i></a>
+                                <ul class="dropdown-menu user-menu">
+                                    <li class="active">
+                                        <a href="{{ url('/account') }}"><i class="icon-home"></i> Personal Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('/account-myads') }}"><i class="icon-th-thumb"></i> My ads </a></li>
+                                    <li>
+                                        <a href="{{ url('/account-favourite-ads') }}"><i class="icon-heart"></i> Favourite ads </a>
+                                    </li>
+                                    <li>
+                                        <a href=""><i class="icon-folder-close"></i> Archived ads</a>
+                                    </li>
+                                    <li>
+                                        <a href=""><i class="icon-hourglass"></i> Pending approval </a>
+                                    </li>
+                                    <li>
+                                        <a href=""  onclick="event.preventDefault(); document.getElementById('logout-form').submit(); logoutFacebook()">
+                                            <i class=" icon-logout "></i> Log out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="postadd">
+                                <a class="btn btn-block   btn-border btn-post btn-danger" href="{{asset('/postfreead')}}">Post Free Add</a>
+                            </li>
+                            <form id="logout-form" action="{{ url('/logout?out') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                            </form>
                     </ul>
                    @endif
                 </div>
@@ -185,8 +201,7 @@ j(".fancybox-button").fancybox({
 </div>
 <!-- /.wrapper -->
 
- 
+ @yield('scripts')
 
 </body>
 @yield('modals')
-@yield('scripts')

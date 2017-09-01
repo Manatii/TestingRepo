@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://anytch.com/laravel-5-simple-get-search/ -->
+<html lang="en-US" prefix="og: http://ogp.me/ns#" style="transform: none;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+    <link rel="pingback" href="http://anytch.com/xmlrpc.php">
+    <title>Laravel 5 simple search box using GET method - ANYTCH.COM</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v5.0.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="http://anytch.com/laravel-5-simple-get-search/">
+<link rel="next" href="http://anytch.com/laravel-5-simple-get-search/2/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laravel 5 simple search box using GET method - ANYTCH.COM">
+<meta property="og:description" content="First of all, I know there are many ways to do this, and this might not be the best way to do it. You can also check this post for advanced search: Laravel 5.x Search Box using jQuery + Ajax So what we are going to do is to add a search box text field in …">
+<meta property="og:url" content="http://anytch.com/laravel-5-simple-get-search/">
+<meta property="og:site_name" content="ANYTCH.COM">
+<meta property="article:section" content="Laravel">
+<meta property="article:published_time" content="2015-11-25T12:36:50+00:00">
+<meta property="article:modified_time" content="2017-06-14T01:14:02+00:00">
+<meta property="og:updated_time" content="2017-06-14T01:14:02+00:00">
+<meta property="og:image" content="http://anytch.com/wp-content/uploads/2015/11/the-search-box4.jpg">
+<meta property="og:image:width" content="675">
+<meta property="og:image:height" content="372">
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="http://s0.wp.com/">
+<link rel="dns-prefetch" href="http://api.content-ad.net/">
+<link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+		<script async="" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/saved_resource"></script><script async="" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/analytics.js.download"></script><script type="text/javascript" async="" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/GetWidget.aspx"></script><script async="" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/analytics.js.download"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/anytch.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b===c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="crayon-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-theme-classic-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/classic.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-monaco-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/monaco.css" type="text/css" media="all">
+<link rel="stylesheet" id="collapseomatic-css-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/light_style.css" type="text/css" media="all">
+<link rel="stylesheet" id="bwg_frontend-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/bwg_frontend.css" type="text/css" media="all">
+<link rel="stylesheet" id="bwg_font-awesome-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/font-awesome.css" type="text/css" media="all">
+<link rel="stylesheet" id="bwg_mCustomScrollbar-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/jquery.mCustomScrollbar.css" type="text/css" media="all">
+<link rel="stylesheet" id="bwg_sumoselect-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/sumoselect.css" type="text/css" media="all">
+<link rel="stylesheet" id="social-widget-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/social_widget.css" type="text/css" media="all">
+<link rel="stylesheet" id="dpsp-frontend-style-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/style-frontend.css" type="text/css" media="all">
+<link rel="stylesheet" id="theiaPostSlider-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/base.css" type="text/css" media="all">
+<link rel="stylesheet" id="wpProQuiz_front_style-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/wpProQuiz_front.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="novapress-understrap-styles-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/theme.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="novapress-multicolumnsrow-css-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/multi-columns-row.css" type="text/css" media="all">
+<link rel="stylesheet" id="novapress-styles-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/style.css" type="text/css" media="all">
+<link rel="stylesheet" id="novapress-google-fonts-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="wordpress-popular-posts-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/wpp.css" type="text/css" media="all">
+<link rel="stylesheet" id="slb_core-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/app.css" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/jetpack.css" type="text/css" media="all">
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/jquery.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/anytch.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/crayon.min.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/bwg_frontend.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var bwg_objectsL10n = {"bwg_select_tag":"Select Tag","bwg_search":"Search"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/jquery.sumoselect.min.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/jquery.mobile.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/jquery.mCustomScrollbar.concat.min.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/jquery.fullscreen-0.4.1.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var bwg_objectL10n = {"bwg_field_required":"field is required.","bwg_mail_validation":"This is not a valid email address.","bwg_search_result":"There are no images matching your search."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/bwg_gallery_box.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/jquery.raty.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/jquery.featureCarousel.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/3DEngine.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/Sphere.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/front-end.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/jquery.history.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/async.min.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/tps.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/tps-transition-simple.js.download"></script>
+<link rel="https://api.w.org/" href="http://anytch.com/wp-json/">
+<link rel="alternate" type="application/json+oembed" href="http://anytch.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fanytch.com%2Flaravel-5-simple-get-search%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://anytch.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fanytch.com%2Flaravel-5-simple-get-search%2F&amp;format=xml">
+<meta name="propeller" content="8d6436419b4143a111849416ffdbfc3e"><style type="text/css" data-source="Social Pug"></style><meta name="twitter:card" content="summary"><meta property="og:url" content="http://anytch.com/laravel-5-simple-get-search/"><meta property="og:type" content="article"><meta property="og:title" content="Laravel 5 simple search box using GET method"><meta property="og:description" content="First of all, I know there are many ways to do this, and this might"><meta property="og:image" content="https://i1.wp.com/anytch.com/wp-content/uploads/2015/11/the-search-box4.jpg?fit=675%2C372">
+<link rel="dns-prefetch" href="http://v0.wordpress.com/">
+<link rel="dns-prefetch" href="http://i0.wp.com/">
+<link rel="dns-prefetch" href="http://i1.wp.com/">
+<link rel="dns-prefetch" href="http://i2.wp.com/">
+<style type="text/css">img#wpstats{display:none}</style>    <style type="text/css">
+        #wrapper-footer-full, .navbar .navbar-nav li a, .navbar-default .navbar-toggle .icon-bar, #wrapper-footer-full .widget_mc4wp_form_widget .input-group-addon, .btn-primary, .btn-primary.focus, .btn-primary:focus, .btn-primary:hover {background-color: ;}
+        #wrapper-footer .widget-title, .navbar .navbar-nav li:hover a:hover, a, a:hover, a:focus, article h4.entry-title a:hover, article h4.entry-title a:focus {color: ;}
+        .navbar-default .navbar-toggle, .btn-primary, .btn-primary.focus, .btn-primary:focus, .btn-primary:hover {border-color: ;}
+        #secondary aside {background-color: ;}
+        .content-area .post-navigation .nav-previous, .content-area .post-navigation .nav-next, .navbar .navbar-nav li:hover a:hover {background:;}
+        .topcta .widget_mc4wp_form_widget h4 span, #wrapper-footer-full .widget_mc4wp_form_widget h4 span {color:;}
+        #wrapper-footer {background-color: ;}
+        .topcta .widget_mc4wp_form_widget, .topcta .widget_mc4wp_form_widget .input-group-addon {background-color: ;}
+        .navbar {background-color: ;}
+        .navbar .navbar-nav li a {border-color: ;}
+        .container {max-width: ;}
+        .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {font-weight: !important;font-family: 'Roboto Slab';}
+        body {font-weight: !important;font-family: 'Open Sans';}
+    </style>
+    				<!-- WordPress Popular Posts v3.3.4 -->
+				<script type="text/javascript">
+
+					var sampling_active = 0;
+					var sampling_rate   = 100;
+					var do_request = false;
+
+					if ( !sampling_active ) {
+						do_request = true;
+					} else {
+						var num = Math.floor(Math.random() * sampling_rate) + 1;
+						do_request = ( 1 === num );
+					}
+
+					if ( do_request ) {
+
+						/* Create XMLHttpRequest object and set variables */
+						var xhr = ( window.XMLHttpRequest )
+						  ? new XMLHttpRequest()
+						  : new ActiveXObject( "Microsoft.XMLHTTP" ),
+						url = 'http://anytch.com/wp-admin/admin-ajax.php',
+						params = 'action=update_views_ajax&token=146d9c6479&wpp_id=502';
+						/* Set request method and target URL */
+						xhr.open( "POST", url, true );
+						/* Set request header */
+						xhr.setRequestHeader( "Content-type", "application/x-www-form-urlencoded" );
+						/* Hook into onreadystatechange */
+						xhr.onreadystatechange = function() {
+							if ( 4 === xhr.readyState && 200 === xhr.status ) {
+								if ( window.console && window.console.log ) {
+									window.console.log( xhr.responseText );
+								}
+							}
+						};
+						/* Send request */
+						xhr.send( params );
+
+					}
+
+				</script>
+				<!-- End WordPress Popular Posts v3.3.4 -->
+				<meta name="ca_title" content="Laravel 5 simple search box using GET method"><meta name="ca_image" content="https://i1.wp.com/anytch.com/wp-content/uploads/2015/11/the-search-box4.jpg?resize=150%2C150"><link rel="icon" href="https://i2.wp.com/anytch.com/wp-content/uploads/2015/10/cropped-Untitled-2.png?fit=32%2C32" sizes="32x32">
+<link rel="icon" href="https://i2.wp.com/anytch.com/wp-content/uploads/2015/10/cropped-Untitled-2.png?fit=192%2C192" sizes="192x192">
+<link rel="apple-touch-icon-precomposed" href="https://i2.wp.com/anytch.com/wp-content/uploads/2015/10/cropped-Untitled-2.png?fit=180%2C180">
+<meta name="msapplication-TileImage" content="https://i2.wp.com/anytch.com/wp-content/uploads/2015/10/cropped-Untitled-2.png?fit=270%2C270">
+
+<!-- BEGIN GADWP v5.0.1 Universal Analytics - https://deconf.com/google-analytics-dashboard-wordpress/ -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-68382721-2', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- END GADWP Universal Analytics -->
+			<style type="text/css" id="wp-custom-css">
+				/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+article .posted-on{
+display:none;
+}
+
+
+.entry-title{
+text-align: center;	
+}
+
+h4.entry-title{
+	font-weight: normal;	
+}
+
+article .entry-meta, .content-area .post-navigation .nav-links{
+text-align:center;	
+}			</style>
+		<script type="text/javascript" async="" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/embed.js.download"></script><script async="" type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/count.js.download"></script><style>.theiaStickySidebar:after {content: ""; display: table; clear: both;}</style><link rel="preload" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.bc7354ca6ae32b9a98350e133ae534eb.css"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.9fcff11af667507b1757062f0192b821.js"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.ddaf0fe2d47c32dcc898bdc4a22a975d.js"><link rel="preload" as="script" href="https://disqus.com/next/config.js"><script src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/alfie.f51946af45e0b561c60f768335c9eb79.js.download" async="" charset="UTF-8"></script></head>
+
+<body class="post-template-default single single-post postid-502 single-format-standard wp-custom-logo" style="transform: none;">
+
+<div id="page" class="hfeed site" style="transform: none;">
+    
+    <!-- ******************* The Navbar Area ******************* -->
+    <div class="wrapper-fluid wrapper-navbar" id="wrapper-navbar">
+	
+        <a class="skip-link screen-reader-text sr-only" href="http://anytch.com/laravel-5-simple-get-search/#content">Skip to content</a>
+
+        <nav class="navbar navbar-default navbar-fixed-top affix site-navigation" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+                            
+            <div class="container">
+                
+                <div class="row">
+                    
+                    <div class="col-md-12">
+
+                        <div class="navbar-header">
+
+                            <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+
+                            <button class="navbar-toggle hidden-lg-up" type="button" data-toggle="collapse" data-target=".exCollapsingNavbar">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                                                            <a href="http://anytch.com/" class="custom-logo-link" rel="home" itemprop="url"><img width="272" height="46" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/cropped-anytch.png" class="custom-logo" alt="ANYTCH.COM" itemprop="logo" data-attachment-id="1287" data-permalink="http://anytch.com/cropped-anytch-png/" data-orig-file="https://i1.wp.com/anytch.com/wp-content/uploads/2016/11/cropped-anytch.png?fit=272%2C46" data-orig-size="272,46" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="cropped-anytch.png" data-image-description="&lt;p&gt;http://anytch.com/wp-content/uploads/2016/11/cropped-anytch.png&lt;/p&gt;
+" data-medium-file="https://i1.wp.com/anytch.com/wp-content/uploads/2016/11/cropped-anytch.png?fit=272%2C46" data-large-file="https://i1.wp.com/anytch.com/wp-content/uploads/2016/11/cropped-anytch.png?fit=272%2C46"></a>                            
+                            <!-- The WordPress Menu goes here -->
+                            <div class="collapse navbar-toggleable-md exCollapsingNavbar navbar-right"><ul id="main-menu" class="nav navbar-nav navbar-right"><li id="menu-item-805" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent nav-item menu-item-805"><a title="Laravel" href="http://anytch.com/category/laravel/" class="nav-link">Laravel</a></li>
+<li id="menu-item-1329" class="menu-item menu-item-type-taxonomy menu-item-object-category nav-item menu-item-1329"><a title="Ionic Framework" href="http://anytch.com/category/ionic-framework/" class="nav-link">Ionic Framework</a></li>
+<li id="menu-item-1247" class="menu-item menu-item-type-taxonomy menu-item-object-category nav-item menu-item-1247"><a title="Quizzes" href="http://anytch.com/category/quiz/" class="nav-link">Quizzes</a></li>
+<li id="menu-item-1164" class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-1164"><a title="Stock Photos" href="http://anytch.com/stock-photos/" class="nav-link">Stock Photos</a></li>
+</ul></div>
+                        </div>
+                    
+                    </div>
+                
+                </div>
+
+            </div> <!-- .container -->
+                
+            
+        </nav><!-- .site-navigation -->
+        
+        <div class="clearfix"></div>
+        
+        <div class="spacer"></div>
+        
+    </div><!-- .wrapper-navbar end -->
+<div class="wrapper" id="single-wrapper" style="transform: none;">
+    
+    <div id="content" class="container" style="transform: none;">
+
+        <div class="row" style="transform: none;">
+        
+            <div id="primary" class="col-md-8 content-area" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+                
+                <!-- #main -->
+                
+            <div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static;"><main id="main" class="site-main" role="main">
+
+                    
+<div class="row">
+            
+	    
+</div>
+
+<article id="post-502" class="post-502 post type-post status-publish format-standard has-post-thumbnail hentry category-laravel">
+
+	<header class="entry-header">
+
+		<h2 class="entry-title">Laravel 5 simple search box using GET method</h2>
+		<div class="entry-meta">
+
+			<span class="posted-on">Posted on <a href="http://anytch.com/laravel-5-simple-get-search/" rel="bookmark"><time class="entry-date published" datetime="2015-11-25T12:36:50+00:00">November 25, 2015</time></a></span><span class="byline"> by <span class="author vcard"><a class="url fn n" href="http://anytch.com/author/24wallstreet/">George Dan Gil</a></span></span> <span class="cat-links">in <a href="http://anytch.com/category/laravel/" rel="category tag">Laravel</a></span>
+		</div><!-- .entry-meta -->
+
+	</header><!-- .entry-header -->
+    
+	<div class="entry-content">
+
+		<div id="tps_slideContainer_502" class="theiaPostSlider_slides"><div>
+
+<p><em>First of all, I know there are many ways to do this, and this might not be the best way to do it.</em></p>
+<p>You can also check this post for advanced search:&nbsp;<a href="http://anytch.com/laravel-5-x-search-box-using-jquery-ajax/">Laravel 5.x Search Box using jQuery + Ajax</a></p>
+<p>So what we are going to do is to add a search box text field in the upper left side of our table. Definitely it will search for any records containing&nbsp;the word to search. The search box can be reuse in other index as well to make tidy codes.</p>
+<h5>First Step:&nbsp;Search Box</h5>
+<p>This is the search box (<em>please never mind the add link, you can remove it if you want</em>). Here, we create a form that will direct to <em>officesController</em>@<em>index</em>. The method we use is GET. The role is the variable you will use in your URI to put the search parameter.</p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59964e4e0f945366436343" class="crayon-syntax crayon-theme-classic crayon-font-monaco crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 12px !important; line-height: 15px !important; height: auto;">
+		
+			<div class="crayon-toolbar" data-settings=" mouseover overlay hide delay" style="font-size: 12px !important; height: 18px !important; line-height: 18px !important; margin-top: -18px; display: none; position: absolute; z-index: 2;"><span class="crayon-title"></span>
+			<div class="crayon-tools" style="font-size: 12px !important;height: 18px !important; line-height: 18px !important;"><div class="crayon-button crayon-nums-button crayon-pressed" title="Toggle Line Numbers"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-plain-button" title="Toggle Plain Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-wrap-button" title="Toggle Line Wrap"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-expand-button" title="Expand Code"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-copy-button" title="Copy"><div class="crayon-button-icon"></div></div><div class="crayon-button crayon-popup-button" title="Open Code In New Window"><div class="crayon-button-icon"></div></div></div></div>
+			<div class="crayon-info" style="min-height: 16.8px !important; line-height: 16.8px !important;"></div>
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 12px !important; line-height: 15px !important; z-index: 0; opacity: 0; overflow: hidden;">{!! Form::open(['method'=&gt;'GET','url'=&gt;'offices','class'=&gt;'navbar-form navbar-left','role'=&gt;'search'])  !!}
+&lt;a href="{{ url('offices/create') }}" class="btn btn-primary btn-sm"&gt;&lt;span class="glyphicon glyphicon-plus"&gt;&lt;/span&gt; Add&lt;/a&gt;
+
+&lt;div class="input-group custom-search-form"&gt;
+    &lt;input type="text" class="form-control" name="search" placeholder="Search..."&gt;
+    &lt;span class="input-group-btn"&gt;
+        &lt;button class="btn btn-default-sm" type="submit"&gt;
+            &lt;i class="fa fa-search"&gt;&lt;!--&lt;span class="hiddenGrammarError" pre="" data-mce-bogus="1"--&gt;i&gt;
+        &lt;/button&gt;
+    &lt;/span&gt;
+&lt;/div&gt;
+{!! Form::close() !!}</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 12px !important; line-height: 15px !important;"><div class="crayon-num" data-line="crayon-59964e4e0f945366436343-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964e4e0f945366436343-2">2</div><div class="crayon-num" data-line="crayon-59964e4e0f945366436343-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964e4e0f945366436343-4">4</div><div class="crayon-num" data-line="crayon-59964e4e0f945366436343-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964e4e0f945366436343-6">6</div><div class="crayon-num" data-line="crayon-59964e4e0f945366436343-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964e4e0f945366436343-8">8</div><div class="crayon-num" data-line="crayon-59964e4e0f945366436343-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964e4e0f945366436343-10">10</div><div class="crayon-num" data-line="crayon-59964e4e0f945366436343-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964e4e0f945366436343-12">12</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 12px !important; line-height: 15px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59964e4e0f945366436343-1"><span class="crayon-sy">{</span><span class="crayon-o">!</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">Form</span><span class="crayon-o">::</span><span class="crayon-e">open</span><span class="crayon-sy">(</span><span class="crayon-sy">[</span><span class="crayon-s">'method'</span><span class="crayon-o">=</span><span class="crayon-o">&gt;</span><span class="crayon-s">'GET'</span><span class="crayon-sy">,</span><span class="crayon-s">'url'</span><span class="crayon-o">=</span><span class="crayon-o">&gt;</span><span class="crayon-s">'offices'</span><span class="crayon-sy">,</span><span class="crayon-s">'class'</span><span class="crayon-o">=</span><span class="crayon-o">&gt;</span><span class="crayon-s">'navbar-form navbar-left'</span><span class="crayon-sy">,</span><span class="crayon-s">'role'</span><span class="crayon-o">=</span><span class="crayon-o">&gt;</span><span class="crayon-s">'search'</span><span class="crayon-sy">]</span><span class="crayon-sy">)</span><span class="crayon-h">&nbsp;&nbsp;</span><span class="crayon-o">!</span><span class="crayon-o">!</span><span class="crayon-sy">}</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964e4e0f945366436343-2"><span class="crayon-o">&lt;</span><span class="crayon-i">a</span><span class="crayon-h"> </span><span class="crayon-v">href</span><span class="crayon-o">=</span><span class="crayon-s">"{{ url('offices/create') }}"</span><span class="crayon-h"> </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"btn btn-primary btn-sm"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"glyphicon glyphicon-plus"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">Add</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">a</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964e4e0f945366436343-3">&nbsp;</div><div class="crayon-line crayon-striped-line" id="crayon-59964e4e0f945366436343-4"><span class="crayon-o">&lt;</span><span class="crayon-e">div </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"input-group custom-search-form"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964e4e0f945366436343-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">input </span><span class="crayon-v">type</span><span class="crayon-o">=</span><span class="crayon-s">"text"</span><span class="crayon-h"> </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"form-control"</span><span class="crayon-h"> </span><span class="crayon-v">name</span><span class="crayon-o">=</span><span class="crayon-s">"search"</span><span class="crayon-h"> </span><span class="crayon-v">placeholder</span><span class="crayon-o">=</span><span class="crayon-s">"Search..."</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964e4e0f945366436343-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"input-group-btn"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964e4e0f945366436343-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">button </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"btn btn-default-sm"</span><span class="crayon-h"> </span><span class="crayon-v">type</span><span class="crayon-o">=</span><span class="crayon-s">"submit"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964e4e0f945366436343-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-i">i</span><span class="crayon-h"> </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"fa fa-search"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">!</span><span class="crayon-o">--</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"hiddenGrammarError"</span><span class="crayon-h"> </span><span class="crayon-v">pre</span><span class="crayon-o">=</span><span class="crayon-s">""</span><span class="crayon-h"> </span><span class="crayon-v">data</span><span class="crayon-o">-</span><span class="crayon-v">mce</span><span class="crayon-o">-</span><span class="crayon-v">bogus</span><span class="crayon-o">=</span><span class="crayon-s">"1"</span><span class="crayon-o">--</span><span class="crayon-o">&gt;</span><span class="crayon-e">i</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964e4e0f945366436343-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-e">button</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964e4e0f945366436343-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-e">span</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964e4e0f945366436343-11"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-e">div</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964e4e0f945366436343-12"><span class="crayon-sy">{</span><span class="crayon-o">!</span><span class="crayon-o">!</span><span class="crayon-h"> </span><span class="crayon-v">Form</span><span class="crayon-o">::</span><span class="crayon-e">close</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">!</span><span class="crayon-o">!</span><span class="crayon-sy">}</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0023 seconds] -->
+<p>
+You may put this code in a <em>separate</em> blade and <em>reuse</em> it with other view, OR&nbsp;you can just directly add it in the view below which is the index.</p>
+
+</div></div><div id="tps_nav_lower_502" class="theiaPostSlider_nav _center_full _lower"><div class="_buttons"><span class="_button _prev _another_post _disabled"><span class="_1"></span><span class="_2">Prev</span><span class="_3"></span></span><span class="_text">1 / 3</span><a rel="next" href="http://anytch.com/laravel-5-simple-get-search/2/" class="_button _next"><span class="_1"></span><span class="_2">Next</span><span class="_3"></span></a></div><div class="_title"><span class="_helper"></span></div></div><div class="theiaPostSlider_footer _footer"></div><p><!-- END THEIA POST SLIDER --></p>
+<div><div id="ac_180699"><div class="ac_header_title">You Might Also Like</div><div class="ac_adbox"><div class="ac_adbox_inner"><!-- start ads --><div class="ac_container"><a class="ac_image_link" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=2076689&amp;did=198868&amp;sid=&amp;type=3&amp;s=ip-172-18-60-201&amp;pid=0&amp;c=ZA&amp;d=&amp;aid=AED06BAE-A913-4E9F-B69E-8F2A5641919C&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.299&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=e676a143d800a6461b65d86c88a35840&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=http%3A%2F%2Fgo.cpajunkies.com%2Fvisit%2F%3Fbta%3D35054%26nci%3D5349%26campaign%3D21%26afp%3DCA_ZA_Desktop_MillionaireBluePrint_NEW%26afp2%3D198868%26afp3%3D2076689" onclick="javascript:trackOutboundClick()"><img height="250" width="300" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/afe7c452b5622522e57609b89c38b4a0.jpg" alt="How People Get Rich In South Africa?" class="ac_image" title="How People Get Rich In South Africa?"></a><div class="ac_title_wrapper"><a class="ac_title" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=2076689&amp;did=198868&amp;sid=&amp;type=3&amp;s=ip-172-18-60-201&amp;pid=0&amp;c=ZA&amp;d=&amp;aid=AED06BAE-A913-4E9F-B69E-8F2A5641919C&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.299&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=e676a143d800a6461b65d86c88a35840&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=http%3A%2F%2Fgo.cpajunkies.com%2Fvisit%2F%3Fbta%3D35054%26nci%3D5349%26campaign%3D21%26afp%3DCA_ZA_Desktop_MillionaireBluePrint_NEW%26afp2%3D198868%26afp3%3D2076689" onclick="javascript:trackOutboundClick()">How People Get Rich In South Africa?</a></div></div><div class="ac_container"><a class="ac_image_link" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=2075340&amp;did=198868&amp;sid=&amp;type=3&amp;s=ip-172-18-60-201&amp;pid=0&amp;c=ZA&amp;d=&amp;aid=91287E53-FFE8-42E4-9F26-81326EC106F3&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.299&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=5be2019286aca0c87d0332f1c536bd2a&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=http%3A%2F%2Fclicks.mdsystemtop.com%2F%3FcampaignId%3D1732%26parameter%3DUrl-%7Bboa_dest_url%7D%26key%3DToken-%7Bboa_token%7D%26din1%3Dboa_device-%7Bboa_device%7D%26din2%3Dsource-198868%26din3%3Dcampaign-52624%26din4%3Dadid-2075340" onclick="javascript:trackOutboundClick()"><img height="250" width="300" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/cc6a72c55fcd03a1bea877def05737f9.jpg" alt="Billionaire&#39;s Wife Recorded A Video That Shocked Wall Street" class="ac_image" title="Billionaire&#39;s Wife Recorded A Video That Shocked Wall Street"></a><div class="ac_title_wrapper"><a class="ac_title" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=2075340&amp;did=198868&amp;sid=&amp;type=3&amp;s=ip-172-18-60-201&amp;pid=0&amp;c=ZA&amp;d=&amp;aid=91287E53-FFE8-42E4-9F26-81326EC106F3&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.299&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=5be2019286aca0c87d0332f1c536bd2a&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=http%3A%2F%2Fclicks.mdsystemtop.com%2F%3FcampaignId%3D1732%26parameter%3DUrl-%7Bboa_dest_url%7D%26key%3DToken-%7Bboa_token%7D%26din1%3Dboa_device-%7Bboa_device%7D%26din2%3Dsource-198868%26din3%3Dcampaign-52624%26din4%3Dadid-2075340" onclick="javascript:trackOutboundClick()">Billionaire's Wife Recorded A Video That Shocked Wall Street</a></div></div><div class="ac_container"><a class="ac_image_link" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=2076690&amp;did=198868&amp;sid=&amp;type=3&amp;s=ip-172-18-60-201&amp;pid=0&amp;c=ZA&amp;d=&amp;aid=AED06BAE-A913-4E9F-B69E-8F2A5641919C&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.299&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=4b4b8b070e311cd80cb5af4a35a2f216&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=http%3A%2F%2Fgo.cpajunkies.com%2Fvisit%2F%3Fbta%3D35054%26nci%3D5349%26campaign%3D21%26afp%3DCA_ZA_Desktop_MillionaireBluePrint_NEW%26afp2%3D198868%26afp3%3D2076690" onclick="javascript:trackOutboundClick()"><img height="250" width="300" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/1eaed3038adf0795537e2417e04d9629.jpg" alt="A Housewife From Cape Town Is Making 7,000$ In One Day!" class="ac_image" title="A Housewife From Cape Town Is Making 7,000$ In One Day!"></a><div class="ac_title_wrapper"><a class="ac_title" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=2076690&amp;did=198868&amp;sid=&amp;type=3&amp;s=ip-172-18-60-201&amp;pid=0&amp;c=ZA&amp;d=&amp;aid=AED06BAE-A913-4E9F-B69E-8F2A5641919C&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.299&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=4b4b8b070e311cd80cb5af4a35a2f216&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=http%3A%2F%2Fgo.cpajunkies.com%2Fvisit%2F%3Fbta%3D35054%26nci%3D5349%26campaign%3D21%26afp%3DCA_ZA_Desktop_MillionaireBluePrint_NEW%26afp2%3D198868%26afp3%3D2076690" onclick="javascript:trackOutboundClick()">A Housewife From Cape Town Is Making 7,000$ In One Day!</a></div></div><div class="ac_container"><a class="ac_image_link" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=2043&amp;did=198868&amp;sid=8943&amp;type=4&amp;s=ip-172-18-60-201&amp;pid=1&amp;c=ZA&amp;d=&amp;aid=&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.300&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=7057f7d87d5bb4f44dc0b51380ea4a58&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=wqcws3Loe7VVmG%2BACnadwqaNgIXp%2BTUcTs%2BkuQ1TfVogeeaSAvMPtUmsuYYcxSgkI%2BvT06NE9unTwpnubxgz4mj%2FCg0EhV3bjprM20oW5VsNatCbTgiSqDAOKoaJ0mro5qztDkDP4kHOR2EOxjNBLEG8YwI%2B9Nz3HbxwMn3Av%2BMBXngtAJjKc6yKzsFZFCTCcxCNODgTs7pC3Xm232zdhMfG1nWAiYVfHkZ0BCtPcA431fyyjIJMo%2BcUL7Ex1dADbZOUwdZt5Q%2FcYRw9Ff5%2Bm3Hk9AgdG7JzN0pNQCcNPAZ8JhD35r4EzkX%2FC5AwTCcQ" onclick="javascript:trackOutboundClick()"><img height="250" width="300" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/scanguardkeyboardimg7227noring1200x626withgreenv2.jpg" alt="1 Crazy Trick Will Help You Never Have to Buy a Computer Again" class="ac_image" title="1 Crazy Trick Will Help You Never Have to Buy a Computer Again"></a><div class="ac_title_wrapper"><a class="ac_title" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=2043&amp;did=198868&amp;sid=8943&amp;type=4&amp;s=ip-172-18-60-201&amp;pid=1&amp;c=ZA&amp;d=&amp;aid=&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.300&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=7057f7d87d5bb4f44dc0b51380ea4a58&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=wqcws3Loe7VVmG%2BACnadwqaNgIXp%2BTUcTs%2BkuQ1TfVogeeaSAvMPtUmsuYYcxSgkI%2BvT06NE9unTwpnubxgz4mj%2FCg0EhV3bjprM20oW5VsNatCbTgiSqDAOKoaJ0mro5qztDkDP4kHOR2EOxjNBLEG8YwI%2B9Nz3HbxwMn3Av%2BMBXngtAJjKc6yKzsFZFCTCcxCNODgTs7pC3Xm232zdhMfG1nWAiYVfHkZ0BCtPcA431fyyjIJMo%2BcUL7Ex1dADbZOUwdZt5Q%2FcYRw9Ff5%2Bm3Hk9AgdG7JzN0pNQCcNPAZ8JhD35r4EzkX%2FC5AwTCcQ" onclick="javascript:trackOutboundClick()">1 Crazy Trick Will Help You Never Have to Buy a Computer Again</a></div></div><div class="ac_container"><a class="ac_image_link" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=2009949&amp;did=198868&amp;sid=&amp;type=3&amp;s=ip-172-18-60-201&amp;pid=0&amp;c=ZA&amp;d=&amp;aid=DA8C375C-4BED-4A31-BA09-AD2F6B33ACA4&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.300&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=45c6e0d3b7811dd5ebd14b6b057fbabc&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=http%3A%2F%2Fhelpertrk.com%2Ft%2Fpath%2Flp.php%3Ftrvid%3D11129%26trvx%3Dd79dcd22%26domainid%3D198868%26campaignid%3D91876%26adid%3D2009949" onclick="javascript:trackOutboundClick()"><img height="250" width="300" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/47601e21b58a058897edec5c25e7adf0.jpg" alt="Your City Wife Hides R12,418,042 from Her Husband for 3 Years" class="ac_image" title="Your City Wife Hides R12,418,042 from Her Husband for 3 Years"></a><div class="ac_title_wrapper"><a class="ac_title" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=2009949&amp;did=198868&amp;sid=&amp;type=3&amp;s=ip-172-18-60-201&amp;pid=0&amp;c=ZA&amp;d=&amp;aid=DA8C375C-4BED-4A31-BA09-AD2F6B33ACA4&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.300&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=45c6e0d3b7811dd5ebd14b6b057fbabc&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=http%3A%2F%2Fhelpertrk.com%2Ft%2Fpath%2Flp.php%3Ftrvid%3D11129%26trvx%3Dd79dcd22%26domainid%3D198868%26campaignid%3D91876%26adid%3D2009949" onclick="javascript:trackOutboundClick()">Your City Wife Hides R12,418,042 from Her Husband for 3 Years</a></div></div><div class="ac_container"><a class="ac_image_link" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=1988568&amp;did=198868&amp;sid=&amp;type=3&amp;s=ip-172-18-60-201&amp;pid=0&amp;c=ZA&amp;d=&amp;aid=44B083EF-AD51-40C3-9783-7B4279ACF889&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.300&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=53e0ccabbe52e4e1cd1346e6767787dd&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=http%3A%2F%2Fstantondaily.com%2Fmara-wilson-then-now%2F%3Fin%3D1%26utm_source%3Dca-17407_198868%26utm_medium%3Dcontentad" onclick="javascript:trackOutboundClick()"><img height="250" width="300" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/e54185c716684f96d24859d1447b39ff.jpg" alt="Remember Her? Try Not To Gasp When You See Her Now" class="ac_image" title="Remember Her? Try Not To Gasp When You See Her Now"></a><div class="ac_title_wrapper"><a class="ac_title" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=1988568&amp;did=198868&amp;sid=&amp;type=3&amp;s=ip-172-18-60-201&amp;pid=0&amp;c=ZA&amp;d=&amp;aid=44B083EF-AD51-40C3-9783-7B4279ACF889&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.300&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=53e0ccabbe52e4e1cd1346e6767787dd&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=http%3A%2F%2Fstantondaily.com%2Fmara-wilson-then-now%2F%3Fin%3D1%26utm_source%3Dca-17407_198868%26utm_medium%3Dcontentad" onclick="javascript:trackOutboundClick()">Remember Her? Try Not To Gasp When You See Her Now</a></div></div><div class="ac_container"><a class="ac_image_link" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=2068573&amp;did=198868&amp;sid=&amp;type=3&amp;s=ip-172-18-60-201&amp;pid=0&amp;c=ZA&amp;d=&amp;aid=1387E545-FF40-4B3B-AD51-39A0F38F2B7A&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.300&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=899ec2dc8adbc9a26db22f6c9f87046a&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=http%3A%2F%2Fhhdresearch.org%2F11-cancer-symptoms-you-are-likely-to-ignore%2F%3Futm_source%3D198868%26utm_campaign%3D96247%26utm_content%3D2068573%26utm_term%3Dcontentad11cancer1" onclick="javascript:trackOutboundClick()"><img height="250" width="300" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/dd2aeb3acd30b4f1402d13aee94273a4.jpg" alt="11 Warning Signs of Cancer" class="ac_image" title="11 Warning Signs of Cancer"></a><div class="ac_title_wrapper"><a class="ac_title" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=2068573&amp;did=198868&amp;sid=&amp;type=3&amp;s=ip-172-18-60-201&amp;pid=0&amp;c=ZA&amp;d=&amp;aid=1387E545-FF40-4B3B-AD51-39A0F38F2B7A&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.300&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=899ec2dc8adbc9a26db22f6c9f87046a&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=http%3A%2F%2Fhhdresearch.org%2F11-cancer-symptoms-you-are-likely-to-ignore%2F%3Futm_source%3D198868%26utm_campaign%3D96247%26utm_content%3D2068573%26utm_term%3Dcontentad11cancer1" onclick="javascript:trackOutboundClick()">11 Warning Signs of Cancer</a></div></div><div class="ac_container"><a class="ac_image_link" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=2037844&amp;did=198868&amp;sid=&amp;type=3&amp;s=ip-172-18-60-201&amp;pid=0&amp;c=ZA&amp;d=&amp;aid=6F4E3FFE-3894-4A1B-AEEF-84598ECADE0E&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.301&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=5a8d9b803087bd00cceebd365047b65b&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=http%3A%2F%2Fclicksthrough.com%2Fpath%2Flp.php%3Ftrvid%3D10378%26trvx%3D2519b5eb%26Domainid%3D198868%26Campaignid%3D21336%26Adid%3D2037844%26image%3Dcashgrab%26headline%3DA30%26user%3D0bcc753ac8161a85f9549a8c8c078f755688c141cd39aa810bbd08d8961d9c44" onclick="javascript:trackOutboundClick()"><img height="250" width="300" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/t2ZvyD0b0i-ac6f2435d7d1f3203c840d3436f5cced.jpg" alt="Get Paid R 3,200 Everyday Without a Job in South Africa" class="ac_image" title="Get Paid R 3,200 Everyday Without a Job in South Africa"></a><div class="ac_title_wrapper"><a class="ac_title" rel="nofollow" target="_blank" href="http://api.content-ad.net/Lib/TrackOutboundClick.aspx?hid=1&amp;wid=180699&amp;uid=2037844&amp;did=198868&amp;sid=&amp;type=3&amp;s=ip-172-18-60-201&amp;pid=0&amp;c=ZA&amp;d=&amp;aid=6F4E3FFE-3894-4A1B-AEEF-84598ECADE0E&amp;ik=2017081719_1d75c396216ae3b3617ac44a5da0afc6&amp;it=2017-08-17+19%3A17%3A55.301&amp;hai=47883&amp;ti=P01-tst170814_maxVert_grp3&amp;ck=5a8d9b803087bd00cceebd365047b65b&amp;clientId=&amp;clientId2=&amp;v=1.2.13&amp;redirectUrl=http%3A%2F%2Fclicksthrough.com%2Fpath%2Flp.php%3Ftrvid%3D10378%26trvx%3D2519b5eb%26Domainid%3D198868%26Campaignid%3D21336%26Adid%3D2037844%26image%3Dcashgrab%26headline%3DA30%26user%3D0bcc753ac8161a85f9549a8c8c078f755688c141cd39aa810bbd08d8961d9c44" onclick="javascript:trackOutboundClick()">Get Paid R 3,200 Everyday Without a Job in South Africa</a></div></div><!-- end ads --><img class="ac_pixel" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/pixel.gif" height="1" width="1"><img class="ac_pixel" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/px.gif" height="1" width="1"></div><div style="clear:both;"></div><div class="ac_credit"><a href="https://www.content.ad/AboutUs?utm_medium=modal&amp;utm_source=widget_180699&amp;widgetId=180699&amp;d=Desktop&amp;u=http%3A%2F%2Fanytch.com%2Flaravel-5-simple-get-search%2F" target="_blank" rel="nofollow">?</a></div><div class="ac_modal_shading"></div><div class="ac_credit_copy"><div class="ac_credit_logo"><img src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/c_ad_logo.png"></div><p>These content links are provided by <a href="https://www.content.ad/?utm_medium=modal&amp;utm_source=widget_180699">Content.ad</a>. Both <a href="https://www.content.ad/?utm_medium=modal&amp;utm_source=widget_180699">Content.ad</a> and the web site upon which the links are displayed may receive compensation when readers click on these links. Some of the content you are redirected to may be sponsored content. View our privacy policy <a href="https://www.content.ad/Privacy?utm_medium=modal&amp;utm_source=widget_180699" target="_blank" rel="nofollow">here</a>.</p><p>To learn how you can use <a href="https://www.content.ad/?utm_medium=modal&amp;utm_source=widget_180699">Content.ad</a> to drive visitors to your content or add this service to your site, please contact us at <a href="mailto:info@content.ad?subject=Contact%20from%20Widget%20180699&amp;body=In%20order%20for%20us%20to%20better%20assist%20you%2C%20we%27ve%20added%20the%20following%20details%20to%20track%20where%20you%20saw%20our%20ads.%20Please%20do%20not%20remove%20or%20change%20this%20information.%0A%0APage%20URL:%20http%3A%2F%2Fanytch.com%2Flaravel-5-simple-get-search%2F%0AWidget%20ID:%20180699%0ADevice%20Type:%20Desktop%0A%0A%3d%3d%3dAdd%20your%20message%20below%20this%20line%3d%3d%3d%0A" rel="nofollow">info@content.ad</a>.</p><div class="family-friendly"><p><strong>Family-Friendly Content</strong></p><p><label><input type="checkbox" id="familyFriendlyContent" onclick="familyFriendlyHandler(180699, this)"> Only recommend family-friendly content</label></p><p>Website owners select the type of content that appears in our units. However, if you would like to ensure that Content.ad always displays family-friendly content on this device, regardless of what site you are on, check the option below. <a href="https://www.content.ad/FamilyFriendlyContent?utm_medium=modal&amp;utm_source=widget_180699" target="_blank">Learn More</a></p></div></div></div><div style="clear:both;"></div></div><style type="text/css" id="ac_180699_css">/* Clean */#ac_180699 {clear: both;display: block;text-align: left;margin: 20px 0;position: relative;font-family: Arial, Helvetica, sans-serif;font-size: 16px;text-align: left;line-height: 1em;}#ac_180699 .ac_header_title {border: none;direction: ltr;vertical-align: middle;padding: 0;margin: 0 173px 0 0;font-size: 0.875em;font-weight: bold;word-wrap: break-word;min-height: 15px;}#ac_180699 .ac_adbox {width: 100%;position: relative;display: block;clear: both;text-align: left;text-decoration: none;}#ac_180699 .ac_image {width: 300px;height: auto;border:none ;margin:0px ;display:block;padding: 0;max-width:100%;}#ac_180699 .ac_container {display: inline-block;zoom: 1;vertical-align: top;padding-right: 4px;margin-top: 12px;}#ac_180699 .ac_container:hover .ac_title_wrapper .ac_title {text-decoration: underline;}#ac_180699 .ac_container a {display: block;direction: ltr;text-align: left;text-decoration: none;}#ac_180699 .ac_title_wrapper {width: 300px;padding-top:2px;}#ac_180699 .ac_title_wrapper .ac_title {margin: 0px;border: none;direction: ltr;text-align: left;vertical-align: middle;word-wrap: break-word;width: 100%;padding: 0;font-size: 0.8125em;line-height: 1.25em;color: #000;}#ac_180699 .ac_referrer {font-size: 10px;font-weight: normal;font-style: italic;color: #888;word-wrap: break-word;line-height: 150%;}#ac_180699 a.ac_image_link {display: inline-block;*display: inline;zoom: 1;margin-right: 0;position: relative;overflow: hidden;}#ac_180699 .ac_container a.ac_image_link .ac_sponsored {position: absolute;bottom: 0;right: 0;padding: 0 1px 0 4px;background-color: #000;opacity: 0.5;font-size: 9px;text-transform: capitalize;letter-spacing: 1px;color: #fff;line-height: 17px;}#ac_180699 .ac_credit {position: absolute;top: -23px;right: 0;font-size: 0;color: #999;}#ac_180699 .ac_credit a {display: inline-block;background: url(https://s3-us-west-2.amazonaws.com/contentad/icons/sponsoredlinksby.png) 0 0 transparent;width: 163px;height: 21px;vertical-align: bottom;padding: 0;margin: 0;text-decoration: none;border: none;text-indent: -999em;}@media (min-width: 600px) {#ac_180699 .ac_container {width: 24.2500%;padding: 0 ;margin-right: 1%;}#ac_180699 .ac_container:nth-child(4n) {margin-right: 0 ;}#ac_180699 .ac_image_link {width: 100% ;height: auto ;}#ac_180699 .ac_image {width: 100% ;}#ac_180699 .ac_title_wrapper {width: 100% ;}}@media (max-width: 599px) {/* mobile/tablet */#ac_180699 {text-align: center;}#ac_180699 .ac_adbox_inner {display: inline-block;width: 100%;}#ac_180699 .ac_container {width: 100.00%;max-width: 599px;padding: 0;margin-right: 1%;}#ac_180699 .ac_container:nth-child(1n) {margin-right: 0 ;}#ac_180699 .ac_header_title {text-align: left;}#ac_180699 .ac_image {width: 100%;height: auto;}#ac_180699 .ac_title_wrapper {width: 100%;max-width: 599px;display: block;}#ac_180699 a.ac_image_link {width: 100%;max-width: 599px;height: auto;}#ac_180699 .ac_title {width: auto;padding-top: 2px ;}}/* Modal Styles */#ac_180699 .ac_credit_copy,#ac_180699 .ac_modal_shading {display: none;}#ac_180699_modal-overlay {position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: rgba(0, 0, 0, 0.75);z-index: 999999;visibility: hidden;opacity: 0;transition: visibility 0s linear 0.25s, opacity 0.25s linear;-moz-transition: visibility 0s linear 0.25s, opacity 0.25s linear;-webkit-transition: visibility 0s linear 0.25s, opacity 0.25s linear;-o-transition: visibility 0s linear 0.25s, opacity 0.25s linear;}#ac_180699_modal-overlay.hidden {visibility: hidden;opacity: 0;}#ac_180699_modal-overlay.visible {visibility: visible !important;opacity: 1;transition-delay: 0s;}#ac_180699_modal-container,#ac_180699_modal-container div,#ac_180699_modal-container span,#ac_180699_modal-container h1,#ac_180699_modal-container h2,#ac_180699_modal-container h3,#ac_180699_modal-container p,#ac_180699_modal-container a,#ac_180699_modal-container em,#ac_180699_modal-container i,#ac_180699_modal-container img,#ac_180699_modal-container small,#ac_180699_modal-container strong,#ac_180699_modal-container b,#ac_180699_modal-container sub,#ac_180699_modal-container sup,#ac_180699_modal-container input,#ac_180699_modal-container label,#ac_180699_modal-container u {margin: 0;padding: 0;border: 0;font-size: 12px;line-height: 1.5em;font: normal 12px/1.5em Arial, Helvetica, sans-serif;vertical-align: baseline;}#ac_180699_modal-container div,#ac_180699_modal-container h1,#ac_180699_modal-container h2,#ac_180699_modal-container h3,#ac_180699_modal-container p {display: block;}#ac_180699_modal-container span,#ac_180699_modal-container a,#ac_180699_modal-container em,#ac_180699_modal-container i,#ac_180699_modal-container img,#ac_180699_modal-container small,#ac_180699_modal-container strong,#ac_180699_modal-container b,#ac_180699_modal-container sub,#ac_180699_modal-container sup,#ac_180699_modal-container input,#ac_180699_modal-container label,#ac_180699_modal-container u {display: inline;}#ac_180699_modal-container em,#ac_180699_modal-container i {font-style: italic;}#ac_180699_modal-container h1,#ac_180699_modal-container h2,#ac_180699_modal-container h3,#ac_180699_modal-container strong,#ac_180699_modal-container b {font-weight: bold;}#ac_180699_modal-container {position: fixed;width: 600px;max-width: 100%;min-width: 280px;height: auto;max-height: 100%;background: #fff;border: 1px solid #ababab;box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);z-index: 1000000;overflow: auto;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);line-height: 1.5em;text-align: left;color: #333;font-size: 12px;background-color: #fff;visibility: hidden;opacity: 0;transition: visibility 0s linear 0.25s, opacity 0.25s linear;-moz-transition: visibility 0s linear 0.25s, opacity 0.25s linear;-webkit-transition: visibility 0s linear 0.25s, opacity 0.25s linear;-o-transition: visibility 0s linear 0.25s, opacity 0.25s linear;}#ac_180699_modal-container.hidden {visibility: hidden;opacity: 0;}#ac_180699_modal-container.visible {visibility: visible !important;opacity: 1;transition-delay: 0s;}div#ac_180699_modal-content {margin: 24px;}#ac_180699_modal-container p {margin: 0 0 1em 0;}#ac_180699_modal-container .family-friendly {border: 1px solid #CCC;background: #EEE;padding: 10px;margin-top: 2em;}#ac_180699_modal-container .family-friendly > p:first-child strong {/* Family Friendly Heading */display: block;font-size: 15px;background: url(https://d32oduq093hvot.cloudfront.net/icons/familyfriendly.png) no-repeat 0 center;padding-left: 27px;margin-bottom: 1em;line-height: 27px;}#ac_180699_modal-container .family-friendly label {display: block;padding-left: 15px;text-indent: -15px;font-weight: bold;}#ac_180699_modal-container .family-friendly input[type=checkbox] {appearance: checkbox;-webkit-appearance: checkbox;-moz-appearance: checkbox;width: 13px;height: 13px;padding: 0;margin:0;vertical-align: middle;position: relative;top: -1px;*overflow: hidden;}#ac_180699_modal-close {position: absolute;cursor: pointer;width: 30px;height: 30px;text-indent: -999em;right: 0;top: 0;}#ac_180699_modal-close:before,#ac_180699_modal-close:after {content: '';position: absolute;width: 70%;top: 40%;left: 20%;background: #999;height: 2px;}#ac_180699_modal-close:before {-ms-transform: rotate(45deg); /* IE 9 */-webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */transform: rotate(45deg);}#ac_180699_modal-close:after {-ms-transform: rotate(-45deg); /* IE 9 */-webkit-transform: rotate(-45deg); /* Chrome, Safari, Opera */transform: rotate(-45deg);}#ac_180699_modal-close:hover:before,#ac_180699_modal-close:hover:after {background: #000;}#ac_180699_modal-container .ac_credit_logo {width: 46%;max-width: 300px;min-width: 200px;margin: 0 auto 24px;text-align: center;}#ac_180699_modal-container .ac_credit_logo img {width: 100%;}#ac_180699_modal-container a {color: #F06924;text-decoration: underline;}/* End Modal Styles */</style></div><div id="contentad180699"></div>
+<div id="dpsp-content-bottom" class="dpsp-content-wrapper dpsp-shape-rectangular dpsp-column-4 dpsp-has-spacing dpsp-has-buttons-count dpsp-show-on-mobile dpsp-button-style-1 dpsp-has-icon-background dpsp-has-button-background"><p class="dpsp-share-text">Sharing is caring!</p><div class="dpsp-total-share-wrapper"><span class="dpsp-total-share-count">2</span><span>shares</span></div><ul class="dpsp-networks-btns-wrapper dpsp-networks-btns-content"><li><a rel="nofollow" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fanytch.com%2Flaravel-5-simple-get-search%2F&amp;t=Laravel+5+simple+search+box+using+GET+method" class="dpsp-network-btn dpsp-facebook dpsp-has-count dpsp-first"><span class="dpsp-network-label-wrapper"><span class="dpsp-network-label">Facebook</span><span class="dpsp-network-count">0</span></span></a></li><li><a rel="nofollow" href="https://twitter.com/intent/tweet?text=Laravel+5+simple+search+box+using+GET+method&amp;url=http%3A%2F%2Fanytch.com%2Flaravel-5-simple-get-search%2F" class="dpsp-network-btn dpsp-twitter"><span class="dpsp-network-label-wrapper"><span class="dpsp-network-label">Twitter</span></span></a></li><li><a rel="nofollow" href="https://plus.google.com/share?url=http%3A%2F%2Fanytch.com%2Flaravel-5-simple-get-search%2F" class="dpsp-network-btn dpsp-google-plus dpsp-has-count"><span class="dpsp-network-label-wrapper"><span class="dpsp-network-label">Google+</span><span class="dpsp-network-count">2</span></span></a></li><li><a rel="nofollow" href="http://anytch.com/laravel-5-simple-get-search/#" class="dpsp-network-btn dpsp-pinterest dpsp-has-count dpsp-last"><span class="dpsp-network-label-wrapper"><span class="dpsp-network-label">Pinterest</span><span class="dpsp-network-count">0</span></span></a></li></ul></div>
+                
+            		
+		
+	</div><!-- .entry-content -->
+
+</article><!-- #post-## -->
+
+<div class="row">
+            
+	    
+</div>
+
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="http://anytch.com/laravel-5-mass-assignment-guarded-vs-fillable/" rel="prev">← Previous Article</a></div><div class="nav-next"><a href="http://anytch.com/flash-messages-in-laravel-5/" rel="next">Next Article →</a></div></div>
+	</nav>
+<div id="disqus_thread"><iframe id="dsq-app6046" name="dsq-app6046" allowtransparency="true" frameborder="0" scrolling="no" tabindex="0" title="Disqus" width="100%" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/saved_resource.html" style="width: 1px !important; min-width: 100% !important; border: none !important; overflow: hidden !important; height: 580px !important;" horizontalscrolling="no" verticalscrolling="no"></iframe></div>
+
+
+                </main></div></div><!-- #primary -->
+            
+        
+<div id="secondary" class="col-md-4 widget-area" role="complementary" style="position: relative; overflow: visible; box-sizing: border-box; min-height: 1px;">
+    
+    
+
+	
+<!-- WordPress Popular Posts Plugin v3.3.4 [W] [daily] [views] [regular] -->
+
+<!-- End WordPress Popular Posts Plugin v3.3.4 -->
+	
+<div class="theiaStickySidebar" style="padding-top: 0px; padding-bottom: 1px; position: static; top: 0px; left: 879.5px;"><div class="row">
+            
+		        
+    </div><aside id="wpp-2" class="widget popular-posts">
+<h3 class="widget-title">Popular Posts</h3>
+<ul class="wpp-list">
+<li class="current"><a title="Laravel 5 simple search box using GET method" target="_self"><img width="480" height="340" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/the-search-box4.jpg" class="wpp-thumbnail wpp_featured_stock wp-post-image" alt="laravel search box" srcset="https://i1.wp.com/anytch.com/wp-content/uploads/2015/11/the-search-box4.jpg?zoom=2&amp;resize=480%2C340 960w, https://i1.wp.com/anytch.com/wp-content/uploads/2015/11/the-search-box4.jpg?zoom=3&amp;resize=480%2C340 1440w" sizes="(max-width: 480px) 100vw, 480px" data-attachment-id="507" data-permalink="http://anytch.com/laravel-5-simple-get-search/the-search-box4-2/" data-orig-file="https://i1.wp.com/anytch.com/wp-content/uploads/2015/11/the-search-box4.jpg?fit=675%2C372" data-orig-size="675,372" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="the-search-box4" data-image-description="" data-medium-file="https://i1.wp.com/anytch.com/wp-content/uploads/2015/11/the-search-box4.jpg?fit=300%2C165" data-large-file="https://i1.wp.com/anytch.com/wp-content/uploads/2015/11/the-search-box4.jpg?fit=675%2C372"></a> <a title="Laravel 5 simple search box using GET method" class="wpp-post-title" target="_self">Laravel 5 simple search box using GET method</a> </li>
+<li><a href="http://anytch.com/creating-dynamic-select-drop-down-input-with-laravel-5/" title="Creating Dynamic Dropdown in Laravel 5" target="_self"><img width="480" height="340" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/Creating-Dynamic-Dropdown-in-Laravel-5.jpg" class="wpp-thumbnail wpp_featured_stock wp-post-image" alt="Creating Dynamic Dropdown in Laravel 5" srcset="https://i1.wp.com/anytch.com/wp-content/uploads/2015/08/Creating-Dynamic-Dropdown-in-Laravel-5.jpg?zoom=2&amp;resize=480%2C340 960w, https://i1.wp.com/anytch.com/wp-content/uploads/2015/08/Creating-Dynamic-Dropdown-in-Laravel-5.jpg?zoom=3&amp;resize=480%2C340 1440w" sizes="(max-width: 480px) 100vw, 480px" data-attachment-id="573" data-permalink="http://anytch.com/creating-dynamic-select-drop-down-input-with-laravel-5/creating-dynamic-dropdown-in-laravel-5/" data-orig-file="https://i1.wp.com/anytch.com/wp-content/uploads/2015/08/Creating-Dynamic-Dropdown-in-Laravel-5.jpg?fit=675%2C372" data-orig-size="675,372" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Creating-Dynamic-Dropdown-in-Laravel-5" data-image-description="" data-medium-file="https://i1.wp.com/anytch.com/wp-content/uploads/2015/08/Creating-Dynamic-Dropdown-in-Laravel-5.jpg?fit=300%2C165" data-large-file="https://i1.wp.com/anytch.com/wp-content/uploads/2015/08/Creating-Dynamic-Dropdown-in-Laravel-5.jpg?fit=675%2C372"></a> <a href="http://anytch.com/creating-dynamic-select-drop-down-input-with-laravel-5/" title="Creating Dynamic Dropdown in Laravel 5" class="wpp-post-title" target="_self">Creating Dynamic Dropdown in Laravel 5</a> </li>
+<li><a href="http://anytch.com/flash-messages-in-laravel-5/" title="Flash Messages in Laravel 5" target="_self"><img width="480" height="340" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/flash-messages.jpg" class="wpp-thumbnail wpp_featured_stock wp-post-image" alt="laravel flash message" srcset="https://i0.wp.com/anytch.com/wp-content/uploads/2015/11/flash-messages.jpg?zoom=2&amp;resize=480%2C340 960w, https://i0.wp.com/anytch.com/wp-content/uploads/2015/11/flash-messages.jpg?zoom=3&amp;resize=480%2C340 1440w" sizes="(max-width: 480px) 100vw, 480px" data-attachment-id="520" data-permalink="http://anytch.com/flash-messages-in-laravel-5/flash-messages/" data-orig-file="https://i0.wp.com/anytch.com/wp-content/uploads/2015/11/flash-messages.jpg?fit=675%2C372" data-orig-size="675,372" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="flash-messages" data-image-description="" data-medium-file="https://i0.wp.com/anytch.com/wp-content/uploads/2015/11/flash-messages.jpg?fit=300%2C165" data-large-file="https://i0.wp.com/anytch.com/wp-content/uploads/2015/11/flash-messages.jpg?fit=675%2C372"></a> <a href="http://anytch.com/flash-messages-in-laravel-5/" title="Flash Messages in Laravel 5" class="wpp-post-title" target="_self">Flash Messages in Laravel 5</a> </li>
+<li><a href="http://anytch.com/laravel-5-mass-assignment-guarded-vs-fillable/" title="Laravel 5 Mass Assignment, Guarded or Fillable?" target="_self"><img width="480" height="340" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/guarded-or-fillable.jpg" class="wpp-thumbnail wpp_featured_stock wp-post-image" alt="guarded-or-fillable" srcset="https://i1.wp.com/anytch.com/wp-content/uploads/2015/11/guarded-or-fillable.jpg?zoom=2&amp;resize=480%2C340 960w, https://i1.wp.com/anytch.com/wp-content/uploads/2015/11/guarded-or-fillable.jpg?zoom=3&amp;resize=480%2C340 1440w" sizes="(max-width: 480px) 100vw, 480px" data-attachment-id="512" data-permalink="http://anytch.com/laravel-5-mass-assignment-guarded-vs-fillable/guarded-or-fillable/" data-orig-file="https://i1.wp.com/anytch.com/wp-content/uploads/2015/11/guarded-or-fillable.jpg?fit=675%2C372" data-orig-size="675,372" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="guarded-or-fillable" data-image-description="" data-medium-file="https://i1.wp.com/anytch.com/wp-content/uploads/2015/11/guarded-or-fillable.jpg?fit=300%2C165" data-large-file="https://i1.wp.com/anytch.com/wp-content/uploads/2015/11/guarded-or-fillable.jpg?fit=675%2C372"></a> <a href="http://anytch.com/laravel-5-mass-assignment-guarded-vs-fillable/" title="Laravel 5 Mass Assignment, Guarded or Fillable?" class="wpp-post-title" target="_self">Laravel 5 Mass Assignment, Guarded or Fillable?</a> </li>
+<li><a href="http://anytch.com/laravel-5-x-search-box-using-jquery-ajax/" title="Laravel 5.x Search Box using jQuery + Ajax" target="_self"><img width="480" height="340" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/Laravel-5.x-Search-Box-using-jQuery-Ajax.jpg" class="wpp-thumbnail wpp_featured_stock wp-post-image" alt="" srcset="https://i0.wp.com/anytch.com/wp-content/uploads/2017/06/Laravel-5.x-Search-Box-using-jQuery-Ajax.jpg?zoom=2&amp;resize=480%2C340 960w, https://i0.wp.com/anytch.com/wp-content/uploads/2017/06/Laravel-5.x-Search-Box-using-jQuery-Ajax.jpg?zoom=3&amp;resize=480%2C340 1440w" sizes="(max-width: 480px) 100vw, 480px" data-attachment-id="1259" data-permalink="http://anytch.com/laravel-5-x-search-box-using-jquery-ajax/laravel-5-x-search-box-using-jquery-ajax/" data-orig-file="https://i0.wp.com/anytch.com/wp-content/uploads/2017/06/Laravel-5.x-Search-Box-using-jQuery-Ajax.jpg?fit=800%2C445" data-orig-size="800,445" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Laravel-5.x-Search-Box-using-jQuery-+-Ajax" data-image-description="" data-medium-file="https://i0.wp.com/anytch.com/wp-content/uploads/2017/06/Laravel-5.x-Search-Box-using-jQuery-Ajax.jpg?fit=300%2C167" data-large-file="https://i0.wp.com/anytch.com/wp-content/uploads/2017/06/Laravel-5.x-Search-Box-using-jQuery-Ajax.jpg?fit=730%2C406"></a> <a href="http://anytch.com/laravel-5-x-search-box-using-jquery-ajax/" title="Laravel 5.x Search Box using jQuery + Ajax" class="wpp-post-title" target="_self">Laravel 5.x Search Box using jQuery + Ajax</a> </li>
+
+</ul>
+</aside></div></div><!-- #secondary -->
+
+        </div><!-- .row -->
+        
+    </div><!-- Container end -->
+    
+</div><!-- Wrapper end -->
+
+
+<div class="wrapper" id="wrapper-footer-full">
+
+    <div class="container">
+        
+      
+    </div>
+    
+</div><!-- #wrapper-bottomcta -->
+
+<div class="wrapper" id="wrapper-footer">
+    
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-12">
+                
+                <div class="row">
+            
+                                          
+                </div>
+    
+                <footer id="colophon" class="site-footer" role="contentinfo">
+
+                    <div class="site-info">
+                        
+                                                
+                        <a href="http://wordpress.org/">Proudly powered by WordPress</a>
+                        <span class="sep"> | </span>
+                        Made with love by <a href="https://www.themely.com/" rel="designer">Themely</a>                        
+                                            
+                    </div><!-- .site-info -->
+
+                </footer><!-- #colophon -->
+
+            </div><!--col end -->
+
+        </div><!-- row end -->
+        
+    </div><!-- container end -->
+    
+</div><!-- wrapper end -->
+
+</div><!-- #page -->
+
+		<div data-theiastickysidebar-sidebarselector="&quot;#secondary, #sidebar, .sidebar, #primary&quot;" data-theiastickysidebar-options="{&quot;containerSelector&quot;:&quot;&quot;,&quot;additionalMarginTop&quot;:0,&quot;additionalMarginBottom&quot;:0,&quot;updateSidebarHeight&quot;:false,&quot;minWidth&quot;:0,&quot;sidebarBehavior&quot;:&quot;modern&quot;,&quot;disableOnResponsiveLayouts&quot;:true}"></div>
+		<script type="text/javascript">
+var colomatduration = 'fast';
+var colomatslideEffect = 'slideFade';
+</script><div id="dpsp-floating-sidebar" class="dpsp-bottom-spacing dpsp-position-left dpsp-shape-rectangular dpsp-has-buttons-count dpsp-show-on-mobile dpsp-button-style-1 dpsp-has-button-background " style="top: 205.5px;"><div class="dpsp-total-share-wrapper"><span class="dpsp-total-share-count">2</span><span>shares</span></div><ul class="dpsp-networks-btns-wrapper dpsp-networks-btns-sidebar"><li><a rel="nofollow" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fanytch.com%2Flaravel-5-simple-get-search%2F&amp;t=Laravel+5+simple+search+box+using+GET+method" class="dpsp-network-btn dpsp-facebook dpsp-has-count dpsp-first"><span class="dpsp-network-label-wrapper"><span class="dpsp-network-count">0</span></span></a></li><li><a rel="nofollow" href="https://twitter.com/intent/tweet?text=Laravel+5+simple+search+box+using+GET+method&amp;url=http%3A%2F%2Fanytch.com%2Flaravel-5-simple-get-search%2F" class="dpsp-network-btn dpsp-twitter"><span class="dpsp-network-label-wrapper"></span></a></li><li><a rel="nofollow" href="https://plus.google.com/share?url=http%3A%2F%2Fanytch.com%2Flaravel-5-simple-get-search%2F" class="dpsp-network-btn dpsp-google-plus dpsp-has-count"><span class="dpsp-network-label-wrapper"><span class="dpsp-network-count">2</span></span></a></li><li><a rel="nofollow" href="http://anytch.com/laravel-5-simple-get-search/#" class="dpsp-network-btn dpsp-pinterest dpsp-has-count dpsp-last"><span class="dpsp-network-label-wrapper"><span class="dpsp-network-count">0</span></span></a></li></ul></div>	<div style="display:none">
+	</div>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/photon.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/theia-sticky-sidebar.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/main.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/devicepx-jetpack.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/collapse.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/theme.min.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/comment-reply.min.js.download"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/widget2.aspx"></script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/wp-embed.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"platform":"wordpress@4.8.1","language":""},"disqusIdentifier":"502 http:\/\/anytch.com\/?p=502","disqusShortname":"anyth","disqusTitle":"Laravel 5 simple search box using GET method","disqusUrl":"http:\/\/anytch.com\/laravel-5-simple-get-search\/","options":{"manualSync":false},"postId":"502"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/disqus.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"anyth"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/count.js(1).download"></script>
+<script type="text/javascript" id="slb_context">/* <![CDATA[ */if ( !!window.jQuery ) {(function($){$(document).ready(function(){if ( !!window.SLB ) { {$.extend(SLB, {"context":["public","user_guest"]});} }})})(jQuery);}/* ]]> */</script>
+<script type="text/javascript" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/e-201733.js.download" async="" defer=""></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:5.1',blog:'101923488',post:'502',tz:'0',srv:'anytch.com'} ]);
+	_stq.push([ 'clickTrackerInit', '101923488', '502' ]);
+</script>
+
+
+
+
+
+<!--Generated by Endurance Page Cache--><div id="ac_180699_modal-container" style="visibility: hidden;"><a id="ac_180699_modal-close">Close Modal</a><div id="ac_180699_modal-content"></div></div><div id="ac_180699_modal-overlay" style="visibility: hidden;"></div><iframe style="display: none;" src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/saved_resource(3).html"></iframe><img src="./Laravel 5 simple search box using GET method - ANYTCH.COM_files/g.gif" alt=":)" width="6" height="5" id="wpstats"></body></html>

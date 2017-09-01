@@ -48,12 +48,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+        // return Validator::make($data, [
+        //     'name' => 'required|max:255',
+        //     'email' => 'required|email|max:255|unique:users',
+        //     'password' => 'required|min:6|confirmed',
 
-        ]);
+        // ]);
     }
 
     /**
@@ -66,6 +66,12 @@ class RegisterController extends Controller
   
     protected function create(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            // 'phonenumber' => 'required|max:10',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
+        ]);
 
         $data = $request->all();
         $pref1 = substr($data['phonenumber'],3,3);

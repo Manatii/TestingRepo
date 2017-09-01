@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://justlaravel.com/search-functionality-laravel/ -->
+<html lang="en-US" prefix="og: http://ogp.me/ns#"><script type="text/javascript" async="" src="./Search functionality in Laravel - Just Laravel_files/analytics.js.download"></script><script src="./Search functionality in Laravel - Just Laravel_files/cb=gapi.loaded_1" async=""></script><script src="./Search functionality in Laravel - Just Laravel_files/cb=gapi.loaded_0" async=""></script><script id="twitter-wjs" src="./Search functionality in Laravel - Just Laravel_files/widgets.js.download"></script><script type="text/javascript" async="" src="./Search functionality in Laravel - Just Laravel_files/ga.js.download"></script><script src="./Search functionality in Laravel - Just Laravel_files/ca-pub-6687609633990818.js.download"></script><script async="" src="./Search functionality in Laravel - Just Laravel_files/gtm.js.download"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="All about Laravel. justlaravel.com contains various tutorials on laravel along with the post, it also contains source code, demo to test, video demonstration, and also complete project code available, great resource for learning laravel. ">
+    <link rel="profile" href="http://gmpg.org/xfn/11">
+            <link rel="pingback" href="http://justlaravel.com/xmlrpc.php">
+        <title>Search functionality in Laravel - Just Laravel</title>
+
+<!-- This site is optimized with the Yoast SEO plugin v5.2 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="Here we &#39;ll see about how to implement search functionality in laravel. we &#39;ll search the data from the database and show the search results in a table.">
+<link rel="canonical" href="http://justlaravel.com/search-functionality-laravel/">
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Search functionality in Laravel - Just Laravel">
+<meta property="og:description" content="Here we &#39;ll see about how to implement search functionality in laravel. we &#39;ll search the data from the database and show the search results in a table.">
+<meta property="og:url" content="http://justlaravel.com/search-functionality-laravel/">
+<meta property="og:site_name" content="Just Laravel">
+<meta property="article:publisher" content="https://www.facebook.com/justLaravel/">
+<meta property="article:tag" content="laravel">
+<meta property="article:tag" content="search functionality in laravel">
+<meta property="article:section" content="Intermediate">
+<meta property="article:published_time" content="2016-04-30T06:57:03+00:00">
+<meta property="article:modified_time" content="2016-09-12T12:08:14+00:00">
+<meta property="og:updated_time" content="2016-09-12T12:08:14+00:00">
+<meta property="og:image" content="http://justlaravel.com/wp-content/uploads/2016/04/search_functionality_feat_WP_1038_576.png">
+<meta property="og:image:width" content="1038">
+<meta property="og:image:height" content="576">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:description" content="Here we &#39;ll see about how to implement search functionality in laravel. we &#39;ll search the data from the database and show the search results in a table.">
+<meta name="twitter:title" content="Search functionality in Laravel - Just Laravel">
+<meta name="twitter:site" content="@justLaravel">
+<meta name="twitter:image" content="https://i1.wp.com/justlaravel.com/wp-content/uploads/2016/04/search_functionality_feat_WP_1038_576.png?fit=1038%2C576">
+<meta name="twitter:creator" content="@justLaravel">
+<!-- / Yoast SEO plugin. -->
+
+<link rel="dns-prefetch" href="http://s0.wp.com/">
+<link rel="dns-prefetch" href="http://s.gravatar.com/">
+<link rel="dns-prefetch" href="http://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="http://cdn.jsdelivr.net/">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="Just Laravel » Feed" href="http://justlaravel.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Just Laravel » Comments Feed" href="http://justlaravel.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Just Laravel » Search functionality in Laravel Comments Feed" href="http://justlaravel.com/search-functionality-laravel/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/justlaravel.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.8.1"}};
+			!function(a,b,c){function d(a){var b,c,d,e,f=String.fromCharCode;if(!k||!k.fillText)return!1;switch(k.clearRect(0,0,j.width,j.height),k.textBaseline="top",k.font="600 32px Arial",a){case"flag":return k.fillText(f(55356,56826,55356,56819),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,56826,8203,55356,56819),0,0),c=j.toDataURL(),b===c&&(k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447),0,0),b=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447),0,0),c=j.toDataURL(),b!==c);case"emoji4":return k.fillText(f(55358,56794,8205,9794,65039),0,0),d=j.toDataURL(),k.clearRect(0,0,j.width,j.height),k.fillText(f(55358,56794,8203,9794,65039),0,0),e=j.toDataURL(),d!==e}return!1}function e(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i,j=b.createElement("canvas"),k=j.getContext&&j.getContext("2d");for(i=Array("flag","emoji4"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Search functionality in Laravel - Just Laravel_files/wp-emoji-release.min.js.download" type="text/javascript" defer=""></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="simple-payments-css" href="./Search functionality in Laravel - Just Laravel_files/simple-payments.css" type="text/css" media="all">
+<!-- `jetpack_related-posts` is included in the concatenated jetpack.css -->
+<link rel="stylesheet" id="crayon-theme-cg-cookie-css" href="./Search functionality in Laravel - Just Laravel_files/cg-cookie.css" type="text/css" media="all">
+<link rel="stylesheet" id="crayon-font-consolas-css" href="./Search functionality in Laravel - Just Laravel_files/consolas.css" type="text/css" media="all">
+<link rel="stylesheet" id="font-roboto-css" href="./Search functionality in Laravel - Just Laravel_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="style-css" href="./Search functionality in Laravel - Just Laravel_files/style.min.css" type="text/css" media="all">
+<!-- `jetpack-subscriptions` is included in the concatenated jetpack.css -->
+<!-- Inline jetpack_facebook_likebox -->
+<style id="jetpack_facebook_likebox-inline-css" type="text/css">
+.widget_facebook_likebox {
+	overflow: hidden;
+}
+
+</style>
+<!-- `jetpack_social_media_icons_widget` is included in the concatenated jetpack.css -->
+<!-- `jetpack-top-posts-widget` is included in the concatenated jetpack.css -->
+<link rel="stylesheet" id="highlight-and-share-css" href="./Search functionality in Laravel - Just Laravel_files/highlight-and-share.css" type="text/css" media="all">
+<link rel="stylesheet" id="bfa-font-awesome-css" href="./Search functionality in Laravel - Just Laravel_files/font-awesome.min.css" type="text/css" media="all">
+<!-- `sharedaddy` is included in the concatenated jetpack.css -->
+<link rel="stylesheet" id="social-logos-css" href="./Search functionality in Laravel - Just Laravel_files/social-logos.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="open-sans-css" href="./Search functionality in Laravel - Just Laravel_files/css(1)" type="text/css" media="all">
+<link rel="stylesheet" id="jetpack_css-css" href="./Search functionality in Laravel - Just Laravel_files/jetpack.css" type="text/css" media="all">
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/jquery.js.download"></script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/jquery-migrate.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var related_posts_js_options = {"post_heading":"h4"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/related-posts.js.download"></script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/gtm4wp-form-move-tracker.js.download"></script>
+<!--[if lt IE 8]>
+<script type='text/javascript' src='http://justlaravel.com/wp-includes/js/json2.min.js?ver=2015-05-03'></script>
+<![endif]-->
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/jquery.validate.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var objectL10n = {"back":"Back"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/global.js.download"></script>
+<script type="text/javascript" async="" defer="" src="./Search functionality in Laravel - Just Laravel_files/platform.js.download" gapi_processed="true"></script>
+<link rel="https://api.w.org/" href="http://justlaravel.com/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://justlaravel.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://justlaravel.com/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.8.1">
+<link rel="shortlink" href="http://wp.me/p4VPu5-3m">
+<link rel="alternate" type="application/json+oembed" href="http://justlaravel.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fjustlaravel.com%2Fsearch-functionality-laravel%2F">
+<link rel="alternate" type="text/xml+oembed" href="http://justlaravel.com/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fjustlaravel.com%2Fsearch-functionality-laravel%2F&amp;format=xml">
+			<meta property="fb:pages" content="899438030165121">
+			<meta name="generator" content="Give v1.8.12">
+<script type="text/javascript">
+(function(url){
+	if(/(?:Chrome\/26\.0\.1410\.63 Safari\/537\.31|WordfenceTestMonBot)/.test(navigator.userAgent)){ return; }
+	var addEvent = function(evt, handler) {
+		if (window.addEventListener) {
+			document.addEventListener(evt, handler, false);
+		} else if (window.attachEvent) {
+			document.attachEvent('on' + evt, handler);
+		}
+	};
+	var removeEvent = function(evt, handler) {
+		if (window.removeEventListener) {
+			document.removeEventListener(evt, handler, false);
+		} else if (window.detachEvent) {
+			document.detachEvent('on' + evt, handler);
+		}
+	};
+	var evts = 'contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop keydown keypress keyup mousedown mousemove mouseout mouseover mouseup mousewheel scroll'.split(' ');
+	var logHuman = function() {
+		var wfscr = document.createElement('script');
+		wfscr.type = 'text/javascript';
+		wfscr.async = true;
+		wfscr.src = url + '&r=' + Math.random();
+		(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(wfscr);
+		for (var i = 0; i < evts.length; i++) {
+			removeEvent(evts[i], logHuman);
+		}
+	};
+	for (var i = 0; i < evts.length; i++) {
+		addEvent(evts[i], logHuman);
+	}
+})('//justlaravel.com/?wordfence_logHuman=1&hid=32E037453B0AA4BA4D35816DDD050628');
+</script>
+<!-- Google Tag Manager for WordPress by DuracellTomi - http://duracelltomi.com -->
+<script data-cfasync="false" type="text/javascript">
+	var gtm4wp_datalayer_name = "dataLayer";
+	var dataLayer = dataLayer || [];
+	dataLayer.push({"pagePostType":"post","pagePostType2":"single-post","pageCategory":["intermediate","laravel"],"pageAttributes":["laravel","search-functionality-in-laravel"],"pagePostAuthor":"avinash"});
+</script>
+<script data-cfasync="false">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.'+'js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5KP37H');</script>
+<!-- End Google Tag Manager -->
+<!-- End Google Tag Manager for WordPress by DuracellTomi -->
+<link rel="dns-prefetch" href="http://v0.wordpress.com/">
+<link rel="dns-prefetch" href="http://i0.wp.com/">
+<link rel="dns-prefetch" href="http://i1.wp.com/">
+<link rel="dns-prefetch" href="http://i2.wp.com/">
+<link rel="dns-prefetch" href="http://jetpack.wordpress.com/">
+<link rel="dns-prefetch" href="http://s0.wp.com/">
+<link rel="dns-prefetch" href="http://s1.wp.com/">
+<link rel="dns-prefetch" href="http://s2.wp.com/">
+<link rel="dns-prefetch" href="http://public-api.wordpress.com/">
+<link rel="dns-prefetch" href="http://0.gravatar.com/">
+<link rel="dns-prefetch" href="http://1.gravatar.com/">
+<link rel="dns-prefetch" href="http://2.gravatar.com/">
+<style type="text/css">img#wpstats{display:none}</style><link rel="amphtml" href="http://justlaravel.com/search-functionality-laravel/amp/">			<style type="text/css" id="wp-custom-css">
+				/*
+Welcome to Custom CSS!
+
+To learn how this works, see http://wp.me/PEmnE-Bt
+*/
+::-moz-selection {
+	background-color: #e36c39;
+	color: #fff;
+}
+
+::selection {
+	background-color: #e36c39;
+	color: #FFF;
+}
+
+.table-borderless tbody tr td, .table-borderless tbody tr th,
+	.table-borderless thead tr th {
+	border: none;
+}
+
+.extra_btn_para {
+	padding-left: 30px;
+	text-align: center;
+}
+
+.wdg {
+	text-align: center;
+	background-color: #e36c39;
+	border-radius: 5%;
+	padding: .6em;
+}
+
+.wdg a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.wdg:hover {
+	background: #FFF;
+	border: 1px solid #e36c39;
+}
+
+.wdg:hover a {
+	color: #e36c39;
+}
+
+			</style>
+		<script async="" src="./Search functionality in Laravel - Just Laravel_files/adsbygoogle.js.download"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-6687609633990818",
+    enable_page_level_ads: true
+  });
+</script>
+<meta name="p:domain_verify" content="8f292fbfe60b24465bb62e8a561f210d">
+<script type="text/javascript" async="" src="./Search functionality in Laravel - Just Laravel_files/saved_resource"></script><style type="text/css"></style><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="./Search functionality in Laravel - Just Laravel_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="./Search functionality in Laravel - Just Laravel_files/services.css"><script type="text/javascript" charset="utf-8" async="" src="./Search functionality in Laravel - Just Laravel_files/timeline.a3df0b22c7410afb111fd9e6736adf22.js.download"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+
+<body class="post-template-default single single-post postid-208 single-format-standard">
+
+<!-- Google Tag Manager (noscript) -->
+<noscript>&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-5KP37H"
+height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript>
+<!-- End Google Tag Manager (noscript) --><header id="header" role="banner">
+
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+
+            <div class="entry-title"><a class="navbar-brand" href="http://justlaravel.com/" title="Just Laravel" style="color:#000;">Just Laravel</a></div>
+            <a class="btn-search" href="http://justlaravel.com/search-functionality-laravel/#search-dialog" title="Search" data-search-dialog="true">
+                <span class="icon-search"></span>
+                <span class="screen-reader-text">Search</span>
+            </a>
+                            <div id="menu" class="collapse navbar-collapse navbar-right">
+                    <ul id="menu-mainmenu" class="nav navbar-nav"><li id="menu-item-167" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-167"><a href="http://justlaravel.com/">Home</a></li>
+<li id="menu-item-171" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-171"><a href="http://justlaravel.com/posts/">Posts</a></li>
+<li id="menu-item-168" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-168"><a href="http://justlaravel.com/demos/">Demos</a></li>
+<li id="menu-item-568" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-568"><a href="http://justlaravel.com/videos/">Videos</a></li>
+<li id="menu-item-520" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-520"><a href="http://justlaravel.com/best-books-on-laravel/">Books</a></li>
+</ul>                </div>
+                <div class="btn-trigger">
+                    <a href="http://justlaravel.com/search-functionality-laravel/#" class="trigger" data-off-canvas="true" data-off-canvas-id="#navigation" title="Menu">
+                        <span class="ico"></span>
+                        <span class="screen-reader-text">Menu</span>
+                    </a>
+                </div>
+                    </div>
+    </div>
+</header>
+
+
+<br>
+<center>
+<script async="" src="./Search functionality in Laravel - Just Laravel_files/adsbygoogle.js.download"></script>
+<!-- justLaravelResponsiveBelowHeader -->
+<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-6687609633990818" data-ad-slot="8481014084" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:1200px;background-color:transparent"><iframe width="1200" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;width:1200px;height:90px;" src="./Search functionality in Laravel - Just Laravel_files/saved_resource.html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></center>
+
+
+
+<div id="section" class="container">
+    <div class="row">
+        <main id="page" class="col-sm-8" role="main">
+            <p id="breadcrumbs"><span xmlns:v="http://rdf.data-vocabulary.org/#"><span typeof="v:Breadcrumb"><a href="http://justlaravel.com/" rel="v:url" property="v:title">Home</a> » <span rel="v:child" typeof="v:Breadcrumb"><a href="http://justlaravel.com/category/laravel/" rel="v:url" property="v:title">Laravel</a> » <strong class="breadcrumb_last">Search functionality in Laravel</strong></span></span></span></p><script async="" src="./Search functionality in Laravel - Just Laravel_files/adsbygoogle.js.download"></script>
+<!-- linkads_codingjavaprograms -->
+<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-6687609633990818" data-ad-slot="5475676485" data-ad-format="link" data-adsbygoogle-status="done"><ins id="aswift_2_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:750px;background-color:transparent"><ins id="aswift_2_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:750px;background-color:transparent"><iframe width="750" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_2" name="aswift_2" style="left:0;position:absolute;top:0;width:750px;height:90px;" src="./Search functionality in Laravel - Just Laravel_files/saved_resource(4).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><br>
+            
+<article id="post-208" class="post-208 post type-post status-publish format-standard has-post-thumbnail hentry category-intermediate category-laravel tag-laravel tag-search-functionality-in-laravel">
+        <header>
+        <h1 class="the-title" role="heading">
+            Search functionality in Laravel        </h1>
+    </header>
+    <div class="info-bar">
+                    <span class="author">
+                <a class="author-link" href="http://justlaravel.com/author/avinash/" rel="author">
+                    by avinash                 </a>
+            </span>
+                            <span class="date">
+                <span class="icon-date"></span> 30. April 2016            </span>
+        
+        <span class="categories">
+                <span class="icon-categories"></span>
+            <a href="http://justlaravel.com/category/intermediate/" rel="category tag">Intermediate</a>, <a href="http://justlaravel.com/category/laravel/" rel="category tag">Laravel</a>            </span>
+
+            <span class="comments">
+                <span class="icon-comment"></span> 16            </span>
+    </div>
+    <figure>
+                    <img width="1024" height="568" src="./Search functionality in Laravel - Just Laravel_files/search_functionality_feat_WP_1038_576.png" class="img-responsive wp-post-image" alt="Search functionality in Laravel" srcset="https://i1.wp.com/justlaravel.com/wp-content/uploads/2016/04/search_functionality_feat_WP_1038_576.png?w=1038 1038w, https://i1.wp.com/justlaravel.com/wp-content/uploads/2016/04/search_functionality_feat_WP_1038_576.png?resize=300%2C166 300w, https://i1.wp.com/justlaravel.com/wp-content/uploads/2016/04/search_functionality_feat_WP_1038_576.png?resize=1024%2C568 1024w" sizes="(max-width: 1024px) 100vw, 1024px" data-attachment-id="339" data-permalink="http://justlaravel.com/search-functionality-laravel/search_functionality_feat_wp_1038_576/" data-orig-file="https://i1.wp.com/justlaravel.com/wp-content/uploads/2016/04/search_functionality_feat_WP_1038_576.png?fit=1038%2C576" data-orig-size="1038,576" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Search functionality in laravel – justLaravel.com" data-image-description="&lt;p&gt;Search functionality in laravel – justLaravel.com&lt;/p&gt;
+" data-medium-file="https://i1.wp.com/justlaravel.com/wp-content/uploads/2016/04/search_functionality_feat_WP_1038_576.png?fit=300%2C166" data-large-file="https://i1.wp.com/justlaravel.com/wp-content/uploads/2016/04/search_functionality_feat_WP_1038_576.png?fit=1024%2C568">            </figure>
+
+    <div class="the-content">
+                    <div class="has-content-area" data-url="http://justlaravel.com/search-functionality-laravel/" data-title="Search functionality in Laravel"><p>Here we ‘ll see about how to implement search functionality in laravel. we ‘ll search the data from the database and show the search results in a table.</p>
+<p class="extra_btn_para"><span class="wdg"><a href="http://justlaravel.com/demos/search-functionality-in-laravel/" target="_blank"> <i class="fa fa-eye fa-lg"></i> Working Demo</a></span>&nbsp; &nbsp; &nbsp;<span class="wdg"> <a href="https://github.com/avinashn/searchexamplelaravel" target="_blank"> <i class="fa fa-github fa-lg"></i> Project on Github</a></span></p>
+<h3>Search form :</h3>
+<p>First lets create a form for search field,</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59964f859cf17700697452" class="crayon-syntax crayon-theme-cg-cookie crayon-font-consolas crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 16px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 16px !important; line-height: 16px !important; z-index: 0; opacity: 0; overflow: hidden;">&lt;form action="/search" method="POST" role="search"&gt;
+    {{ csrf_field() }}
+    &lt;div class="input-group"&gt;
+        &lt;input type="text" class="form-control" name="q"
+            placeholder="Search users"&gt; &lt;span class="input-group-btn"&gt;
+            &lt;button type="submit" class="btn btn-default"&gt;
+                &lt;span class="glyphicon glyphicon-search"&gt;&lt;/span&gt;
+            &lt;/button&gt;
+        &lt;/span&gt;
+    &lt;/div&gt;
+&lt;/form&gt;</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 16px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-59964f859cf17700697452-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf17700697452-2">2</div><div class="crayon-num" data-line="crayon-59964f859cf17700697452-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf17700697452-4">4</div><div class="crayon-num" data-line="crayon-59964f859cf17700697452-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf17700697452-6">6</div><div class="crayon-num" data-line="crayon-59964f859cf17700697452-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf17700697452-8">8</div><div class="crayon-num" data-line="crayon-59964f859cf17700697452-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf17700697452-10">10</div><div class="crayon-num" data-line="crayon-59964f859cf17700697452-11">11</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 16px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59964f859cf17700697452-1"><span class="crayon-o">&lt;</span><span class="crayon-e">form </span><span class="crayon-v">action</span><span class="crayon-o">=</span><span class="crayon-s">"/search"</span><span class="crayon-h"> </span><span class="crayon-v">method</span><span class="crayon-o">=</span><span class="crayon-s">"POST"</span><span class="crayon-h"> </span><span class="crayon-v">role</span><span class="crayon-o">=</span><span class="crayon-s">"search"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf17700697452-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">{</span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-e">csrf_field</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">}</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-59964f859cf17700697452-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">div </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"input-group"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf17700697452-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">input </span><span class="crayon-v">type</span><span class="crayon-o">=</span><span class="crayon-s">"text"</span><span class="crayon-h"> </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"form-control"</span><span class="crayon-h"> </span><span class="crayon-v">name</span><span class="crayon-o">=</span><span class="crayon-s">"q"</span></div><div class="crayon-line" id="crayon-59964f859cf17700697452-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">placeholder</span><span class="crayon-o">=</span><span class="crayon-s">"Search users"</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"input-group-btn"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf17700697452-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">button </span><span class="crayon-v">type</span><span class="crayon-o">=</span><span class="crayon-s">"submit"</span><span class="crayon-h"> </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"btn btn-default"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964f859cf17700697452-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">span </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"glyphicon glyphicon-search"</span><span class="crayon-o">&gt;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf17700697452-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">button</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964f859cf17700697452-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">span</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf17700697452-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">div</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964f859cf17700697452-11"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">form</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0025 seconds] -->
+<p></p>
+<h3>Search action :</h3>
+<p>When the search button is clicked, it goes to the route search where the logic for fetching data from database is present,</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59964f859cf24654944483" class="crayon-syntax crayon-theme-cg-cookie crayon-font-consolas crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 16px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 16px !important; line-height: 16px !important; z-index: 0; opacity: 0; overflow: hidden;">Route::any('/search',function(){
+    $q = Input::get ( 'q' );
+    $user = User::where('name','LIKE','%'.$q.'%')-&gt;orWhere('email','LIKE','%'.$q.'%')-&gt;get();
+    if(count($user) &gt; 0)
+        return view('welcome')-&gt;withDetails($user)-&gt;withQuery ( $q );
+    else return view ('welcome')-&gt;withMessage('No Details found. Try to search again !');
+});</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 16px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-59964f859cf24654944483-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf24654944483-2">2</div><div class="crayon-num" data-line="crayon-59964f859cf24654944483-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf24654944483-4">4</div><div class="crayon-num" data-line="crayon-59964f859cf24654944483-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf24654944483-6">6</div><div class="crayon-num" data-line="crayon-59964f859cf24654944483-7">7</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 16px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59964f859cf24654944483-1"><span class="crayon-v">Route</span><span class="crayon-o">::</span><span class="crayon-e">any</span><span class="crayon-sy">(</span><span class="crayon-s">'/search'</span><span class="crayon-sy">,</span><span class="crayon-t">function</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf24654944483-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">$</span><span class="crayon-v">q</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">Input</span><span class="crayon-o">::</span><span class="crayon-e">get</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'q'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-59964f859cf24654944483-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">$</span><span class="crayon-v">user</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">User</span><span class="crayon-o">::</span><span class="crayon-e">where</span><span class="crayon-sy">(</span><span class="crayon-s">'name'</span><span class="crayon-sy">,</span><span class="crayon-s">'LIKE'</span><span class="crayon-sy">,</span><span class="crayon-s">'%'</span><span class="crayon-sy">.</span><span class="crayon-sy">$</span><span class="crayon-v">q</span><span class="crayon-sy">.</span><span class="crayon-s">'%'</span><span class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span class="crayon-e">orWhere</span><span class="crayon-sy">(</span><span class="crayon-s">'email'</span><span class="crayon-sy">,</span><span class="crayon-s">'LIKE'</span><span class="crayon-sy">,</span><span class="crayon-s">'%'</span><span class="crayon-sy">.</span><span class="crayon-sy">$</span><span class="crayon-v">q</span><span class="crayon-sy">.</span><span class="crayon-s">'%'</span><span class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span class="crayon-e">get</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf24654944483-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-e">count</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-v">user</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-59964f859cf24654944483-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-e">view</span><span class="crayon-sy">(</span><span class="crayon-s">'welcome'</span><span class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span class="crayon-e">withDetails</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-v">user</span><span class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span class="crayon-e">withQuery</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-i">q</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf24654944483-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">else</span><span class="crayon-h"> </span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-e">view</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-s">'welcome'</span><span class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span class="crayon-e">withMessage</span><span class="crayon-sy">(</span><span class="crayon-s">'No Details found. Try to search again !'</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-59964f859cf24654944483-7"><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0026 seconds] -->
+<p></p>
+<p>this logic searches the table User for name and email with the input we provide, here we use LIKE operator for searching data,<br>
+after fetching the data the data is sent to welcome view, along with the message when no search results are found.</p>
+<p><em>Here all the logic is written in routes file itself, if we want to create a controller we can do it, here only just one simple logic, so we didn’t use controller.</em></p>
+<h3>Search results :</h3>
+<p>Welcome view for showing search results will look like,</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59964f859cf2b219434436" class="crayon-syntax crayon-theme-cg-cookie crayon-font-consolas crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 16px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 16px !important; line-height: 16px !important; z-index: 0; opacity: 0; overflow: hidden;">&lt;div class="container"&gt;
+    @if(isset($details))
+        &lt;p&gt; The Search results for your query &lt;b&gt; {{ $query }} &lt;/b&gt; are :&lt;/p&gt;
+    &lt;h2&gt;Sample User details&lt;/h2&gt;
+    &lt;table class="table table-striped"&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Email&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            @foreach($details as $user)
+            &lt;tr&gt;
+                &lt;td&gt;{{$user-&gt;name}}&lt;/td&gt;
+                &lt;td&gt;{{$user-&gt;email}}&lt;/td&gt;
+            &lt;/tr&gt;
+            @endforeach
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+    @endif
+&lt;/div&gt;</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 16px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-59964f859cf2b219434436-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf2b219434436-2">2</div><div class="crayon-num" data-line="crayon-59964f859cf2b219434436-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf2b219434436-4">4</div><div class="crayon-num" data-line="crayon-59964f859cf2b219434436-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf2b219434436-6">6</div><div class="crayon-num" data-line="crayon-59964f859cf2b219434436-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf2b219434436-8">8</div><div class="crayon-num" data-line="crayon-59964f859cf2b219434436-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf2b219434436-10">10</div><div class="crayon-num" data-line="crayon-59964f859cf2b219434436-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf2b219434436-12">12</div><div class="crayon-num" data-line="crayon-59964f859cf2b219434436-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf2b219434436-14">14</div><div class="crayon-num" data-line="crayon-59964f859cf2b219434436-15">15</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf2b219434436-16">16</div><div class="crayon-num" data-line="crayon-59964f859cf2b219434436-17">17</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf2b219434436-18">18</div><div class="crayon-num" data-line="crayon-59964f859cf2b219434436-19">19</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf2b219434436-20">20</div><div class="crayon-num" data-line="crayon-59964f859cf2b219434436-21">21</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf2b219434436-22">22</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 16px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59964f859cf2b219434436-1"><span class="crayon-o">&lt;</span><span class="crayon-e">div </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"container"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf2b219434436-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">@</span><span class="crayon-st">if</span><span class="crayon-sy">(</span><span class="crayon-e">isset</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-v">details</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span></div><div class="crayon-line" id="crayon-59964f859cf2b219434436-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">p</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-e">The</span><span class="crayon-h"> </span><span class="crayon-e">Search</span><span class="crayon-h"> </span><span class="crayon-e">results</span><span class="crayon-h"> </span><span class="crayon-st">for</span><span class="crayon-h"> </span><span class="crayon-e">your</span><span class="crayon-h"> </span><span class="crayon-e">query</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-e">b</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-sy">{</span><span class="crayon-sy">{</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-i">query</span><span class="crayon-h"> </span><span class="crayon-sy">}</span><span class="crayon-sy">}</span><span class="crayon-h"> </span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">b</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">are</span><span class="crayon-h"> </span><span class="crayon-o">:</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">p</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf2b219434436-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-v">h2</span><span class="crayon-o">&gt;</span><span class="crayon-e">Sample </span><span class="crayon-e">User </span><span class="crayon-v">details</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">h2</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964f859cf2b219434436-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">table </span><span class="crayon-t">class</span><span class="crayon-o">=</span><span class="crayon-s">"table table-striped"</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf2b219434436-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-v">thead</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964f859cf2b219434436-7"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-v">tr</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf2b219434436-8"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-v">th</span><span class="crayon-o">&gt;</span><span class="crayon-v">Name</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">th</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964f859cf2b219434436-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-v">th</span><span class="crayon-o">&gt;</span><span class="crayon-v">Email</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">th</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf2b219434436-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">tr</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964f859cf2b219434436-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">thead</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf2b219434436-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-v">tbody</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964f859cf2b219434436-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">@</span><span class="crayon-st">foreach</span><span class="crayon-sy">(</span><span class="crayon-sy">$</span><span class="crayon-e">details </span><span class="crayon-st">as</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-v">user</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf2b219434436-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">tr</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964f859cf2b219434436-15"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">td</span><span class="crayon-o">&gt;</span><span class="crayon-sy">{</span><span class="crayon-sy">{</span><span class="crayon-sy">$</span><span class="crayon-v">user</span><span class="crayon-o">-&gt;</span><span class="crayon-v">name</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-e">td</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf2b219434436-16"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-e">td</span><span class="crayon-o">&gt;</span><span class="crayon-sy">{</span><span class="crayon-sy">{</span><span class="crayon-sy">$</span><span class="crayon-v">user</span><span class="crayon-o">-&gt;</span><span class="crayon-v">email</span><span class="crayon-sy">}</span><span class="crayon-sy">}</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">td</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964f859cf2b219434436-17"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">tr</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf2b219434436-18"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">@</span><span class="crayon-st">endforeach</span></div><div class="crayon-line" id="crayon-59964f859cf2b219434436-19"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">tbody</span><span class="crayon-o">&gt;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf2b219434436-20"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">table</span><span class="crayon-o">&gt;</span></div><div class="crayon-line" id="crayon-59964f859cf2b219434436-21"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">@</span><span class="crayon-st">endif</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf2b219434436-22"><span class="crayon-o">&lt;</span><span class="crayon-o">/</span><span class="crayon-v">div</span><span class="crayon-o">&gt;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0041 seconds] -->
+<p></p>
+<p>The routes file looks like,</p>
+<p></p><!-- Crayon Syntax Highlighter v_2.7.2_beta -->
+
+		<div id="crayon-59964f859cf30134552275" class="crayon-syntax crayon-theme-cg-cookie crayon-font-consolas crayon-os-pc print-yes notranslate" data-settings=" minimize scroll-mouseover" style="margin-top: 12px; margin-bottom: 12px; font-size: 16px !important; line-height: 16px !important; height: auto;">
+		
+			<div class="crayon-plain-wrap"><textarea wrap="soft" class="crayon-plain print-no" data-settings="dblclick" readonly="" style="tab-size: 4; font-size: 16px !important; line-height: 16px !important; z-index: 0; opacity: 0; overflow: hidden;">&lt;?php
+use App\User;
+use Illuminate\Support\Facades\Input;
+
+Route::get ( '/', function () {
+    return view ( 'welcome' );
+} );
+Route::any ( '/search', function () {
+    $q = Input::get ( 'q' );
+    $user = User::where ( 'name', 'LIKE', '%' . $q . '%' )-&gt;orWhere ( 'email', 'LIKE', '%' . $q . '%' )-&gt;get ();
+    if (count ( $user ) &gt; 0)
+        return view ( 'welcome' )-&gt;withDetails ( $user )-&gt;withQuery ( $q );
+    else
+        return view ( 'welcome' )-&gt;withMessage ( 'No Details found. Try to search again !' );
+} );</textarea></div>
+			<div class="crayon-main" style="position: relative; z-index: 1; overflow: hidden;">
+				<table class="crayon-table" style="">
+					<tbody><tr class="crayon-row">
+				<td class="crayon-nums " data-settings="show">
+					<div class="crayon-nums-content" style="font-size: 16px !important; line-height: 16px !important;"><div class="crayon-num" data-line="crayon-59964f859cf30134552275-1">1</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf30134552275-2">2</div><div class="crayon-num" data-line="crayon-59964f859cf30134552275-3">3</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf30134552275-4">4</div><div class="crayon-num" data-line="crayon-59964f859cf30134552275-5">5</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf30134552275-6">6</div><div class="crayon-num" data-line="crayon-59964f859cf30134552275-7">7</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf30134552275-8">8</div><div class="crayon-num" data-line="crayon-59964f859cf30134552275-9">9</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf30134552275-10">10</div><div class="crayon-num" data-line="crayon-59964f859cf30134552275-11">11</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf30134552275-12">12</div><div class="crayon-num" data-line="crayon-59964f859cf30134552275-13">13</div><div class="crayon-num crayon-striped-num" data-line="crayon-59964f859cf30134552275-14">14</div><div class="crayon-num" data-line="crayon-59964f859cf30134552275-15">15</div></div>
+				</td>
+						<td class="crayon-code"><div class="crayon-pre" style="font-size: 16px !important; line-height: 16px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-59964f859cf30134552275-1"><span class="crayon-o">&lt;</span><span class="crayon-sy">?</span><span class="crayon-e">php</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf30134552275-2"><span class="crayon-st">use</span><span class="crayon-h"> </span><span class="crayon-v">App</span><span class="crayon-sy">\</span><span class="crayon-v">User</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-59964f859cf30134552275-3"><span class="crayon-st">use</span><span class="crayon-h"> </span><span class="crayon-v">Illuminate</span><span class="crayon-sy">\</span><span class="crayon-v">Support</span><span class="crayon-sy">\</span><span class="crayon-v">Facades</span><span class="crayon-sy">\</span><span class="crayon-v">Input</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf30134552275-4">&nbsp;</div><div class="crayon-line" id="crayon-59964f859cf30134552275-5"><span class="crayon-v">Route</span><span class="crayon-o">::</span><span class="crayon-e">get</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'/'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf30134552275-6"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-e">view</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'welcome'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-59964f859cf30134552275-7"><span class="crayon-sy">}</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf30134552275-8"><span class="crayon-v">Route</span><span class="crayon-o">::</span><span class="crayon-e">any</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'/search'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-59964f859cf30134552275-9"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">$</span><span class="crayon-v">q</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">Input</span><span class="crayon-o">::</span><span class="crayon-e">get</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'q'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf30134552275-10"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">$</span><span class="crayon-v">user</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">User</span><span class="crayon-o">::</span><span class="crayon-e">where</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'name'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'LIKE'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'%'</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-i">q</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-s">'%'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span class="crayon-e">orWhere</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'email'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'LIKE'</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-s">'%'</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-i">q</span><span class="crayon-h"> </span><span class="crayon-sy">.</span><span class="crayon-h"> </span><span class="crayon-s">'%'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span class="crayon-e">get</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-59964f859cf30134552275-11"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-e">count</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-i">user</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-cn">0</span><span class="crayon-sy">)</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf30134552275-12"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-e">view</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'welcome'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span class="crayon-e">withDetails</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-i">user</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span class="crayon-e">withQuery</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-i">q</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-59964f859cf30134552275-13"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">else</span></div><div class="crayon-line crayon-striped-line" id="crayon-59964f859cf30134552275-14"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">return</span><span class="crayon-h"> </span><span class="crayon-e">view</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'welcome'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-o">-&gt;</span><span class="crayon-e">withMessage</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-h"> </span><span class="crayon-s">'No Details found. Try to search again !'</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-59964f859cf30134552275-15"><span class="crayon-sy">}</span><span class="crayon-h"> </span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td>
+					</tr>
+				</tbody></table>
+			</div>
+		</div>
+<!-- [Format Time: 0.0043 seconds] -->
+<p></p>
+<p>for different types of routing check previous post on <a href="http://justlaravel.com/routing-laravel/" target="_blank">routing</a>.</p>
+<p>Now when someone query the database, we can see the appropriate results.</p>
+<p class="extra_btn_para"><span class="wdg"><a href="http://justlaravel.com/demos/search-functionality-in-laravel/" target="_blank"> <i class="fa fa-eye fa-lg"></i> Working Demo</a></span>&nbsp; &nbsp; &nbsp;<span class="wdg"> <a href="https://github.com/avinashn/searchexamplelaravel" target="_blank"> <i class="fa fa-github fa-lg"></i> Project on Github</a></span></p><div class="code-block code-block-1" style="margin: 8px auto; text-align: center;">
+<script async="" src="./Search functionality in Laravel - Just Laravel_files/adsbygoogle.js.download"></script>
+<ins class="adsbygoogle" style="display: block; text-align: center; height: 188px;" data-ad-format="fluid" data-ad-layout="in-article" data-ad-client="ca-pub-6687609633990818" data-ad-slot="4999271704" data-adsbygoogle-status="done"><ins id="aswift_3_expand" style="display:inline-table;border:none;height:188px;margin:0;padding:0;position:relative;visibility:visible;width:750px;background-color:transparent"><ins id="aswift_3_anchor" style="display:block;border:none;height:188px;margin:0;padding:0;position:relative;visibility:visible;width:750px;background-color:transparent"><iframe width="750" height="188" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_3" name="aswift_3" style="left:0;position:absolute;top:0;width:750px;height:188px;" src="./Search functionality in Laravel - Just Laravel_files/saved_resource(5).html"></iframe></ins></ins></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+
+<p>Look at the screenshots below,</p>
+<figure id="attachment_216" style="width: 862px" class="wp-caption aligncenter"><img data-attachment-id="216" data-permalink="http://justlaravel.com/search-functionality-laravel/sjl/" data-orig-file="https://i2.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl.png?fit=862%2C469" data-orig-size="862,469" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Search functionality in laravel – justLaravel.com" data-image-description="&lt;p&gt;Search functionality in laravel – justLaravel.com&lt;/p&gt;
+" data-medium-file="https://i2.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl.png?fit=300%2C163" data-large-file="https://i2.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl.png?fit=862%2C469" class="size-full wp-image-216" src="./Search functionality in Laravel - Just Laravel_files/sjl.png" alt="Search functionality in laravel - jusLaravel.com" srcset="https://i2.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl.png?w=862 862w, https://i2.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl.png?resize=300%2C163 300w" sizes="(max-width: 862px) 100vw, 862px" width="701" height="382"><figcaption class="wp-caption-text">Search functionality in laravel – jusLaravel.com</figcaption></figure>
+<figure id="attachment_217" style="width: 860px" class="wp-caption aligncenter"><img data-attachment-id="217" data-permalink="http://justlaravel.com/search-functionality-laravel/sjl1/" data-orig-file="https://i0.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl1.png?fit=860%2C500" data-orig-size="860,500" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Search functionality in laravel – justLaravel.com" data-image-description="&lt;p&gt;Search functionality in laravel – justLaravel.com&lt;/p&gt;
+" data-medium-file="https://i0.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl1.png?fit=300%2C174" data-large-file="https://i0.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl1.png?fit=860%2C500" class="size-full wp-image-217" src="./Search functionality in Laravel - Just Laravel_files/sjl1.png" alt="Search functionality in laravel - jusLaravel.com" srcset="https://i0.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl1.png?w=860 860w, https://i0.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl1.png?resize=300%2C174 300w" sizes="(max-width: 860px) 100vw, 860px" width="701" height="408"><figcaption class="wp-caption-text">Search functionality in laravel – jusLaravel.com</figcaption></figure>
+<figure id="attachment_218" style="width: 878px" class="wp-caption aligncenter"><img data-attachment-id="218" data-permalink="http://justlaravel.com/search-functionality-laravel/sjl2/" data-orig-file="https://i2.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl2.png?fit=878%2C494" data-orig-size="878,494" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Search functionality in laravel – justLaravel.com" data-image-description="&lt;p&gt;Search functionality in laravel – justLaravel.com&lt;/p&gt;
+" data-medium-file="https://i2.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl2.png?fit=300%2C169" data-large-file="https://i2.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl2.png?fit=878%2C494" class="size-full wp-image-218" src="./Search functionality in Laravel - Just Laravel_files/sjl2.png" alt="Search functionality in laravel - jusLaravel.com" srcset="https://i2.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl2.png?w=878 878w, https://i2.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl2.png?resize=300%2C169 300w" sizes="(max-width: 878px) 100vw, 878px" width="701" height="395"><figcaption class="wp-caption-text">Search functionality in laravel – jusLaravel.com</figcaption></figure>
+<figure id="attachment_219" style="width: 869px" class="wp-caption aligncenter"><img data-attachment-id="219" data-permalink="http://justlaravel.com/search-functionality-laravel/sjl3/" data-orig-file="https://i0.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl3.png?fit=869%2C830" data-orig-size="869,830" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Search functionality in laravel – justLaravel.com" data-image-description="&lt;p&gt;Search functionality in laravel – justLaravel.com&lt;/p&gt;
+" data-medium-file="https://i0.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl3.png?fit=300%2C287" data-large-file="https://i0.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl3.png?fit=869%2C830" class="size-full wp-image-219" src="./Search functionality in Laravel - Just Laravel_files/sjl3.png" alt="Search functionality in laravel - jusLaravel.com" srcset="https://i0.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl3.png?w=869 869w, https://i0.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl3.png?resize=300%2C287 300w" sizes="(max-width: 869px) 100vw, 869px" width="701" height="670"><figcaption class="wp-caption-text">Search functionality in laravel – jusLaravel.com</figcaption></figure>
+<figure id="attachment_220" style="width: 854px" class="wp-caption aligncenter"><img data-attachment-id="220" data-permalink="http://justlaravel.com/search-functionality-laravel/sjl4/" data-orig-file="https://i2.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl4.png?fit=854%2C536" data-orig-size="854,536" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Search functionality in laravel – justLaravel.com" data-image-description="&lt;p&gt;Search functionality in laravel – justLaravel.com&lt;/p&gt;
+" data-medium-file="https://i2.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl4.png?fit=300%2C188" data-large-file="https://i2.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl4.png?fit=854%2C536" class="size-full wp-image-220" src="./Search functionality in Laravel - Just Laravel_files/sjl4.png" alt="Search functionality in laravel - jusLaravel.com" srcset="https://i2.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl4.png?w=854 854w, https://i2.wp.com/justlaravel.com/wp-content/uploads/2016/04/sjl4.png?resize=300%2C188 300w" sizes="(max-width: 854px) 100vw, 854px" width="701" height="440"><figcaption class="wp-caption-text">Search functionality in laravel – jusLaravel.com</figcaption></figure>
+<p>&nbsp;</p>
+<p class="extra_btn_para"><span class="wdg"><a href="http://justlaravel.com/demos/search-functionality-in-laravel/" target="_blank"> <i class="fa fa-eye fa-lg"></i> Working Demo</a></span>&nbsp; &nbsp; &nbsp;<span class="wdg"> <a href="https://github.com/avinashn/searchexamplelaravel" target="_blank"> <i class="fa fa-github fa-lg"></i> Project on Github</a></span></p>
+<p>That’s it folks. We have successfully implemented simple search functionality for fetching data from database in laravel.</p>
+<p>Feel free to browse previous posts on <a href="http://justlaravel.com/custom-authentication-validation-laravel/" target="_blank">custom authentication with validation</a>, <a href="http://justlaravel.com/routing-laravel/" target="_blank">routing</a>, and&nbsp;<a href="http://justlaravel.com/pagination-laravel/" target="_blank">pagination</a>.</p>
+<p>&nbsp;</p>
+</div><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-208" class="share-facebook sd-button share-icon no-text" href="http://justlaravel.com/search-functionality-laravel/?share=facebook&amp;nb=1" target="_blank" title="Click to share on Facebook"><span><span class="share-count">17</span></span><span class="sharing-screen-reader-text">Click to share on Facebook (Opens in new window)<span class="share-count">17</span></span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-208" class="share-twitter sd-button share-icon no-text" href="http://justlaravel.com/search-functionality-laravel/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter"><span></span><span class="sharing-screen-reader-text">Click to share on Twitter (Opens in new window)</span></a></li><li class="share-jetpack-whatsapp"><a rel="nofollow" data-shared="" class="share-jetpack-whatsapp sd-button share-icon no-text" href="whatsapp://send?text=Search%20functionality%20in%20Laravel http%3A%2F%2Fjustlaravel.com%2Fsearch-functionality-laravel%2F" target="_blank" title="Click to share on WhatsApp"><span></span><span class="sharing-screen-reader-text">Click to share on WhatsApp (Opens in new window)</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-208" class="share-google-plus-1 sd-button share-icon no-text" href="http://justlaravel.com/search-functionality-laravel/?share=google-plus-1&amp;nb=1" target="_blank" title="Click to share on Google+"><span></span><span class="sharing-screen-reader-text">Click to share on Google+ (Opens in new window)</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-208" class="share-linkedin sd-button share-icon no-text" href="http://justlaravel.com/search-functionality-laravel/?share=linkedin&amp;nb=1" target="_blank" title="Click to share on LinkedIn"><span></span><span class="sharing-screen-reader-text">Click to share on LinkedIn (Opens in new window)</span></a></li><li class="share-skype"><a rel="nofollow" data-shared="sharing-skype-208" class="share-skype sd-button share-icon no-text" href="http://justlaravel.com/search-functionality-laravel/?share=skype&amp;nb=1" target="_blank" title="Share on Skype"><span></span><span class="sharing-screen-reader-text">Share on Skype (Opens in new window)</span></a></li><li class="share-email share-service-visible"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon no-text" href="http://justlaravel.com/search-functionality-laravel/?share=email&amp;nb=1" target="_blank" title="Click to email this to a friend"><span></span><span class="sharing-screen-reader-text">Click to email this to a friend (Opens in new window)</span></a></li><li class="share-print"><a rel="nofollow" data-shared="" class="share-print sd-button share-icon no-text" href="http://justlaravel.com/search-functionality-laravel/#print" target="_blank" title="Click to print"><span></span><span class="sharing-screen-reader-text">Click to print (Opens in new window)</span></a></li><li class="share-pinterest"><a rel="nofollow" data-shared="sharing-pinterest-208" class="share-pinterest sd-button share-icon no-text" href="http://justlaravel.com/search-functionality-laravel/?share=pinterest&amp;nb=1" target="_blank" title="Click to share on Pinterest"><span></span><span class="sharing-screen-reader-text">Click to share on Pinterest (Opens in new window)</span></a></li><li class="share-telegram"><a rel="nofollow" data-shared="" class="share-telegram sd-button share-icon no-text" href="http://justlaravel.com/search-functionality-laravel/?share=telegram&amp;nb=1" target="_blank" title="Click to share on Telegram"><span></span><span class="sharing-screen-reader-text">Click to share on Telegram (Opens in new window)</span></a></li><li class="share-reddit"><a rel="nofollow" data-shared="" class="share-reddit sd-button share-icon no-text" href="http://justlaravel.com/search-functionality-laravel/?share=reddit&amp;nb=1" target="_blank" title="Click to share on Reddit"><span></span><span class="sharing-screen-reader-text">Click to share on Reddit (Opens in new window)</span></a></li><li class="share-tumblr"><a rel="nofollow" data-shared="" class="share-tumblr sd-button share-icon no-text" href="http://justlaravel.com/search-functionality-laravel/?share=tumblr&amp;nb=1" target="_blank" title="Click to share on Tumblr"><span></span><span class="sharing-screen-reader-text">Click to share on Tumblr (Opens in new window)</span></a></li><li class="share-pocket"><a rel="nofollow" data-shared="" class="share-pocket sd-button share-icon no-text" href="http://justlaravel.com/search-functionality-laravel/?share=pocket&amp;nb=1" target="_blank" title="Click to share on Pocket"><span></span><span class="sharing-screen-reader-text">Click to share on Pocket (Opens in new window)</span></a></li><li class="share-end"></li></ul></div></div></div>
+<div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-visual jp-relatedposts-grid "><div class="jp-relatedposts-post jp-relatedposts-post0 jp-relatedposts-post-thumbs" data-post-id="231" data-post-format="false"><a class="jp-relatedposts-post-a" href="http://justlaravel.com/paginated-data-search-laravel/" title="Paginated data with Search functionality - laravel
+
+In previous posts we saw about pagination and search functionality individually. Here we &#39;ll combine search functionality with paginated data results. Its quite common to inculude search option and pagination functionality for displaying any type of large data. So instead of using some table table extenders which fetch all the…" rel="nofollow" data-origin="208" data-position="0"><img class="jp-relatedposts-post-img" src="./Search functionality in Laravel - Just Laravel_files/pagination_search_Feat_WP_1038_576.png" width="350" alt="Paginated data with Search functionality - laravel"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="http://justlaravel.com/paginated-data-search-laravel/" title="Paginated data with Search functionality - laravel
+
+In previous posts we saw about pagination and search functionality individually. Here we &#39;ll combine search functionality with paginated data results. Its quite common to inculude search option and pagination functionality for displaying any type of large data. So instead of using some table table extenders which fetch all the…" rel="nofollow" data-origin="208" data-position="0">Paginated data with Search functionality - laravel</a></h4><p class="jp-relatedposts-post-excerpt">In previous posts we saw about pagination and search functionality individually. Here we 'll combine search functionality with paginated data results. Its quite common to inculude search option and pagination functionality for displaying any type of large data. So instead of using some table table extenders which fetch all the…</p><p class="jp-relatedposts-post-date" style="display: block;">May 3, 2016</p><p class="jp-relatedposts-post-context">In "Intermediate"</p></div><div class="jp-relatedposts-post jp-relatedposts-post1 jp-relatedposts-post-thumbs" data-post-id="460" data-post-format="false"><a class="jp-relatedposts-post-a" href="http://justlaravel.com/ajax-crud-operations-laravel/" title="Ajax CRUD operations in laravel
+
+Hello readers, am back with another tutorial to discuss about performing Create Read Update Delete(CRUD) operations in laravel using ajax. In previous tutorials like integrating bootgrid plugin there are CRUD operations but they are without ajax, every time the operation is performed the page may reload and show the information. But…" rel="nofollow" data-origin="208" data-position="1"><img class="jp-relatedposts-post-img" src="./Search functionality in Laravel - Just Laravel_files/ajax_CRUD_FEAT_WP_1038_576.png" width="350" alt="Ajax CRUD operations in laravel"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="http://justlaravel.com/ajax-crud-operations-laravel/" title="Ajax CRUD operations in laravel
+
+Hello readers, am back with another tutorial to discuss about performing Create Read Update Delete(CRUD) operations in laravel using ajax. In previous tutorials like integrating bootgrid plugin there are CRUD operations but they are without ajax, every time the operation is performed the page may reload and show the information. But…" rel="nofollow" data-origin="208" data-position="1">Ajax CRUD operations in laravel</a></h4><p class="jp-relatedposts-post-excerpt">Hello readers, am back with another tutorial to discuss about performing Create Read Update Delete(CRUD) operations in laravel using ajax. In previous&nbsp;tutorials like integrating bootgrid plugin there are CRUD operations but they are without ajax, every time the operation is performed the page may reload and show the information. But…</p><p class="jp-relatedposts-post-date" style="display: block;">August 5, 2016</p><p class="jp-relatedposts-post-context">In "Intermediate"</p></div><div class="jp-relatedposts-post jp-relatedposts-post2 jp-relatedposts-post-thumbs" data-post-id="1419" data-post-format="false"><a class="jp-relatedposts-post-a" href="http://justlaravel.com/posts-search-gallery-view-app-vuejs/" title="Posts search and gallery view app in Vuejs
+
+Hello everyone, welcome back to justlaravel.com. Here I am going to explore some more about vuejs, in previous post, I gave some intro to vue, where we already had database connection and operations on those data and all that cool stuff. Here I will develop another simple app to see…" rel="nofollow" data-origin="208" data-position="2"><img class="jp-relatedposts-post-img" src="./Search functionality in Laravel - Just Laravel_files/Vue_Posts_WP_1038_576.png" width="350" alt="Posts search and gallery view app in Vuejs"></a><h4 class="jp-relatedposts-post-title"><a class="jp-relatedposts-post-a" href="http://justlaravel.com/posts-search-gallery-view-app-vuejs/" title="Posts search and gallery view app in Vuejs
+
+Hello everyone, welcome back to justlaravel.com. Here I am going to explore some more about vuejs, in previous post, I gave some intro to vue, where we already had database connection and operations on those data and all that cool stuff. Here I will develop another simple app to see…" rel="nofollow" data-origin="208" data-position="2">Posts search and gallery view app in Vuejs</a></h4><p class="jp-relatedposts-post-excerpt">Hello everyone, welcome back to justlaravel.com. Here I am going to explore some more about vuejs, in previous post, I gave some intro to vue, where we already had database connection and operations on those data and all that cool stuff. Here I will develop another simple app to see…</p><p class="jp-relatedposts-post-date" style="display: block;">May 11, 2017</p><p class="jp-relatedposts-post-context">In "Integrations"</p></div></div></div>            </div>
+    <hr class="separator">
+</article>
+<script async="" src="./Search functionality in Laravel - Just Laravel_files/adsbygoogle.js.download"></script>
+<!-- linkads_codingjavaprograms -->
+<ins class="adsbygoogle" style="display: block; height: 90px;" data-ad-client="ca-pub-6687609633990818" data-ad-slot="5475676485" data-ad-format="link" data-adsbygoogle-status="done"><ins id="aswift_4_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:750px;background-color:transparent"><ins id="aswift_4_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:750px;background-color:transparent"><iframe width="750" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_4" name="aswift_4" style="left:0;position:absolute;top:0;width:750px;height:90px;" src="./Search functionality in Laravel - Just Laravel_files/saved_resource(6).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script><br>
+<div id="comments">
+            <div class="comments-area">
+            <h2 class="the-subtitle">
+                <span class="number">16</span> thoughts on “Search functionality in Laravel”            </h2>
+
+            <ul class="comment-list">
+                    <li class="comment even thread-even depth-1 parent" id="comment-16">
+        <div id="div-comment-16" class="comment-body">
+    <figure class="comment-figure">
+        <img alt="" src="./Search functionality in Laravel - Just Laravel_files/a43dc90b5c914b012e84e39b302fe49a" srcset="http://1.gravatar.com/avatar/a43dc90b5c914b012e84e39b302fe49a?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo grav-hashed grav-hijack" height="70" width="70" id="grav-a43dc90b5c914b012e84e39b302fe49a-0">        <span class="comment-number">18</span>
+    </figure>
+    <div class="comment-info">
+        <cite class="fn"><a href="http://longkyanh.info/" rel="external nofollow" class="url">longkyanh</a></cite>        on April 30, 2016        <span class="comment-links">
+                <a rel="nofollow" class="comment-reply-link" href="http://justlaravel.com/search-functionality-laravel/?replytocom=16#respond" onclick="return addComment.moveForm( &quot;div-comment-16&quot;, &quot;16&quot;, &quot;respond&quot;, &quot;208&quot; )" aria-label="Reply to longkyanh">Reply</a>        </span>
+    </div>
+
+        <p>return view(‘welcome’)-&gt;withDetails($user)-&gt;-&gt;withQuery ( $q );<br>
+? should it be only one <code>-&gt;</code> pointer</p>
+        </div>
+<ul class="children">
+    <li class="comment byuser comment-author-avinash bypostauthor odd alt depth-2" id="comment-17">
+        <div id="div-comment-17" class="comment-body">
+    <figure class="comment-figure">
+        <img alt="" src="./Search functionality in Laravel - Just Laravel_files/d454f05736045a0c436182659c717ef6" srcset="http://1.gravatar.com/avatar/d454f05736045a0c436182659c717ef6?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo grav-hashed grav-hijack" height="70" width="70" id="grav-d454f05736045a0c436182659c717ef6-0">        <span class="comment-number">19</span>
+    </figure>
+    <div class="comment-info">
+        <cite class="fn">avinash</cite>        on April 30, 2016        <span class="comment-links">
+                <a rel="nofollow" class="comment-reply-link" href="http://justlaravel.com/search-functionality-laravel/?replytocom=17#respond" onclick="return addComment.moveForm( &quot;div-comment-17&quot;, &quot;17&quot;, &quot;respond&quot;, &quot;208&quot; )" aria-label="Reply to avinash">Reply</a>        </span>
+    </div>
+
+        <p>Thanks longkyanh for the check, corrected it now. <img draggable="false" class="emoji" alt="🙂" src="./Search functionality in Laravel - Just Laravel_files/1f642.svg"></p>
+        </div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+    <li class="comment even thread-odd thread-alt depth-1 parent" id="comment-46">
+        <div id="div-comment-46" class="comment-body">
+    <figure class="comment-figure">
+        <img alt="" src="./Search functionality in Laravel - Just Laravel_files/c5580fd9ded8f58909d6bdeaa45bb347" srcset="http://0.gravatar.com/avatar/c5580fd9ded8f58909d6bdeaa45bb347?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo grav-hashed grav-hijack" height="70" width="70" id="grav-c5580fd9ded8f58909d6bdeaa45bb347-0">        <span class="comment-number">20</span>
+    </figure>
+    <div class="comment-info">
+        <cite class="fn">Cris</cite>        on July 13, 2016        <span class="comment-links">
+                <a rel="nofollow" class="comment-reply-link" href="http://justlaravel.com/search-functionality-laravel/?replytocom=46#respond" onclick="return addComment.moveForm( &quot;div-comment-46&quot;, &quot;46&quot;, &quot;respond&quot;, &quot;208&quot; )" aria-label="Reply to Cris">Reply</a>        </span>
+    </div>
+
+        <p>I recommend you use the “when” of laravel 5.2 to optimize and refactor this code. regards</p>
+        </div>
+<ul class="children">
+    <li class="comment byuser comment-author-avinash bypostauthor odd alt depth-2" id="comment-47">
+        <div id="div-comment-47" class="comment-body">
+    <figure class="comment-figure">
+        <img alt="" src="./Search functionality in Laravel - Just Laravel_files/d454f05736045a0c436182659c717ef6" srcset="http://1.gravatar.com/avatar/d454f05736045a0c436182659c717ef6?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo grav-hashed grav-hijack" height="70" width="70" id="grav-d454f05736045a0c436182659c717ef6-1">        <span class="comment-number">21</span>
+    </figure>
+    <div class="comment-info">
+        <cite class="fn">avinash</cite>        on July 13, 2016        <span class="comment-links">
+                <a rel="nofollow" class="comment-reply-link" href="http://justlaravel.com/search-functionality-laravel/?replytocom=47#respond" onclick="return addComment.moveForm( &quot;div-comment-47&quot;, &quot;47&quot;, &quot;respond&quot;, &quot;208&quot; )" aria-label="Reply to avinash">Reply</a>        </span>
+    </div>
+
+        <p>Thanks Cris for the update,</p>
+<p>I think, i made this search functionality post with laravel 5.1~</p>
+        </div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+    <li class="comment even thread-even depth-1 parent" id="comment-134">
+        <div id="div-comment-134" class="comment-body">
+    <figure class="comment-figure">
+        <img alt="" src="./Search functionality in Laravel - Just Laravel_files/4d773e1af3f2cc4ddeee2bfdc4625a41" srcset="http://1.gravatar.com/avatar/4d773e1af3f2cc4ddeee2bfdc4625a41?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo grav-hashed grav-hijack" height="70" width="70" id="grav-4d773e1af3f2cc4ddeee2bfdc4625a41-0">        <span class="comment-number">22</span>
+    </figure>
+    <div class="comment-info">
+        <cite class="fn">Michelle Prather</cite>        on December 14, 2016        <span class="comment-links">
+                <a rel="nofollow" class="comment-reply-link" href="http://justlaravel.com/search-functionality-laravel/?replytocom=134#respond" onclick="return addComment.moveForm( &quot;div-comment-134&quot;, &quot;134&quot;, &quot;respond&quot;, &quot;208&quot; )" aria-label="Reply to Michelle Prather">Reply</a>        </span>
+    </div>
+
+        <p>Code from last question : </p>
+<p>//routes.php<br>
+Route::any(‘/search’,function(){<br>
+    $q = Input::get ( ‘q’ );<br>
+    $trucking_delivery = TruckingDelivery::where(‘ref_no’,’LIKE’,’%’.$q.’%’)-&gt;orWhere(‘mawb’,’LIKE’,’%’.$q.’%’)-&gt;orWhere(‘hawb’,’LIKE’,’%’.$q.’%’)-&gt;get();<br>
+    if(count($trucking_delivery) &gt; 0)<br>
+        return view(‘search-results’)-&gt;withDetails($trucking_delivery)-&gt;withQuery ( $q );<br>
+    else return view(‘freight-availability’)-&gt;withMessage(‘No Details found. Please try your search again !’);<br>
+});</p>
+        </div>
+<ul class="children">
+    <li class="comment byuser comment-author-avinash bypostauthor odd alt depth-2" id="comment-135">
+        <div id="div-comment-135" class="comment-body">
+    <figure class="comment-figure">
+        <img alt="" src="./Search functionality in Laravel - Just Laravel_files/d454f05736045a0c436182659c717ef6" srcset="http://1.gravatar.com/avatar/d454f05736045a0c436182659c717ef6?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo grav-hashed grav-hijack" height="70" width="70" id="grav-d454f05736045a0c436182659c717ef6-2">        <span class="comment-number">23</span>
+    </figure>
+    <div class="comment-info">
+        <cite class="fn">avinash</cite>        on December 15, 2016        <span class="comment-links">
+                <a rel="nofollow" class="comment-reply-link" href="http://justlaravel.com/search-functionality-laravel/?replytocom=135#respond" onclick="return addComment.moveForm( &quot;div-comment-135&quot;, &quot;135&quot;, &quot;respond&quot;, &quot;208&quot; )" aria-label="Reply to avinash">Reply</a>        </span>
+    </div>
+
+        <p>You try Session Flash <code>Session::flash ( 'message', 'No Details found. Please try your search again !' );</code></p>
+<p>and then in you view,</p>
+<p><code>@if ((Session::has('message')))</code></p><code>
+<div class="alert alert-alert">{{<br>
+					Session::get('message') }}</div>
+</code><p><code></code></p>
+        </div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+    <li class="comment even thread-odd thread-alt depth-1 parent" id="comment-141">
+        <div id="div-comment-141" class="comment-body">
+    <figure class="comment-figure">
+        <img alt="" src="./Search functionality in Laravel - Just Laravel_files/1f442b02d883f7a3640ae80104751a7a" srcset="http://1.gravatar.com/avatar/1f442b02d883f7a3640ae80104751a7a?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo grav-hashed grav-hijack" height="70" width="70" id="grav-1f442b02d883f7a3640ae80104751a7a-0">        <span class="comment-number">24</span>
+    </figure>
+    <div class="comment-info">
+        <cite class="fn">leicha</cite>        on January 13, 2017        <span class="comment-links">
+                <a rel="nofollow" class="comment-reply-link" href="http://justlaravel.com/search-functionality-laravel/?replytocom=141#respond" onclick="return addComment.moveForm( &quot;div-comment-141&quot;, &quot;141&quot;, &quot;respond&quot;, &quot;208&quot; )" aria-label="Reply to leicha">Reply</a>        </span>
+    </div>
+
+        <p>does this work on laravel 5.3.28?</p>
+<p>i dont get any results at all</p>
+<p>but when i delete the lines:<br>
+”<br>
+ @if(isset($details))<br>
+         The Search results for your query <b> {{ $query }} </b> are :<br>
+”<br>
+i get:</p>
+<p>Undefined variable: details</p>
+        </div>
+<ul class="children">
+    <li class="comment byuser comment-author-avinash bypostauthor odd alt depth-2" id="comment-142">
+        <div id="div-comment-142" class="comment-body">
+    <figure class="comment-figure">
+        <img alt="" src="./Search functionality in Laravel - Just Laravel_files/d454f05736045a0c436182659c717ef6" srcset="http://1.gravatar.com/avatar/d454f05736045a0c436182659c717ef6?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo grav-hashed grav-hijack" height="70" width="70" id="grav-d454f05736045a0c436182659c717ef6-3">        <span class="comment-number">25</span>
+    </figure>
+    <div class="comment-info">
+        <cite class="fn">avinash</cite>        on January 13, 2017        <span class="comment-links">
+                <a rel="nofollow" class="comment-reply-link" href="http://justlaravel.com/search-functionality-laravel/?replytocom=142#respond" onclick="return addComment.moveForm( &quot;div-comment-142&quot;, &quot;142&quot;, &quot;respond&quot;, &quot;208&quot; )" aria-label="Reply to avinash">Reply</a>        </span>
+    </div>
+
+        <p>It will work on 5.3 too</p>
+<p>That <code>$details</code> variable contains the search results. So a check is made whether results are available are not.</p>
+<p>Make sure the variable <code>$user</code> is getting any results in getting any response.(in routes file here)</p>
+        </div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+    <li class="comment even thread-even depth-1" id="comment-156">
+        <div id="div-comment-156" class="comment-body">
+    <figure class="comment-figure">
+        <img alt="" src="./Search functionality in Laravel - Just Laravel_files/338b61b893a2dc9820cf0fd5fbc1b687" srcset="http://0.gravatar.com/avatar/338b61b893a2dc9820cf0fd5fbc1b687?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo grav-hashed grav-hijack" height="70" width="70" id="grav-338b61b893a2dc9820cf0fd5fbc1b687-0">        <span class="comment-number">26</span>
+    </figure>
+    <div class="comment-info">
+        <cite class="fn"><a href="http://dangkhoa.top/" rel="external nofollow" class="url">Ho Dang KHoa</a></cite>        on March 4, 2017        <span class="comment-links">
+                <a rel="nofollow" class="comment-reply-link" href="http://justlaravel.com/search-functionality-laravel/?replytocom=156#respond" onclick="return addComment.moveForm( &quot;div-comment-156&quot;, &quot;156&quot;, &quot;respond&quot;, &quot;208&quot; )" aria-label="Reply to Ho Dang KHoa">Reply</a>        </span>
+    </div>
+
+        <p>thank</p>
+        </div>
+</li><!-- #comment-## -->
+    <li class="comment odd alt thread-odd thread-alt depth-1 parent" id="comment-170">
+        <div id="div-comment-170" class="comment-body">
+    <figure class="comment-figure">
+        <img alt="" src="./Search functionality in Laravel - Just Laravel_files/d16286838284f614763825263800feef" srcset="http://1.gravatar.com/avatar/d16286838284f614763825263800feef?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo grav-hashed grav-hijack" height="70" width="70" id="grav-d16286838284f614763825263800feef-0">        <span class="comment-number">27</span>
+    </figure>
+    <div class="comment-info">
+        <cite class="fn"><a href="http://gravatar.com/brunopy" rel="external nofollow" class="url">brunopy</a></cite>        on April 24, 2017        <span class="comment-links">
+                <a rel="nofollow" class="comment-reply-link" href="http://justlaravel.com/search-functionality-laravel/?replytocom=170#respond" onclick="return addComment.moveForm( &quot;div-comment-170&quot;, &quot;170&quot;, &quot;respond&quot;, &quot;208&quot; )" aria-label="Reply to brunopy">Reply</a>        </span>
+    </div>
+
+        <p>Where are the methods withDetails and withQuery documented? I’ve been looking through the whole documentation with no success.</p>
+        </div>
+<ul class="children">
+    <li class="comment byuser comment-author-avinash bypostauthor even depth-2" id="comment-171">
+        <div id="div-comment-171" class="comment-body">
+    <figure class="comment-figure">
+        <img alt="" src="./Search functionality in Laravel - Just Laravel_files/d454f05736045a0c436182659c717ef6" srcset="http://1.gravatar.com/avatar/d454f05736045a0c436182659c717ef6?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo grav-hashed grav-hijack" height="70" width="70" id="grav-d454f05736045a0c436182659c717ef6-4">        <span class="comment-number">28</span>
+    </figure>
+    <div class="comment-info">
+        <cite class="fn">avinash</cite>        on April 24, 2017        <span class="comment-links">
+                <a rel="nofollow" class="comment-reply-link" href="http://justlaravel.com/search-functionality-laravel/?replytocom=171#respond" onclick="return addComment.moveForm( &quot;div-comment-171&quot;, &quot;171&quot;, &quot;respond&quot;, &quot;208&quot; )" aria-label="Reply to avinash">Reply</a>        </span>
+    </div>
+
+        <p><code>withDetails</code> and <code>withQuery</code> are not laravel methods  they are called magic functions. Which means when we use <code>withSomename</code> in Controller here, we can access them in view as <code>$somename</code>. Take a look at the case of the letters, withCapital  in controller —- $capital in view.</p>
+<p>Hope it helps, revert back if not clear.</p>
+        </div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+    <li class="comment odd alt thread-even depth-1 parent" id="comment-178">
+        <div id="div-comment-178" class="comment-body">
+    <figure class="comment-figure">
+        <img alt="" src="./Search functionality in Laravel - Just Laravel_files/9c1ec80bd5dd2d72425c303c42ef1c8a" srcset="http://0.gravatar.com/avatar/9c1ec80bd5dd2d72425c303c42ef1c8a?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo grav-hashed grav-hijack" height="70" width="70" id="grav-9c1ec80bd5dd2d72425c303c42ef1c8a-0">        <span class="comment-number">29</span>
+    </figure>
+    <div class="comment-info">
+        <cite class="fn"><a href="http://gravatar.com/dbetm" rel="external nofollow" class="url">dbetmDavid</a></cite>        on June 11, 2017        <span class="comment-links">
+                <a rel="nofollow" class="comment-reply-link" href="http://justlaravel.com/search-functionality-laravel/?replytocom=178#respond" onclick="return addComment.moveForm( &quot;div-comment-178&quot;, &quot;178&quot;, &quot;respond&quot;, &quot;208&quot; )" aria-label="Reply to dbetmDavid">Reply</a>        </span>
+    </div>
+
+        <p>q, Input does not exists</p>
+        </div>
+<ul class="children">
+    <li class="comment byuser comment-author-avinash bypostauthor even depth-2" id="comment-179">
+        <div id="div-comment-179" class="comment-body">
+    <figure class="comment-figure">
+        <img alt="" src="./Search functionality in Laravel - Just Laravel_files/d454f05736045a0c436182659c717ef6" srcset="http://1.gravatar.com/avatar/d454f05736045a0c436182659c717ef6?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo grav-hashed grav-hijack" height="70" width="70" id="grav-d454f05736045a0c436182659c717ef6-5">        <span class="comment-number">30</span>
+    </figure>
+    <div class="comment-info">
+        <cite class="fn">avinash</cite>        on June 11, 2017        <span class="comment-links">
+                <a rel="nofollow" class="comment-reply-link" href="http://justlaravel.com/search-functionality-laravel/?replytocom=179#respond" onclick="return addComment.moveForm( &quot;div-comment-179&quot;, &quot;179&quot;, &quot;respond&quot;, &quot;208&quot; )" aria-label="Reply to avinash">Reply</a>        </span>
+    </div>
+
+        <p>Make sure you have used <code>use Illuminate\Support\Facades\Input;</code> at the top of the controller.</p>
+        </div>
+</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+    <li class="comment odd alt thread-odd thread-alt depth-1" id="comment-182">
+        <div id="div-comment-182" class="comment-body">
+    <figure class="comment-figure">
+        <img alt="" src="./Search functionality in Laravel - Just Laravel_files/c5ed3d2a1ffd84e24a809b8c66929fd9" srcset="http://0.gravatar.com/avatar/c5ed3d2a1ffd84e24a809b8c66929fd9?s=140&amp;d=mm&amp;r=g 2x" class="avatar avatar-70 photo grav-hashed grav-hijack" height="70" width="70" id="grav-c5ed3d2a1ffd84e24a809b8c66929fd9-0">        <span class="comment-number">31</span>
+    </figure>
+    <div class="comment-info">
+        <cite class="fn"><a href="http://nazerethgroup.wordpress.com/" rel="external nofollow" class="url">nazarethgroup</a></cite>        on June 13, 2017        <span class="comment-links">
+                <a rel="nofollow" class="comment-reply-link" href="http://justlaravel.com/search-functionality-laravel/?replytocom=182#respond" onclick="return addComment.moveForm( &quot;div-comment-182&quot;, &quot;182&quot;, &quot;respond&quot;, &quot;208&quot; )" aria-label="Reply to nazarethgroup">Reply</a>        </span>
+    </div>
+
+        <p>When I click on Search , Its redirecting me to localhost/search.<br>
+Please Help, I downloaded the code through github, and I followed the step, but when I click on Search its redirecting me to localhost/search instead of localhost/searchfunctionality/search.<br>
+I’ve checked the route and it look good<br>
+PLEASE HELP<br>
+orWhere ( ’email’, ‘LIKE’, ‘%’ . $q . ‘%’ )-&gt;get ();<br>
+	if (count ( $user ) &gt; 0)<br>
+		return view ( ‘welcome’ )-&gt;withDetails ( $user )-&gt;withQuery ( $q );<br>
+	else<br>
+		return view ( ‘welcome’ )-&gt;withMessage ( ‘No Details found. Try to search again !’ );<br>
+} );</p>
+        </div>
+</li><!-- #comment-## -->
+            </ul>
+        </div>
+
+        
+        
+    
+    
+		<div id="respond" class="comment-respond">
+							<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://justlaravel.com/search-functionality-laravel/#respond" style="display:none;">Cancel reply</a></small></h3>
+						<form id="commentform" class="comment-form" novalidate="novalidate">
+				<iframe src="./Search functionality in Laravel - Just Laravel_files/saved_resource(7).html" style="width:100%; height: 430px; border:0;" name="jetpack_remote_comment" class="jetpack_remote_comment" id="jetpack_remote_comment" scrolling="no"></iframe>
+				<!--[if !IE]><!-->
+				<script>
+					document.addEventListener( 'DOMContentLoaded', function () {
+						var commentForms = document.getElementsByClassName( 'jetpack_remote_comment' );
+						for ( var i = 0; i < commentForms.length; i++ ) {
+							commentForms[i].allowTransparency = false;
+							commentForms[i].scrolling = 'no';
+						}
+					} );
+				</script>
+				<!--<![endif]-->
+			<input id="ak_js" name="ak_js" type="hidden" value="1503023031830"></form>
+		</div>
+
+		
+		<input type="hidden" name="comment_parent" id="comment_parent" value="">
+
+		
+</div>
+
+	<nav class="navigation post-navigation" role="navigation">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="http://justlaravel.com/custom-authentication-validation-laravel/" rel="prev"><span class="meta-nav" aria-hidden="true">Previous</span> <span class="screen-reader-text">Previous post:</span> <span class="post-title">Custom Authentication with validation in laravel</span></a></div><div class="nav-next"><a href="http://justlaravel.com/paginated-data-search-laravel/" rel="next"><span class="meta-nav" aria-hidden="true">Next</span> <span class="screen-reader-text">Next post:</span> <span class="post-title">Paginated data with Search functionality – laravel</span></a></div></div>
+	</nav>        </main>
+
+        
+<aside id="sidebar" class="col-sm-4" role="complementary">
+    <h2 class="screen-reader-text">Sidebar</h2>
+    <section id="search-2" class="widget widget_search"><form role="search" method="get" class="search-form" action="http://justlaravel.com/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search …" value="" name="s">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form></section><section id="text-2" class="widget widget_text">			<div class="textwidget"><script async="" src="./Search functionality in Laravel - Just Laravel_files/adsbygoogle.js.download"></script>
+<!-- justLaravelLargeSkyScrapper -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:600px" data-ad-client="ca-pub-6687609633990818" data-ad-slot="6681380084" data-adsbygoogle-status="done"><ins id="aswift_5_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><ins id="aswift_5_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent"><iframe width="300" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_5" name="aswift_5" style="left:0;position:absolute;top:0;width:300px;height:600px;" src="./Search functionality in Laravel - Just Laravel_files/saved_resource(8).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</section>		<section id="recent-posts-2" class="widget widget_recent_entries">		<h2 class="widget-title">Recent Posts</h2>		<ul>
+					<li>
+				<a href="http://justlaravel.com/send-beautiful-html-mail-laravel-beautymail/">How to send beautiful HTML emails with Laravel using Beauty mail</a>
+						</li>
+					<li>
+				<a href="http://justlaravel.com/posts-search-gallery-view-app-vuejs/">Posts search and gallery view app in Vuejs</a>
+						</li>
+					<li>
+				<a href="http://justlaravel.com/introduction-vue-js-in-laravel/">Introduction to vue.js in Laravel</a>
+						</li>
+					<li>
+				<a href="http://justlaravel.com/laravel-social-login-using-socialite/">Laravel Social Login using Socialite</a>
+						</li>
+					<li>
+				<a href="http://justlaravel.com/integrate-stripe-payment-gateway-laravel/">How to integrate Stripe payment gateway in laravel</a>
+						</li>
+				</ul>
+		</section>		<section id="wpcom_social_media_icons_widget-2" class="widget widget_wpcom_social_media_icons_widget"><ul><li><a href="https://www.facebook.com/justLaravel/" class="genericon genericon-facebook" target="_blank"><span class="screen-reader-text">View justLaravel’s profile on Facebook</span></a></li><li><a href="https://twitter.com/justlaravel/" class="genericon genericon-twitter" target="_blank"><span class="screen-reader-text">View justlaravel’s profile on Twitter</span></a></li><li><a href="https://www.instagram.com/justlaravel/" class="genericon genericon-instagram" target="_blank"><span class="screen-reader-text">View justlaravel’s profile on Instagram</span></a></li><li><a href="https://www.pinterest.com/justlaravel/" class="genericon genericon-pinterest" target="_blank"><span class="screen-reader-text">View justlaravel’s profile on Pinterest</span></a></li><li><a href="https://github.com/avinashn/" class="genericon genericon-github" target="_blank"><span class="screen-reader-text">View avinashn’s profile on GitHub</span></a></li><li><a href="https://plus.google.com/u/0/+justlaravel/" class="genericon genericon-googleplus" target="_blank"><span class="screen-reader-text">View +justlaravel’s profile on Google+</span></a></li></ul></section><section id="text-4" class="widget widget_text">			<div class="textwidget"><script charset="utf-8" type="text/javascript">
+amzn_assoc_ad_type = "responsive_search_widget";
+amzn_assoc_tracking_id = "justlaravel-21";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "IN";
+amzn_assoc_placement = "";
+amzn_assoc_search_type = "search_widget";
+amzn_assoc_width = "auto";
+amzn_assoc_height = "auto";
+amzn_assoc_default_search_category = "";
+amzn_assoc_default_search_key = "Laravel";
+amzn_assoc_theme = "dark";
+amzn_assoc_bg_color = "4E4646";
+</script>
+<script src="./Search functionality in Laravel - Just Laravel_files/q"></script><div id="amzn_assoc_ad_div_adunit_0"><style type="text/css">#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget,#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget *{margin:0;padding:0;border:0;font-size:12px;font:inherit;vertical-align:middle;font-family:arial,verdana,helvetica,sans-serif;position:relative;color:#333}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget{width:99%;height:auto;display:inline-block;text-align:left;vertical-align:middle}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-category-selection{position:absolute;right:10px;top:25px;z-index:1000;padding:5px 0;margin:2px 0 0;background-color:#fff;border:1px solid #ccc;border:1px solid rgba(0,0,0,.15);border-radius:4px;box-shadow:0 6px 12px rgba(0,0,0,.175);-webkit-box-shadow:0 6px 12px rgba(0,0,0,.175);background-clip:padding-box}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-category-selection ul.__ma-sw-category-items{display:block;width:200px;height:230px;overflow-y:scroll;list-style:none}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-category-selection ul.__ma-sw-category-items::-webkit-scrollbar{-webkit-appearance:none;width:7px}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-category-selection ul.__ma-sw-category-items::-webkit-scrollbar-thumb{border-radius:4px;background-color:rgba(0,0,0,.5);-webkit-box-shadow:0 0 1px rgba(255,255,255,.5)}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-category-selection ul.__ma-sw-category-items li{cursor:pointer;display:list-item;text-align:left;text-align:-webkit-match-parent;list-style:none;font-size:13px;padding:3px 20px;clear:both;font-weight:400;line-height:1.42857143;color:#333;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-category-selection ul.__ma-sw-category-items li:after,#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-category-selection ul.__ma-sw-category-items li:before{box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-category-selection ul.__ma-sw-category-items li.current{background:#eee}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-category-selection ul.__ma-sw-category-items li.outline{background:#f8f8f8}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-category-selection ul.__ma-sw-category-items li:hover{color:#262626;background-color:#f8f8f8}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-suggestion-wrapper{width:99%;position:absolute;z-index:9999;top:68px;text-align:left}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-autcomplete{background:#fff;display:none;width:100%;height:auto;border:1px solid #ccc;border:1px solid rgba(0,0,0,.15);border-radius:0 0 4px 4px;box-shadow:0 6px 12px rgba(0,0,0,.175);-webkit-box-shadow:0 6px 12px rgba(0,0,0,.175);background-clip:padding-box}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-autcomplete .__ma-sw-suggestion{padding:3px 5px;font-size:12px;color:#333}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-autcomplete .__ma-sw-suggestion .cat-wrapper{color:#a9a9a9;cursor:default}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-autcomplete .__ma-sw-suggestion:last-child{border-radius:0 0 4px 4px}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-autcomplete .__ma-sw-suggestion.selected{background:#eee;border:0}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-category-selection{background-color:rgba(35,35,35,1);border:1px solid #2d2d2d;border:1px solid rgba(255,255,255,.15);box-shadow:0 6px 12px rgba(255,255,255,.175);-webkit-box-shadow:0 6px 12px rgba(255,255,255,.175)}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-category-selection ul.__ma-sw-category-items::-webkit-scrollbar-thumb{background-color:rgba(255,255,255,.6)}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-category-selection ul.__ma-sw-category-items li{color:#fff}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-category-selection ul.__ma-sw-category-items li.current{background:#525252}#__mobileAssociatesSearchWidget_adunit_0.__adunits_sw ul.__ma-sw-category-items li.outline{background:#424242}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-category-selection ul.__ma-sw-category-items li:hover{color:#fff;background:#424242}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-autcomplete{color:#fff;background-color:rgba(35,35,35,1);border:1px solid #2d2d2d;border:1px solid rgba(255,255,255,.15);box-shadow:0 6px 12px rgba(255,255,255,.175);-webkit-box-shadow:0 6px 12px rgba(255,255,255,.175)}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-autcomplete .__ma-sw-suggestion{color:#fff}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-autcomplete .__ma-sw-suggestion .cat-wrapper{color:#b8b8b8}#__mobileAssociatesSearchWidget_adunit_0.__mobile-associates-search-widget .__ma-sw-autcomplete .__ma-sw-suggestion.selected{background:#424242}</style> <div id="__mobileAssociatesSearchWidget_adunit_0" class="__mobile-associates-search-widget"> <div class="__ma-sw-category-selection" style="display: none;"> <ul class="__ma-sw-category-items"> <li data-value="aps" data-search="All" data-index="0" class="current">Amazon.in</li><li data-value="apparel" data-search="Apparel" data-index="1">Apparel &amp; Accessories</li><li data-value="baby" data-search="Baby" data-index="2">Baby</li><li data-value="stripbooks" data-search="Books" data-index="3">Books</li><li data-value="computers" data-search="PCHardware" data-index="4">Computers</li><li data-value="dvd" data-search="DVD" data-index="5">Movies &amp; TV</li><li data-value="electronics" data-search="Electronics" data-index="6">Electronics</li><li data-value="hpc" data-search="HealthPersonalCare" data-index="7">Health &amp; Beauty</li><li data-value="jewelry" data-search="Jewelry" data-index="8">Jewelry</li><li data-value="popular" data-search="Luggage" data-index="9">Luggage</li><li data-value="popular" data-search="Music" data-index="10">Music</li><li data-value="pets" data-search="PetSupplies" data-index="11">Pet Supplies</li><li data-value="kitchen" data-search="HomeGarden" data-index="12">Kitchen &amp; Housewares</li><li data-value="shoes" data-search="Shoes" data-index="13">Shoes</li><li data-value="sporting" data-search="SportingGoods" data-index="14">Sports &amp; Outdoors</li><li data-value="toys" data-search="Toys" data-index="15">Toys &amp; Games</li><li data-value="videogames" data-search="VideoGames" data-index="16">Video Games</li><li data-value="watches" data-search="Watches" data-index="17">Watches</li></ul> </div> <div class="__ma-sw-suggestion-wrapper"> <div style="padding: 0 15px; width:auto; border: none"> <div class="__ma-sw-autcomplete" style="display: none;"> </div> </div> </div> <div style="display: none;"> <form class="__ma-sw-search-form"> <select class="__ma-sw-search-category"><option selected="" value="aps">Amazon.in</option> <option value="apparel">Apparel &amp; Accessories</option> <option value="baby">Baby</option> <option value="stripbooks">Books</option> <option value="computers">Computers</option> <option value="dvd">Movies &amp; TV</option> <option value="electronics">Electronics</option> <option value="hpc">Health &amp; Beauty</option> <option value="jewelry">Jewelry</option> <option value="popular">Luggage</option> <option value="popular">Music</option> <option value="pets">Pet Supplies</option> <option value="kitchen">Kitchen &amp; Housewares</option> <option value="shoes">Shoes</option> <option value="sporting">Sports &amp; Outdoors</option> <option value="toys">Toys &amp; Games</option> <option value="videogames">Video Games</option> <option value="watches">Watches</option></select> <select name="select2" class="__ma-sw-search-term"><option value="All">Amazon.in</option><option value="Apparel">Apparel &amp; Accessories</option><option value="Baby">Baby</option><option value="Books">Books</option><option value="PCHardware">Computers</option><option value="DVD">Movies &amp; TV</option><option value="Electronics">Electronics</option><option value="HealthPersonalCare">Health &amp; Beauty</option><option value="Jewelry">Jewelry</option><option value="Luggage">Luggage</option><option value="Music">Music</option><option value="PetSupplies">Pet Supplies</option><option value="HomeGarden">Kitchen &amp; Housewares</option><option value="Shoes">Shoes</option><option value="SportingGoods">Sports &amp; Outdoors</option><option value="Toys">Toys &amp; Games</option><option value="VideoGames">Video Games</option><option value="Watches">Watches</option></select> </form> </div> <iframe width="100%" height="254px" src="./Search functionality in Laravel - Just Laravel_files/q.html" style="border: none;"></iframe></div></div></div>
+		</section><section id="facebook-likebox-2" class="widget widget_facebook_likebox">		<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Search functionality in Laravel - Just Laravel_files/XBwzv5Yrm_1.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Search functionality in Laravel - Just Laravel_files/XBwzv5Yrm_1(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+		<div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/justLaravel" data-width="340" data-height="432" data-hide-cover="false" data-show-facepile="true" data-show-posts="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=249643311490&amp;container_width=360&amp;height=432&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2FjustLaravel&amp;locale=en_US&amp;sdk=joey&amp;show_facepile=true&amp;show_posts=false&amp;width=340"><span style="vertical-align: bottom; width: 340px; height: 214px;"><iframe name="f2a9a45dc47d52c" width="340px" height="432px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:page Facebook Social Plugin" src="./Search functionality in Laravel - Just Laravel_files/page.html" style="border: none; visibility: visible; width: 340px; height: 214px;" class=""></iframe></span></div>
+		</section><section id="categories-2" class="widget widget_categories"><h2 class="widget-title">Categories</h2>		<ul>
+	<li class="cat-item cat-item-24"><a href="http://justlaravel.com/category/beginner/">Beginner</a>
+</li>
+	<li class="cat-item cat-item-23"><a href="http://justlaravel.com/category/integrations/">Integrations</a>
+</li>
+	<li class="cat-item cat-item-22"><a href="http://justlaravel.com/category/intermediate/">Intermediate</a>
+</li>
+	<li class="cat-item cat-item-2"><a href="http://justlaravel.com/category/laravel/">Laravel</a>
+</li>
+	<li class="cat-item cat-item-55"><a href="http://justlaravel.com/category/vue-js/">Vue.js</a>
+</li>
+		</ul>
+</section><section id="text-5" class="widget widget_text">			<div class="textwidget"><script async="" src="./Search functionality in Laravel - Just Laravel_files/adsbygoogle.js.download"></script>
+<!-- justlaravel_responsive_sidebar -->
+<ins class="adsbygoogle" style="display: block; height: 280px;" data-ad-client="ca-pub-6687609633990818" data-ad-slot="8287680887" data-ad-format="auto" data-adsbygoogle-status="done"><ins id="aswift_6_expand" style="display:inline-table;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:360px;background-color:transparent"><ins id="aswift_6_anchor" style="display:block;border:none;height:280px;margin:0;padding:0;position:relative;visibility:visible;width:360px;background-color:transparent"><iframe width="360" height="280" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_6" name="aswift_6" style="left:0;position:absolute;top:0;width:360px;height:280px;" src="./Search functionality in Laravel - Just Laravel_files/saved_resource(9).html"></iframe></ins></ins></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></div>
+		</section><section id="blog_subscription-2" class="widget jetpack_subscription_widget"><h2 class="widget-title">Subscribe to Blog via Email</h2>
+			<form action="http://justlaravel.com/search-functionality-laravel/#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-2">
+				<div id="subscribe-text"><p>Enter your email address to subscribe to this blog and receive notifications of new posts by email.</p>
+</div>					<p id="subscribe-email">
+						<label id="jetpack-subscribe-label" for="subscribe-field-blog_subscription-2" style="clip: rect(1px 1px 1px 1px); position: absolute; height: 1px; width: 1px; overflow: hidden;">
+							Email Address						</label>
+						<input type="email" name="email" required="required" class="required" value="" id="subscribe-field-blog_subscription-2" placeholder="Email Address">
+					</p>
+
+					<p id="subscribe-submit">
+						<input type="hidden" name="action" value="subscribe">
+						<input type="hidden" name="source" value="http://justlaravel.com/search-functionality-laravel/">
+						<input type="hidden" name="sub-type" value="widget">
+						<input type="hidden" name="redirect_fragment" value="blog_subscription-2">
+												<input type="submit" value="Subscribe" name="jetpack_subscriptions_widget">
+					</p>
+							</form>
+
+			<script>
+			/*
+			Custom functionality for safari and IE
+			 */
+			(function( d ) {
+				// In case the placeholder functionality is available we remove labels
+				if ( ( 'placeholder' in d.createElement( 'input' ) ) ) {
+					var label = d.querySelector( 'label[for=subscribe-field-blog_subscription-2]' );
+						label.style.clip 	 = 'rect(1px, 1px, 1px, 1px)';
+						label.style.position = 'absolute';
+						label.style.height   = '1px';
+						label.style.width    = '1px';
+						label.style.overflow = 'hidden';
+				}
+
+				// Make sure the email value is filled in before allowing submit
+				var form = d.getElementById('subscribe-blog-blog_subscription-2'),
+					input = d.getElementById('subscribe-field-blog_subscription-2'),
+					handler = function( event ) {
+						if ( '' === input.value ) {
+							input.focus();
+
+							if ( event.preventDefault ){
+								event.preventDefault();
+							}
+
+							return false;
+						}
+					};
+
+				if ( window.addEventListener ) {
+					form.addEventListener( 'submit', handler, false );
+				} else {
+					form.attachEvent( 'onsubmit', handler );
+				}
+			})( document );
+			</script>
+				
+</section><section id="top-posts-2" class="widget widget_top-posts"><h2 class="widget-title">Trending posts</h2><ul>				<li>
+										<a href="http://justlaravel.com/ajax-crud-operations-laravel/" class="bump-view" data-bump-view="tp">
+						Ajax CRUD operations in laravel					</a>
+									</li>
+							<li>
+										<a href="http://justlaravel.com/search-functionality-laravel/" class="bump-view" data-bump-view="tp">
+						Search functionality in Laravel					</a>
+									</li>
+							<li>
+										<a href="http://justlaravel.com/how-to-implement-datatables-in-laravel/" class="bump-view" data-bump-view="tp">
+						How to implement datatables in laravel					</a>
+									</li>
+							<li>
+										<a href="http://justlaravel.com/paginated-data-search-laravel/" class="bump-view" data-bump-view="tp">
+						Paginated data with Search functionality - laravel					</a>
+									</li>
+							<li>
+										<a href="http://justlaravel.com/import-csv-data-store-database/" class="bump-view" data-bump-view="tp">
+						How to import CSV data to local database in laravel					</a>
+									</li>
+							<li>
+										<a href="http://justlaravel.com/custom-authentication-laravel/" class="bump-view" data-bump-view="tp">
+						Custom Authentication (SignIn / SignUp) in Laravel					</a>
+									</li>
+							<li>
+										<a href="http://justlaravel.com/implement-datatables-server-side-laravel/" class="bump-view" data-bump-view="tp">
+						How to implement DataTables server-side in laravel					</a>
+									</li>
+							<li>
+										<a href="http://justlaravel.com/using-bootgrid-plugin-laravel/" class="bump-view" data-bump-view="tp">
+						Bootgrid implementation in laravel					</a>
+									</li>
+							<li>
+										<a href="http://justlaravel.com/introduction-vue-js-in-laravel/" class="bump-view" data-bump-view="tp">
+						Introduction to vue.js in Laravel					</a>
+									</li>
+							<li>
+										<a href="http://justlaravel.com/visualization-data-highcharts-laravel/" class="bump-view" data-bump-view="tp">
+						Visualization of data using highcharts in laravel					</a>
+									</li>
+			</ul></section><section id="twitter_timeline-2" class="widget widget_twitter_timeline"><h2 class="widget-title">Follow me on Twitter</h2><a class="twitter-timeline twitter-timeline-error" data-height="400" data-theme="light" data-link-color="#f96e5b" data-border-color="#e8e8e8" data-tweet-limit="2" data-lang="EN" data-partner="jetpack" href="https://twitter.com/justLaravel" data-twitter-extracted-i1503023035209774386="true">My Tweets</a></section><section id="googleplus-badge-2" class="widget widget_googleplus_badge"><h2 class="widget-title">Follow on G+</h2><div id="___page_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 338px; height: 379px;"><iframe ng-non-bindable="" frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 338px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 379px;" tabindex="0" vspace="0" width="100%" id="I0_1503023034347" name="I0_1503023034347" src="./Search functionality in Laravel - Just Laravel_files/page(1).html" data-gapiattached="true" title="+Badge"></iframe></div></section><section id="text-6" class="widget widget_text">			<div class="textwidget"><center>
+<form action="http://justlaravel.com/search/" id="cse-search-box">
+  <div>
+    <input type="hidden" name="cx" value="partner-pub-6687609633990818:3780952484">
+    <input type="hidden" name="cof" value="FORID:10">
+    <input type="hidden" name="ie" value="UTF-8">
+    <input type="text" name="q" size="30" placeholder="Custom Search" style="border: 1px solid rgb(126, 157, 185); padding: 2px; background: url(&quot;https://www.google.com/cse/static/images/1x/googlelogo_lightgrey_46x16dp.png&quot;) left center no-repeat rgb(255, 255, 255); text-indent: 48px;">
+    <input type="submit" name="sa" value="Search">
+  </div>
+<input name="siteurl" type="hidden" value="justlaravel.com/search-functionality-laravel/"><input name="ref" type="hidden" value="www.google.co.za/"><input name="ss" type="hidden" value=""></form>
+</center>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/brand"></script>
+</div>
+		</section><section id="give_forms_widget-2" class="widget widget_give_forms_widget"><h2 class="widget-title">Donate</h2>    <div id="give-form-659-wrap" class="give-form-wrap give-display-reveal">
+
+		
+            <form id="give-form-659" class="give-form give-form-659 give-form-type-multi" action="http://justlaravel.com/search-functionality-laravel/?payment-mode=paypal" method="post">
+                <input type="hidden" name="give-form-id" value="659">
+                <input type="hidden" name="give-form-title" value="Donate to Just Laravel">
+                <input type="hidden" name="give-current-url" value="http://justlaravel.com/search-functionality-laravel/">
+                <input type="hidden" name="give-form-url" value="http://justlaravel.com/search-functionality-laravel/">
+                <input type="hidden" name="give-form-minimum" value="1.00">
+
+                <!-- The following field is for robots only, invisible to humans: -->
+                <span class="give-hidden" style="display: none !important;">
+					<label for="give-form-honeypot-659"></label>
+					<input id="give-form-honeypot-659" type="text" name="give-honeypot" class="give-honeypot give-hidden">
+				</span>
+
+				                    <input type="hidden" name="give-price-id" value="2">
+				        <div class="give-total-wrap">
+            <div class="give-donation-amount form-row-wide">
+				<span class="give-currency-symbol give-currency-position-before">$</span>                <label class="give-hidden" for="give-amount">Donation Amount:</label>
+                <input class="give-text-input give-amount-top" id="give-amount" name="give-amount" type="tel" placeholder="" value="5.00" autocomplete="off">
+				            </div>
+        </div>
+	<label for="give-donation-level-select-659" class="give-hidden">Choose Your Donation Amount:</label><select id="give-donation-level-select-659" class="give-select give-select-level give-donation-levels-wrap"><option data-price-id="1" class="give-donation-level-1" value="1.00">$1.00</option><option data-price-id="2" class="give-donation-level-2 give-default-level" selected="selected" value="5.00">$5.00</option><option data-price-id="3" class="give-donation-level-3" value="15.00">$15.00</option><option data-price-id="4" class="give-donation-level-4" value="25.00">$25.00</option><option data-price-id="custom" class="give-donation-level-custom" value="custom">Give a Custom Amount</option></select><button type="button" class="give-btn give-btn-reveal">Donate Now</button>
+    <fieldset id="give-payment-mode-select" style="display: none;">
+		        <legend class="give-payment-mode-label">Select Payment Method            <span class="give-loading-text" style="display: none;"><span class="give-loading-animation"></span>
+            </span>
+        </legend>
+
+        <div id="give-payment-mode-wrap">
+			            <ul id="give-gateway-radio-list">
+				                    <li class="give-gateway-option-selected">
+                        <input type="radio" name="payment-mode" class="give-gateway" id="give-gateway-paypal-659" value="paypal" checked="checked">
+                        <label for="give-gateway-paypal-659" class="give-gateway-option" id="give-gateway-option-paypal"> PayPal</label>
+                    </li>
+					            </ul>
+			        </div>
+		    </fieldset>
+
+	
+    <div id="give_purchase_form_wrap">
+
+		    <fieldset id="give_checkout_user_info">
+        <legend>Personal Info</legend>
+        <p id="give-first-name-wrap" class="form-row form-row-first form-row-responsive">
+            <label class="give-label" for="give-first">
+				First Name				                    <span class="give-required-indicator">*</span>
+				                <span class="give-tooltip give-icon give-icon-question" data-tooltip="We will use this to personalize your account experience." data-hasqtip="1491"></span>
+            </label>
+            <input class="give-input required" type="text" name="give_first" placeholder="First Name" id="give-first" value="" required="" aria-required="true">
+        </p>
+
+        <p id="give-last-name-wrap" class="form-row form-row-last form-row-responsive">
+            <label class="give-label" for="give-last">
+				Last Name				                <span class="give-tooltip give-icon give-icon-question" data-tooltip="We will use this as well to personalize your account experience." data-hasqtip="1495"></span>
+            </label>
+
+            <input class="give-input" type="text" name="give_last" id="give-last" placeholder="Last Name" value="">
+        </p>
+
+		        <p id="give-email-wrap" class="form-row form-row-wide">
+            <label class="give-label" for="give-email">
+				Email Address				                    <span class="give-required-indicator">*</span>
+				                <span class="give-tooltip give-icon give-icon-question" data-tooltip="We will send the donation receipt to this address." data-hasqtip="1500"></span>
+            </label>
+
+            <input class="give-input required" type="email" name="give_email" placeholder="Email Address" id="give-email" value="" required="" aria-required="true">
+
+        </p>
+		    </fieldset>
+	    <fieldset id="give_purchase_submit">
+		    <p id="give-final-total-wrap" class="form-wrap ">
+		<span class="give-donation-total-label">
+			Donation Total:		</span>
+        <span class="give-final-total-amount" data-total="5.00">
+			$5.00		</span>
+    </p>
+	    <input type="hidden" name="give_action" value="purchase">
+    <input type="hidden" name="give-gateway" value="paypal">
+	    <div class="give-submit-button-wrap give-clearfix">
+        <input type="submit" class="give-submit give-btn" id="give-purchase-button" name="give-purchase" value="Donate Now">
+        <span class="give-loading-animation"></span>
+    </div>
+	    </fieldset>
+	
+    </div>
+
+	            </form>
+
+			
+    </div><!--end #give-form-659-->
+	</section><section id="text-8" class="widget widget_text">			<div class="textwidget"><script type="text/javascript">
+  ( function() {
+    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+    var unit = {"calltype":"async[2]","publisher":"myChitika82","width":300,"height":250,"sid":"Chitika Default"};
+    var placement_id = window.CHITIKA.units.length;
+    window.CHITIKA.units.push(unit);
+    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+}());
+</script><div id="chitikaAdBlock-0" class="chitikaAdContainer"><iframe class="chitikaAdBlock" frameborder="0" height="250" id="ch_ad0-0" marginheight="0" marginwidth="0" scrolling="no" src="./Search functionality in Laravel - Just Laravel_files/saved_resource(10).html" width="300" style="margin: 0px; padding: 0px;"></iframe></div>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/getads.js.download" async=""></script></div>
+		</section></aside>
+
+
+
+    </div>
+</div><ins class="adsbygoogle" data-adsbygoogle-status="done" style="display: none; width: auto; height: auto;"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent"><iframe width="0" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:0px;height:0px;" src="./Search functionality in Laravel - Just Laravel_files/saved_resource(11).html"></iframe></ins></ins></ins>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-76497274-1']);
+_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+<footer id="footer" role="contentinfo">
+    <div class="f-top">
+        <div class="container">
+                        <div class="social-media">
+                        <a href="https://www.facebook.com/justLaravel/" title="Facebook" target="_blank">
+                <span class="icon-facebook"></span>
+                <span class="screen-reader-text">Facebook</span>
+            </a>
+                                <a href="https://twitter.com/justLaravel" title="Twitter" target="_blank">
+                <span class="icon-twitter"></span>
+                <span class="screen-reader-text">Twitter</span>
+            </a>
+                                <a href="https://plus.google.com/+Justlaravel" title="Google Plus" target="_blank">
+                <span class="icon-googleplus"></span>
+                <span class="screen-reader-text">Google Plus</span>
+            </a>
+                                <a href="https://www.instagram.com/justlaravel/" title="Instagram" target="_blank">
+                <span class="icon-instagram"></span>
+                <span class="screen-reader-text">Instagram</span>
+            </a>
+                                <a href="http://justlaravel.com/search-functionality-laravel/#" title="Path" target="_blank">
+                <span class="icon-path"></span>
+                <span class="screen-reader-text">Path</span>
+            </a>
+                                <a href="https://www.youtube.com/c/Justlaravel" title="Youtube" target="_blank">
+                <span class="icon-youtube"></span>
+                <span class="screen-reader-text">Youtube</span>
+            </a>
+                                <a href="http://justlaravel.com/search-functionality-laravel/#" title="Xing" target="_blank">
+                <span class="icon-xing"></span>
+                <span class="screen-reader-text">Xing</span>
+            </a>
+                                <a href="https://www.pinterest.com/justlaravel/" title="Pinterest" target="_blank">
+                <span class="icon-pinterest"></span>
+                <span class="screen-reader-text">Pinterest</span>
+            </a>
+                                <a href="http://justlaravel.com/search-functionality-laravel/#" title="Linkedin" target="_blank">
+                <span class="icon-linkedin"></span>
+                <span class="screen-reader-text">Linkedin</span>
+            </a>
+            </div>        </div>
+    </div>
+
+    <div class="f-bottom">
+        <a href="http://justlaravel.com/search-functionality-laravel/#" class="anchor" title="To top">
+            <span class="icon-arrow-up"></span>
+            <span class="screen-reader-text">To top</span>
+        </a>
+
+        <div class="container">
+            <span class="copyright">
+                justLaravel.com                                    <nav role="navigation">
+                        <ul id="menu-footermenu" class="list-inline"><li id="menu-item-498" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-498"><a href="http://justlaravel.com/">Home</a></li>
+<li id="menu-item-700" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-700"><a href="http://justlaravel.com/about/">About</a></li>
+<li id="menu-item-499" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-499"><a href="http://justlaravel.com/contact/">Contact</a></li>
+</ul>                    </nav>
+                            </span>
+
+        </div>
+    </div>
+</footer>
+
+
+<nav id="navigation" class="off-canvas" role="navigation" aria-label="Mobile Navigation">
+    <h2 class="off-canvas-headline">
+        Navigation        <span class="icon-close"></span>
+    </h2>
+    <div class="off-canvas-body">
+        <div class="off-canvas-content">
+            <ul id="menu-mainmenu-1" class=""><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-167"><a href="http://justlaravel.com/">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-171"><a href="http://justlaravel.com/posts/">Posts</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-168"><a href="http://justlaravel.com/demos/">Demos</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-568"><a href="http://justlaravel.com/videos/">Videos</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-520"><a href="http://justlaravel.com/best-books-on-laravel/">Books</a></li>
+</ul>        </div>
+    </div>
+</nav>
+<div id="search-dialog" class="search-dialog">
+    <div class="cont">
+        <div class="form">
+            <div class="fieldset">
+                <span class="search-dialog-title">Search Anything</span>
+                <form role="search" method="get" class="search-form" action="http://justlaravel.com/">
+				<label>
+					<span class="screen-reader-text">Search for:</span>
+					<input type="search" class="search-field" placeholder="Search …" value="" name="s" autocomplete="off">
+				</label>
+				<input type="submit" class="search-submit" value="Search">
+			</form>            </div>
+        </div>
+    </div>
+    <a class="cl" href="http://justlaravel.com/search-functionality-laravel/#" title="Close">
+        <span class="icon-close"></span>
+        <span class="screen-reader-text">Close</span>
+    </a>
+</div>
+
+<script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "Just Laravel",
+    "logo": null,
+    "url": "http://justlaravel.com",
+    "sameAs": [
+        "https://www.facebook.com/justLaravel/",
+        "https://twitter.com/justLaravel",
+        "https://plus.google.com/+Justlaravel",
+        "https://www.instagram.com/justlaravel/",
+        "https://www.youtube.com/c/Justlaravel",
+        "https://www.pinterest.com/justlaravel/"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "",
+        "contactType": "Customer Service",
+        "email": "",
+        "contactOption": "TollFree",
+        "areaServed": "",
+        "availableLanguage": null
+    },
+    "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "India",
+        "addressLocality": "Andhra Pradesh",
+        "addressRegion": "Vizag",
+        "postalCode": "530013",
+        "streetAddress": null
+    }
+}</script><script type="application/ld+json">{
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "headline": "Search functionality in Laravel",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://justlaravel.com/search-functionality-laravel/"
+    },
+    "author": "Avinash Nethala",
+    "publisher": {
+        "@type": "Organization",
+        "name": "Just Laravel",
+        "logo": {
+            "@type": "ImageObject",
+            "url": null,
+            "height": 0,
+            "width": 0
+        }
+    },
+    "alternativeHeadline": "How to implement search functionality in laravel",
+    "image": {
+        "@type": "ImageObject",
+        "url": null,
+        "height": 0,
+        "width": 0
+    },
+    "datePublished": "2016-04-30",
+    "dateModified": "2016-09-12",
+    "description": "Here we \\&#039;ll see about how to implement search functionality in laravel. we \\&#039;ll search the data from the database and show the search results in a table."
+}</script>	<div style="display:none">
+	<div class="grofile-hash-map-a43dc90b5c914b012e84e39b302fe49a">
+	</div>
+	<div class="grofile-hash-map-d454f05736045a0c436182659c717ef6">
+	</div>
+	<div class="grofile-hash-map-c5580fd9ded8f58909d6bdeaa45bb347">
+	</div>
+	<div class="grofile-hash-map-4d773e1af3f2cc4ddeee2bfdc4625a41">
+	</div>
+	<div class="grofile-hash-map-1f442b02d883f7a3640ae80104751a7a">
+	</div>
+	<div class="grofile-hash-map-338b61b893a2dc9820cf0fd5fbc1b687">
+	</div>
+	<div class="grofile-hash-map-d16286838284f614763825263800feef">
+	</div>
+	<div class="grofile-hash-map-9c1ec80bd5dd2d72425c303c42ef1c8a">
+	</div>
+	<div class="grofile-hash-map-c5ed3d2a1ffd84e24a809b8c66929fd9">
+	</div>
+	</div>
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"http:\/\/justlaravel.com\/search-functionality-laravel\/":208};
+	</script>
+	
+		<!-- `jetpack-carousel` is included in the concatenated jetpack.css -->
+<!--[if lte IE 8]>
+<link rel='stylesheet' id='jetpack-carousel-ie8fix-css'  href='http://justlaravel.com/wp-content/plugins/jetpack/modules/carousel/jetpack-carousel-ie8fix.css?ver=20121024' type='text/css' media='all' />
+<![endif]-->
+<link rel="stylesheet" id="crayon-css" href="./Search functionality in Laravel - Just Laravel_files/crayon.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="genericons-css" href="./Search functionality in Laravel - Just Laravel_files/genericons.css" type="text/css" media="all">
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/photon.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var give_global_vars = {"ajaxurl":"http:\/\/justlaravel.com\/wp-admin\/admin-ajax.php","checkout_nonce":"46ee13cad3","currency":"USD","currency_sign":"$","currency_pos":"before","thousands_separator":",","decimal_separator":".","no_gateway":"Please select a payment method.","bad_minimum":"The minimum custom donation amount for this form is","general_loading":"Loading...","purchase_loading":"Please Wait...","number_decimals":"2","give_version":"1.8.12","magnific_options":{"main_class":"give-modal","close_on_bg_click":false},"form_translation":{"payment-mode":"Please select payment mode.","give_first":"Please enter your first name.","give_email":"Please enter a valid email address.","give_user_login":"Invalid username. Only lowercase letters (a-z) and numbers are allowed.","give_user_pass":"Enter a password.","give_user_pass_confirm":"Enter the password confirmation.","give_agree_to_terms":"You must agree to the terms and conditions."}};
+var give_scripts = {"ajaxurl":"http:\/\/justlaravel.com\/wp-admin\/admin-ajax.php","loading":"Loading","select_option":"Please select an option","default_gateway":"paypal","permalinks":"1","number_decimals":"2"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/give.all.min.js.download"></script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/devicepx-jetpack.js.download"></script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/gprofiles.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/wpgroho.js.download"></script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/comment-reply.min.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var jpfbembed = {"appid":"249643311490","locale":"en_US"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/facebook-embed.js.download"></script><div id="fb-root"></div>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/twitter-timeline.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var highlight_and_share = {"show_facebook":"1","show_twitter":"1","show_linkedin":"1","show_pinterest":"1","show_email":"1","twitter_username":"justLaravel","mobile":"","content":".has-content-area,.has-excerpt-area","tweet_text":"Tweet","facebook_text":"Share","linkedin_text":"LinkedIn","pinterest_text":"Pinterest","email_text":"E-mail","icons":"","facebook_app_id":"0","email_url":"http:\/\/justlaravel.com?action=has_email&nonce=a732d12fef&title=%title%&url=%url%"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/highlight-and-share.js.download"></script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/wp-embed.min.js.download"></script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/spin.js.download"></script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/jquery.spin.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"http:\/\/justlaravel.com\/wp-admin\/admin-ajax.php","nonce":"b064211811","display_exif":"1","display_geo":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","download_original":"View full size <span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","copyright":"Copyright","comment_registration":"0","require_name_email":"1","login_url":"http:\/\/justlaravel.com\/wp-login.php?redirect_to=http%3A%2F%2Fjustlaravel.com%2Fsearch-functionality-laravel%2F","blog_id":"1","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"local_comments_commenting_as":"<fieldset><label for=\"email\">Email (Required)<\/label> <input type=\"text\" name=\"email\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-email-field\" \/><\/fieldset><fieldset><label for=\"author\">Name (Required)<\/label> <input type=\"text\" name=\"author\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-author-field\" \/><\/fieldset><fieldset><label for=\"url\">Website<\/label> <input type=\"text\" name=\"url\" class=\"jp-carousel-comment-form-field jp-carousel-comment-form-text-field\" id=\"jp-carousel-comment-form-url-field\" \/><\/fieldset>"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/jetpack-carousel.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var CrayonSyntaxSettings = {"version":"_2.7.2_beta","is_admin":"0","ajaxurl":"http:\/\/justlaravel.com\/wp-admin\/admin-ajax.php","prefix":"crayon-","setting":"crayon-setting","selected":"crayon-setting-selected","changed":"crayon-setting-changed","special":"crayon-setting-special","orig_value":"data-orig-value","debug":""};
+var CrayonSyntaxStrings = {"copy":"Press %s to Copy, %s to Paste","minimize":"Click To Expand Code"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/crayon.min.js.download"></script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/form.js.download"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/sharing.js.download"></script>
+<script type="text/javascript">
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-facebook', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-twitter', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-google-plus-1', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-linkedin', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-skype', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomskype', 'menubar=1,resizable=1,width=305,height=665' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-telegram', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtelegram', 'menubar=1,resizable=1,width=450,height=450' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-tumblr', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcomtumblr', 'menubar=1,resizable=1,width=450,height=450' );
+				return false;
+			});
+var windowOpen;
+			jQuery( document.body ).on( 'click', 'a.share-pocket', function() {
+				// If there's another sharing window open, close it.
+				if ( 'undefined' !== typeof windowOpen ) {
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery( this ).attr( 'href' ), 'wpcompocket', 'menubar=1,resizable=1,width=450,height=450' );
+				return false;
+			});
+</script>
+
+		<!--[if IE]>
+		<script type="text/javascript">
+		if ( 0 === window.location.hash.indexOf( '#comment-' ) ) {
+			// window.location.reload() doesn't respect the Hash in IE
+			window.location.hash = window.location.hash;
+		}
+		</script>
+		<![endif]-->
+		<script type="text/javascript">
+			var comm_par_el = document.getElementById( 'comment_parent' ),
+			    comm_par = (comm_par_el && comm_par_el.value) ? comm_par_el.value : '',
+			    frame = document.getElementById( 'jetpack_remote_comment' ),
+			    tellFrameNewParent;
+
+			tellFrameNewParent = function() {
+				if ( comm_par ) {
+					frame.src = "http://jetpack.wordpress.com/jetpack-comment/?blogid=72887949&postid=208&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=5.2.1&sig=9e472ce39eeeae59ba3ea4f65a5cfac3d17af2fe#parent=http%3A%2F%2Fjustlaravel.com%2Fsearch-functionality-laravel%2F" + '&replytocom=' + parseInt( comm_par, 10 ).toString();
+				} else {
+					frame.src = "http://jetpack.wordpress.com/jetpack-comment/?blogid=72887949&postid=208&comment_registration=0&require_name_email=1&stc_enabled=1&stb_enabled=1&show_avatars=1&avatar_default=mystery&greeting=Leave+a+Reply&greeting_reply=Leave+a+Reply+to+%25s&color_scheme=light&lang=en_US&jetpack_version=5.2.1&sig=9e472ce39eeeae59ba3ea4f65a5cfac3d17af2fe#parent=http%3A%2F%2Fjustlaravel.com%2Fsearch-functionality-laravel%2F";
+				}
+			};
+
+	
+			if ( 'undefined' !== typeof addComment ) {
+				addComment._Jetpack_moveForm = addComment.moveForm;
+
+				addComment.moveForm = function( commId, parentId, respondId, postId ) {
+					var returnValue = addComment._Jetpack_moveForm( commId, parentId, respondId, postId ), cancelClick, cancel;
+
+					if ( false === returnValue ) {
+						cancel = document.getElementById( 'cancel-comment-reply-link' );
+						cancelClick = cancel.onclick;
+						cancel.onclick = function() {
+							var cancelReturn = cancelClick.call( this );
+							if ( false !== cancelReturn ) {
+								return cancelReturn;
+							}
+
+							if ( !comm_par ) {
+								return cancelReturn;
+							}
+
+							comm_par = 0;
+
+							tellFrameNewParent();
+
+							return cancelReturn;
+						};
+					}
+
+					if ( comm_par == parentId ) {
+						return returnValue;
+					}
+
+					comm_par = parentId;
+
+					tellFrameNewParent();
+
+					return returnValue;
+				};
+			}
+
+	
+			if ( window.postMessage ) {
+				if ( document.addEventListener ) {
+					window.addEventListener( 'message', function( event ) {
+						if ( "http:\/\/jetpack.wordpress.com" !== event.origin ) {
+							return;
+						}
+
+						jQuery( frame ).height( event.data );
+					} );
+				} else if ( document.attachEvent ) {
+					window.attachEvent( 'message', function( event ) {
+						if ( "http:\/\/jetpack.wordpress.com" !== event.origin ) {
+							return;
+						}
+
+						jQuery( frame ).height( event.data );
+					} );
+				}
+			}
+		</script>
+
+	<script type="text/javascript" src="./Search functionality in Laravel - Just Laravel_files/e-201733.js.download" async="" defer=""></script>
+<script type="text/javascript">
+	_stq = window._stq || [];
+	_stq.push([ 'view', {v:'ext',j:'1:5.2.1',blog:'72887949',post:'208',tz:'5.5',srv:'justlaravel.com'} ]);
+	_stq.push([ 'clickTrackerInit', '72887949', '208' ]);
+</script>
+
+<div class="highlight-and-share-wrapper"><div class="has_twitter" style="display: none;" data-type="twitter"><a href="https://twitter.com/intent/tweet?via=%username%&amp;url=%url%&amp;text=%text%" target="_blank"><i class="fa fa-twitter"></i></a></div><div class="has_facebook" style="display: none;" data-type="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=%url%&amp;t=%title%" target="_blank"><i class="fa fa-facebook"></i></a></div><div class="has_linkedin" style="display: none;" data-type="linkedin"><a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%url%&amp;title=%title%" target="_blank"><i class="fa fa-linkedin"></i></a></div><div class="has_pinterest" style="display: none;" data-type="pinterest"><a href="http://pinterest.com/pin/create/button/?url=%url%&amp;description=%title%" target="_blank"><i class="fa fa-pinterest"></i></a></div><div class="has_email" style="display: none;" data-type="email"><a href="http://justlaravel.com/?action=has_email&amp;nonce=a732d12fef&amp;title=%title%&amp;url=%url%" target="_blank"><i class="fa fa-envelope"></i></a></div></div><!-- #highlight-and-share-wrapper --><div id="sharing_email" style="display: none;">
+		<form action="http://justlaravel.com/search-functionality-laravel/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input type="email" name="target_email" id="target_email" value="">
+
+			
+				<label for="source_name">Your Name</label>
+				<input type="text" name="source_name" id="source_name" value="">
+
+				<label for="source_email">Your Email Address</label>
+				<input type="email" name="source_email" id="source_email" value="">
+
+						<input type="text" id="jetpack-source_f_name" name="source_f_name" class="input" value="" size="25" autocomplete="off" title="This field is for validation and should not be changed">
+			<script>jQuery( document ).ready( function(){ document.getElementById('jetpack-source_f_name').value = '' });</script>
+			
+			<img style="float: right; display: none" class="loading" src="./Search functionality in Laravel - Just Laravel_files/loading.gif" alt="loading" width="16" height="16">
+			<input type="submit" value="Send Email" class="sharing_send">
+			<a rel="nofollow" href="http://justlaravel.com/search-functionality-laravel/#cancel" class="sharing_cancel">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div><img src="./Search functionality in Laravel - Just Laravel_files/g.gif" alt=":)" width="6" height="5" id="wpstats"><iframe name="oauth2relay499048504" id="oauth2relay499048504" src="./Search functionality in Laravel - Just Laravel_files/postmessageRelay.html" tabindex="-1" aria-hidden="true" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe></body></html>

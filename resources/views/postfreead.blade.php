@@ -15,31 +15,17 @@
                             <div class="col-sm-12">
                                 <form class="form-horizontal" action ="/postfreead" method="post"  enctype="multipart/form-data" files='true'>
                                   {{ csrf_field() }}
-                                    <fieldset>
-                                         <!-- Select Basic -->
-                                        <div class="form-group">
-                                            <label class="col-md-3 control-label">Province</label>
-
-                                            <div class="col-md-8">
-                                                <select name="province" id="category-group" class="form-control province">
-                                                    
-                                                    <option value="Western Cape">Western Cape</option>
-                                                    <option value="Gauteng"><b>Gauteng</b></option>                                                                                                     
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <!-- Select Basic -->
-
-                                         <!-- Text input-->
+                                    <fieldset>                               
+                                        <!-- Text input-->
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="Adtitle">Location</label>
 
                                             <div class="col-md-8">
-                                                <a href="#selectRegion" id="dropdownMenu1" data-toggle="modal"><input id="" maxlength="35" name="township" value="{{old('township')}}" placeholder="Suburb / township"
+                                                <a href="#selectRegion1" id="dropdownMenu1" data-toggle="modal"><input id="" required = "" maxlength="35" name="location" value="{{old('location')}}" placeholder="Suburb / township"
                                                     class="form-control input-md township"  data-toggle="modal" type="text" autocomplete="off" readonly="readonly" style="background-color: #fff"></a>
-                                                    @if ($errors->has('township'))
+                                                    @if ($errors->has('location'))
                                                         <span class="help-block" style="color:#a94442;">
-                                                            <strong>{{ $errors->first('township') }}.</strong>
+                                                            <strong>{{ $errors->first('location') }}.</strong>
                                                         </span>                                                    
                                                     @endif      
                                             </div>  
@@ -49,7 +35,7 @@
                                             <label class="col-md-3 control-label">Category</label>
 
                                             <div class="col-md-8">
-                                                <select name="category-group" id="category-group" class="form-control category-group">
+                                                <select name="category-group" id="category-group" class="selecter form-control category-group">
                                                     @foreach($categories as $cat)
 
                                 
@@ -72,35 +58,36 @@
 
                                          ?>                                      
 
-                                        @if($subCat->subcategory_name == $oldCategory)
-                                              <?php $selected = "selected"; ?>                                            
+                                        @if($subCat->subcategory_name == $oldCategory || $subCat->subcategory_name == "Mobile Phones")
+                                              <?php $selected = "selected"; ?>                                                                                 
                                         @endif 
-                                        <option {{$oldCategory}} {{$selected}} value="{{$cat->category}}#{{$subCat->subcategory_name}}">{{$subCat->subcategory_name}}</option>
+                                        <option  {{$oldCategory}} {{$selected}} value="{{$cat->category}}#{{$subCat->subcategory_name}}">{{$subCat->subcategory_name}}</option>
                                     @endif                               
                              
                              @endforeach
                          
                         @endforeach
                                                 </select>
+                                                    <p class="help-block job-post" style="color:#a94442;margin-bottom: 5px;"></p>
                                                 </div>
                                         </div>
 
                                         @if(old('category-group'))
 
-                                        @endif;
+                                        @endif
 
                                         <!-- Text input-->
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="Adtitle">Ad title</label>
                                             <div class="col-md-8">
-                                                <input id="Adtitle" name="Adtitle" value="{{old('Adtitle')}}" maxlength="35" placeholder="Ad title"
-                                                class="form-control input-md" required="" type="text">
+                                                <input id="Adtitle" name="Adtitle" value="{{old('Adtitle')}}" maxlength="35" required = "" placeholder="Ad title"
+                                                class="form-control input-md"  type="text">
                                                 @if ($errors->has('Adtitle'))
                                                     <span class="help-block" style="color:#a94442;">
                                                         <strong>{{ $errors->first('Adtitle') }}</strong>
                                                     </span>
                                                 @else                                               
-                                                    <span class="help-block">A great title needs at least 5 words.s</span>
+                                                    <span class="help-block">A great title needs at least 5 words</span>
                                                 @endif                                            
                                             </div>
                                         </div>
@@ -111,11 +98,11 @@
                                             <label class="col-md-3 control-label" for="textarea">Describe ad </label>
 
                                             <div class="col-md-8">
-                                                <textarea class="form-control" id="textarea" name="textarea" placeholder="Describe
-                                                    what makes your ad unique"></textarea>
-                                                     @if ($errors->has('textarea'))
+                                                <textarea class="form-control" id="textarea" name="description" placeholder="Describe
+                                                    what makes your ad unique"> {{ old('description') }}</textarea>
+                                                     @if ($errors->has('description'))
                                                 <span class="help-block" style="color:#a94442;">
-                                                    <strong>{{ $errors->first('textarea') }}.</strong>
+                                                    <strong>{{ $errors->first('description') }}.</strong>
                                                 </span>
                                             @endif
                                             </div>
@@ -125,12 +112,12 @@
 
                                         <!-- Prepended text-->
                                         <div class="form-group">
-                                            <label class="col-md-3 control-label" for="Price">Price</label>
+                                            <label class="col-md-3 control-label" id="lbl-price" for="Price">Price</label>
 
                                             <div class="col-md-4">
                                                 <div class="input-group"><span class="input-group-addon">R</span>
                                                     <input id="Price" name="Price" class="form-control"
-                                                           placeholder="price" required="" type="text" value="{{old('Price')}}">
+                                                           placeholder="price" required = "" type="text" value="{{old('Price')}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -176,8 +163,7 @@
                                                         <strong>Only images can be uploaded.</strong>
                                                     </span>
                                                 @else
-                                                <p class="help-block">Add up to 6 photos. Use a real image of your
-                                                    product, not catalogs.</p>
+                                                <p class="help-block">Add up to 6 photos. Each image should not be greater than 3MB.</p>
                                                 @endif
                                             </div>
                                         </div>
@@ -191,7 +177,7 @@
                                             <div class="col-md-8">
                                                 <input id="textinput-name" name="textinput-name"
                                                     placeholder="Seller Name" class="form-control input-md"
-                                                    required type="text" value='{{ Auth::user()->name }}' disabled="disabled">
+                                                   type="text" value='{{ Auth::user()->name }}' disabled="disabled">
                                                 @if ($errors->has('textinput-name'))
                                                     <span class="help-block" style="color:#a94442;">
                                                         <strong>{{ $errors->first('textinput-name') }}.</strong>
@@ -219,7 +205,7 @@
                                             <div class="col-md-8">
                                                 <input id="seller-Number" name="phonenumber"
                                                        placeholder="Phone Number" class="form-control input-md"
-                                                       required type="text" value="{{Auth::user()->phonenumber}}" @if(Auth::user()->phonenumber) 
+                                                       type="text" value="{{Auth::user()->phonenumber}}" @if(Auth::user()->phonenumber) 
                                                             {{"disabled"}}
                                                        @endif >
 
@@ -231,51 +217,52 @@
 
                                             </div>
                                         </div>
-                                        <div class="well" style="height:auto;">
-                                            <h3><i class=" icon-certificate icon-color-1"></i> Sell quickly (optional)
-                                            </h3>
-
-                                            <p>
-                                            With this option your product or service will reach thousands of people in a matter minutes.<a href="help.html">Learn
+                                        
+                                        <div class="well">
+                                            <h3><i class=" icon-certificate icon-color-1"></i>Sell quickly (optional)</h3>
+                                            <p>Have your ad seen by hundreds of people on the home page & category page gallery, ads featured on these galleries are projected in public areas like malls, universities, and in main roads. You may tick 'Bargains' if you're selling your product for cheap, your ad will be featured on the bargains tab. <a href="#">Learn
                                                     more</a></p>
 
-                                            <div class="form-group" style="margin-bottom:0px height:auto;padding-right:2px">
-                                                <div class="" style="margin-bottom:0px;">
-                                                    <div class="col-md-12">
-                                                        <div class="radio">
-                                                                <label style="padding-left:0px;">
-                                                                    <input type="checkbox" name="optionsRadios"
-                                                                           id="All-plans" value="Sponsored">
-                                                                    <strong>Gallery, Public Display & Social Media Affiliation</strong> ( have your ad seen by hundreds of people on our gallery, ads featured on gallery will be displayed in public areas like malls, universities, and in trains. Your ad will also be shared on
-                                                                    our affiliate's facebook timeslines )
-                                                                </label>
-                                                        </div>
-                                                      
-                                                        <div class="pull-right" style="margin-right:2px;"><p>R95.00</p></div>
-                                                        
+                                            <div class="form-group">
+                                                <table class="table table-hover checkboxtable" style="border-bottom: 1px solid #ddd;">
+                                                    <tr>
+                                                        <td>
+                                                            <div class="radio">
+                                                                <label>
+                                                                    <input type="checkbox" id="option-gallery" name="option-gallery">
+                                                                    <strong>Gallery & Public display</strong></label>
+                                                            </div>
+                                                        </td>
+                                                        <td><p id ="option-gallery-price">R95.00</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <div class="radio">
+                                                                <label>
+                                                                    <input type="checkbox" name="option-bargain"
+                                                                           id="option-bargain" >
+                                                                    <strong>Bargain</strong> </label>
+                                                            </div>
+                                                        </td>
+                                                        <td><p id = "option-bargain-price">R34.00</p></td>
+                                                    </tr>
+                                                </table>
+                                                <div class="">
+                                                    <div class="col-xm-12 col-md-8">
+                                                        <select class="selecter form-control" name="payment-method"
+                                                                id="PaymentMethod">
+                                                                  <option value="none">Select Payment Method</option>
+                                                                <option value="Capitec Mobile Banking">Capitec Mobile Banking</option>
+                                                                <option value="E-Wllet">EFT</option>
+                                                        </select>
                                                     </div>
-                                                        <div class="">
-                                                                <div class="col-xm-12 col-md-8">
-                                                                    <select class="form-control" name="Method"
-                                                                            id="PaymentMethod">
-                                                                        <option value="2">Select Payment Method</option>
-                                                                        <option value="3">E-Wllet</option>
-                                                                         <option value="5">Capitec Mobile Banking</option>
-                                                                         <option value="5">Shoprite money markets</option>                                                                        
-                                                                        <option value="5">Paypal</option>
-                                                                    </select>
-                                                                </div>
-                                                                 <div class="col-xm-12 col-md-7 col-md-4" style="margin-top:5px">
-                                                                     <p id="amount-payable"><strong>Payable Amount : R00.00</strong></p>
-                                                                 </div>
-
-                                                             
-                                                        </div>                                                    
+                                                    <div class="col-xm-12 col-md-7 col-md-4" style="margin-top:5px">
+                                                         <p id="amount-payable"><strong>Payable Amount : R0.00</strong></p>
                                                     </div>
-                                        </div>
+                                                </div>
 
+                                            </div>
                                         </div>
-
                                         <!-- terms -->
                                         <div class="form-group">
                                             <label class="col-md-3 control-label">Terms</label>
@@ -284,7 +271,7 @@
                                                 <label class="checkbox-inline" for="checkboxes-0">
                                                     <input name="checkboxes" id="checkboxes-0"
                                                            value="Remember above contact information." type="checkbox">
-                                                    Remember above contact information. </label>
+                                                    Accept Terms and Conditions. </label>
                                             </div>
                                         </div>
 
@@ -343,7 +330,7 @@
 
    <!-- Modal Change City -->
 
-<div class="modal fade" id="selectRegion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade locations-modal" id="selectRegion1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -355,43 +342,21 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-sm-12">
-
                         <p id= 'popular-cities'>
-                        </p>
-
+                            Popular <strong>Surbubs</strong> in Western Cape.
+                        </p>    
                         <div style="clear:both"></div>
                         <div class="col-sm-6 no-padding">
-                            <select class="form-control selecter  " id="suburb-or-township" name="region-state">
-
-                                <option value="Townships">Townships / amaKasi</option>
-                                <option value="Suburbs">Suburbs</option>                                                    
+                            <select class="form-control selecter" id="locations-category" name="region-state">
+                                <option value="Suburbs">Suburbs</option> 
+                                <option value="Townships">Townships / amaKasi</option>                                                                                   
                             </select>
                         </div>
                         <div style="clear:both"></div>
 
                         <hr class="hr-thin">
-                    </div>
-                     <div  id="loading-provinces" style="margin-top:13px; display:none;"><img src="{{ asset('images/loading.gif') }}" style="margin-left:120px;"></div>
-                    <div class="col-md-12  col-xs-12"  id = "location-link">
-                        <div class = "col-md-4 col-xs-6 column1">
-                            <ul>
-
-
-                            </ul>  
-                        </div>
-                        <div class = "col-md-4 col-xs-5 column2">
-                            <ul>
-
-
-                            </ul>  
-                        </div>
-                        <div class = "col-md-4 col-xs-6 column3">
-                            <ul>
-
-
-                            </ul>  
-                        </div>
-                    </div>
+                    </div>                    
+                    @include('partials/locationsModal')
                 </div>                 
                 </div>
             </div>
@@ -405,294 +370,18 @@
 ================================================== -->
 
 <!-- Placed at the end of the document so the pages load faster -->
+<!-- Placed at the end of the document so the pages load faster -->
 <script src="{{ asset('assets/js/jquery/jquery-latest.js') }}"></script>
-<script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/js/BootstrapTypeahead/bootstrap3-typeahead.js')}}"></script>
+<script src="{{ asset('assets/js/newscripts/postfreead.js') }}"></script>
+<script src="{{ asset('selectorassets/js/vendors.min.js') }}"></script>
 
+<script src="{{ url('selectorassets/plugins/jquery-nice-select/js/jquery.nice-select.js') }}"></script>
+<script src="{{ url('selectorassets/plugins/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>
 
-
-
-<script type="text/javascript">
-    var path = "{{ route('autoComplete') }}";
-
-    var path2 = "{{ route('autoCompleteTownship') }}";
-    
-   
-    // $('.surbub').focus(function(){
-    //   $.ajax({
-    //         url: path,
-    //         type: 'GET',
-    //         data: {township:township},
-    //         success:function(data){
-                  
-   
-    //         }
-    //     });
-        
-    // });
-
-    $('.surbub').typeahead({
-        source:  function (query, process) {
-            var province = $('.province').val();
-        return $.get(path, { query: query,province:province }, function (data) {
-            
-
-               
-               
-                return process(data);
-            });
-        }
-    });
-
-    $('.township').typeahead({
-        source:  function (query, process) {
-            var province = $('.province').val();
-        return $.get(path2, { query: query,province:province }, function (data) {
-            
-
-               
-               
-                return process(data);
-            });
-        }
-    });
-
-    $('#All-plans').click(function(){
-        if ( $('#All-plans').is(':checked') ) {
-
-            $('#agent-ad').attr('checked', false); // Unchecks it
-            $('#sponsored-ads-gallery').attr('checked', false); // Unchecks it
-            $('#bagain').attr('checked', false); // Unchecks it
-
-            $('#amount-payable').empty();
-            $('#amount-payable').append("<strong>Payable Amount : R95.00</strong>");
-        } 
-        else{
-            $('#amount-payable').empty();
-            $('#amount-payable').append("<strong>Payable Amount : R00.00</strong>");
-        }
-    });
-
-   
-     $('#sponsored-ads-gallery').click(function(){
-        if ($(this).is(':checked') ) {
-            $('#All-plans').attr('checked', false); // Unchecks it
-            $('#bagain').attr('checked', false); // Unchecks it
-            $('#agent-ad').attr('checked', false); // Unchecks it
-
-            $('#amount-payable').empty();
-            $('#amount-payable').append("<strong>Payable Amount : R78.00</strong>");
-        }
-        else{
-            $('#amount-payable').empty();
-            $('#amount-payable').append("<strong>Payable Amount : R00.00</strong>");
-        }
-
-    });
-
- 
-    $('#bagain').click(function(){
-        if ($(this).is(':checked') ) {
-
-            $('#All-plans').attr('checked', false); // Unchecks it
-            $('#sponsored-ads-gallery').attr('checked', false); // Unchecks it
-            $('#agent-ad').attr('checked', false); // Unchecks it
-            $('#amount-payable').empty();          
-            $('#amount-payable').append("<strong>Payable Amount : R48.00</strong>");
-        }
-        else{
-            $('#amount-payable').empty();          
-            $('#amount-payable').append("<strong>Payable Amount : R00.00</strong>");
-        }
-
-    });
-    
-    
-
-     $('#agent-ad').click(function(){
-         if ($(this).is(':checked') ){
-            $('#All-plans').attr('checked', false); // Unchecks it
-            $('#sponsored-ads-gallery').attr('checked', false); // Unchecks it
-            $('#bagain').attr('checked', false); // Unchecks it
-            $('#amount-payable').empty();
-            $('#amount-payable').append("<strong>Payable Amount : R66.00</strong>");
-        }else{
-            $('#amount-payable').empty();
-            $('#amount-payable').append("<strong>Payable Amount : R00.00</strong>");
-        }
-    });
-
-    $('.province').on('change',function(){
-
-        province = $('.province').val();
-        $('#region-province').val(province);
-
-        $('.township').val('');
-
-        $('#popular-cities').empty();
-        $("#location-link ul").empty();
-        $('#popular-cities').append('Popular townships in <strong>'+province+'</strong>');
-
-        displayTownships(province);
-
-    });
-
-    function displayTownships(province){
-
-
-      // $("#location-link li").empty();
-        path = "{{ url('locations') }}"+"/"+province;
-        $.ajax({
-            url: path,
-            type: 'GET',           
-            success:function(data){
-                $('#loading-provinces').hide();
-                var i = 0;
-                var screenZise = $(window).width();
-
-                var data = jQuery.parseJSON(data);
-                $.each(data, function(key, item) 
-                {
-
-                  if(screenZise > 500){
-                            if(i<=11){
-                            $("#location-link .column1 ul").append("<li class='location-li' style = 'padding-bottom: 6px;'><a style ='color: #4e575d;font-size: 11.70pt;font-style: normal;line-height: normal;transition: all 0.1s ease 0s;'class='info_link' href='#' title='"+item.location+"'>"+item.location.charAt(0).bold()+item.location.slice(1)+"</a></li>");
-                            //console.log(item.surbub+"-"+i);
-                            
-                            }else if(i>11 && i<=23){
-                            $("#location-link .column2 ul").append("<li class='location-li' style = 'padding-bottom: 6px;' ><a style ='color: #4e575d;font-size: 11.70pt;font-style: normal;line-height: normal;transition: all 0.1s ease 0s;'class='info_link' href='#' title='"+item.location+"'>"+item.location.charAt(0).bold()+item.location.slice(1)+"</a></li>");
-                            //console.log(item.surbub+"-"+i);                           
-
-                            }else if(i>23){
-                             $("#location-link .column3 ul").append("<li class='location-li' style = 'padding-bottom: 6px;' ><a style ='color: #4e575d;font-size: 11.70pt;font-style: normal;line-height: normal;transition: all 0.1s ease 0s;'class='info_link' href='#' title='"+item.location+"'>"+item.location.charAt(0).bold()+item.location.slice(1)+"</a></li>");
-                          //  console.log(item.surbub+"-"+i);
-                            }
-                        }else{
-                             if(i<=18){
-                            $("#location-link .column1 ul").append("<li class='location-li' style = 'padding-bottom: 6px;'><a style ='color: #4e575d;font-size: 11.70pt;font-style: normal;line-height: normal;transition: all 0.1s ease 0s;'class='info_link' href='#' title='"+item.location+"'>"+item.location.charAt(0).bold()+item.location.slice(1)+"</a></li>");
-                           // console.log(item.surbub+"-"+i);
-                            
-                            }else if(i>18){
-                            $("#location-link .column2 ul").append("<li class='location-li' style = 'padding-bottom: 6px;' ><a style ='color: #4e575d;font-size: 11.70pt;font-style: normal;line-height: normal;transition: all 0.1s ease 0s;'class='info_link' href='#' title='"+item.location+"'>"+item.location.charAt(0).bold()+item.location.slice(1)+"</a></li>");
-                           // console.log(item.surbub+"-"+i);                           
-
-                            }
-                        }
-                        i++; 
-                });               
-           }
-        });
-    }
-   
-   
-    $(document).ready(function(){
-
-        province = $('.province').val();
-        $('#popular-cities').append('Popular townships in <strong>'+province+'</strong>');
-        $("select option[value='"+province+"']").attr("selected","selected");
-        $("#location-link ul").empty(); 
-
-        displayTownships(province);  
-    })        
-        
-        function displaySuburbs(province){
-            path = "{{ url('get-suburbs-by-prov') }}"+"/"+province;
-            $.ajax({
-                url: path,
-                type: 'GET',
-                //data: {province:province},
-                success:function(data){
-                     $('#loading-provinces').hide();
-                    var data = jQuery.parseJSON(data);
-                    var i = 0;
-                    var screenZise = $(window).width();
-                  //  alert(screenZise);
-                    $.each(data, function(key, item) 
-                    {
-
-                        if(screenZise > 500){
-                            if(i<=11){
-                            $("#location-link .column1 ul").append("<li class='location-li' style = 'padding-bottom: 6px;'><a style ='color: #4e575d;font-size: 11.70pt;font-style: normal;line-height: normal;transition: all 0.1s ease 0s;'class='info_link' href='#' title='"+item.location+"'>"+item.location.charAt(0).bold()+item.location.slice(1)+"</a></li>");
-                            console.log(item.location+"-"+i);
-                            
-                            }else if(i>11 && i<=23){
-                            $("#location-link .column2 ul").append("<li class='location-li' style = 'padding-bottom: 6px;' ><a style ='color: #4e575d;font-size: 11.70pt;font-style: normal;line-height: normal;transition: all 0.1s ease 0s;'class='info_link' href='#' title='"+item.location+"'>"+item.location.charAt(0).bold()+item.location.slice(1)+"</a></li>");
-                            console.log(item.location+"-"+i);                           
-
-                            }else if(i>26){
-                             $("#location-link .column3 ul").append("<li class='location-li' style = 'padding-bottom: 6px;' ><a style ='color: #4e575d;font-size: 11.70pt;font-style: normal;line-height: normal;transition: all 0.1s ease 0s;'class='info_link' href='#' title='"+item.location+"'>"+item.location.charAt(0).bold()+item.location.slice(1)+"</a></li>");
-                            console.log(item.location+"-"+i);
-                            }
-                        }else{
-                             if(i<=18){
-                            $("#location-link .column1 ul").append("<li class='location-li' style = 'padding-bottom: 6px;'><a style ='color: #4e575d;font-size: 11.70pt;font-style: normal;line-height: normal;transition: all 0.1s ease 0s;'class='info_link' href='#' title='"+item.location+"'>"+item.location.charAt(0).bold()+item.location.slice(1)+"</a></li>");
-                            console.log(item.location+"-"+i);
-                            
-                            }else if(i>18){
-                            $("#location-link .column2 ul").append("<li class='location-li' style = 'padding-bottom: 6px;' ><a style ='color: #4e575d;font-size: 11.70pt;font-style: normal;line-height: normal;transition: all 0.1s ease 0s;'class='info_link' href='#' title='"+item.location+"'>"+item.location.charAt(0).bold()+item.location.slice(1)+"</a></li>");
-                            console.log(item.location+"-"+i);                           
-
-                            }
-                        }
-                        i++;
-                                           
-                    });                    
-               }
-            });
-        }
-
-        $('#suburb-or-township').on('change',function(){
-
-            $('#loading-provinces').show();
-            province = $('.province').val();
-            var suburbOrProvince = $(this).val();
-
-           // $('#category-group').val(province);
-            $(".location-li").remove(); 
-
-            $('#popular-cities').empty();
-            $('#popular-cities').append('Popular townships in <strong>'+province+'</strong>');
-            $("select option[value='"+province+"']").attr("selected","selected"); 
-
-            if(suburbOrProvince === "Townships"){               
-                displayTownships(province);
-            }else{
-               
-               displaySuburbs(province);
-            }          
-            
-            
-
-        });
-           
-        
-        $( "#location-link" ).delegate( "a", "click", function() {
-            // loc = generateSlug($(this).attr('title'));
-
-            $('.modal-backdrop').hide();
-            $('.modal').hide();
-            $('.township').val($(this).attr('title'));
-            $(".township").attr("readonly", "readonly");
-            $('body').css('overflow-y', 'scroll')
-        });
-
-        $( "#location-link" ).delegate( ".new-location", "click", function() {
-            // loc = generateSlug($(this).attr('title'));
-
-            $('.modal-backdrop').hide();
-            $('.modal').hide();
-            $(".township").removeAttr("readonly");
-            $('.township').focus();
-            $('.township').val('');
-            alert("hello stranger!");
-
-        });
-          
-    
-    
-</script>
-
-
+<script src="{{ url('selectorassets/plugins/jquery-nicescroll/jquery-nicescroll.js') }}"></script>
+<script src="{{ url('selectorassets/plugins/jquery-nicescroll/jquery.nicescroll.iframehelper.min.js') }}"></script>
+<script src="{{ url('selectorassets/plugins/jquery-nicescroll/jquery.nicescroll.iframehelper.js') }}"></script>
+<script src="{{ url('selectorassets/plugins/jquery-nicescroll/jquery.nicescroll.min.js') }}"></script>
 <!-- include jquery file upload plugin  -->
 <script src="{{ asset('assets/js/fileinput.min.js')}}" type="text/javascript"></script>
 <script>
@@ -705,8 +394,6 @@
 
 
 </script>
-
-
 
 <!-- include carousel slider plugin  -->
 <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
@@ -723,5 +410,22 @@
 <script src="{{ asset('assets/plugins/jquery.fs.scroller/jquery.fs.scroller.js') }}"></script>
 <script src="{{ asset('assets/plugins/jquery.fs.selecter/jquery.fs.selecter.js')}}"></script>
 <!-- include custom script for site  -->
-<script src="{{ asset('assets/js/script.js') }}"></script>
+
+<script src="{{ asset('selectorassets/js/script.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.nice-select .list').css('max-height','377px');
+        $('.page-content .inner-box').css('overflow','initial');
+    });
+
+    $(".location-li a").click(function(){
+            // loc = generateSlug($(this).attr('title'));
+            $('.township').val($(this).text());
+            $(".township").attr("readonly", "readonly");
+            $('body').css('overflow-y', 'scroll');
+            $('.modal-backdrop').hide();
+            $('.modal').hide();
+    }); 
+
+</script>
 @endsection

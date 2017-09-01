@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */
@@ -180,6 +181,8 @@ return [
         App\Providers\SelectBoxCategoryProvider::class,
         App\Providers\TopAdsComposerProvider::class,
         App\Providers\SponsoredAdsProvider::class,
+        App\Providers\SuburbsTownshipsProvider::class,
+        App\Providers\LocationsModalProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         
 

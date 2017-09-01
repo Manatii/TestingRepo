@@ -48,6 +48,18 @@ class AccountController extends Controller
         return view('account/account-myads',['fav_Ads'=>$fav_Ads,'userAds'=>$userAds,'unApprovedAds'=>$unApprovedAds]);
     }
 
+    public function displayPayments(){
+        $id = Auth::user()->id;
+        $userAds = UserAds::where('user_id',$id)
+        ->where('approved',"Approved")->get();
+        $fav_Ads = FavouriteAds::where('user_id', $id)->get();
+
+        $unApprovedAds = UserAds::where('user_id',$id)
+                        ->where('approved',"Pending")->get();
+       
+        return view('account/statements',['fav_Ads'=>$fav_Ads,'userAds'=>$userAds,'unApprovedAds'=>$unApprovedAds]);
+        
+    }
     public function deleteAd($adid){
        $userId = Auth::user()->id;
        $ad = UserAds::where('user_id',$userId)

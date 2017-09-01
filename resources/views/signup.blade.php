@@ -13,7 +13,7 @@
                                 <form class="form-horizontal" role="form" method="POST" action="{{ url('createuser') }}">
                                      {{ csrf_field() }}
                                     <fieldset>
-                                        <div class="form-group required">
+                                        <div class="form-group">
                                             <label class="col-md-4 control-label">You are a <sup>*</sup></label>
 
                                             <div class="col-md-6">
@@ -33,12 +33,12 @@
                                         </div>
 
                                         <!-- Text input-->
-                                        <div class="form-group required">
+                                        <div class="form-group">
                                             <label class="col-md-4 control-label">First Name <sup>*</sup></label>
 
                                             <div class="col-md-6">
                                                 <input name="" placeholder="First Name" class="form-control input-md"
-                                                       required="" type="text">
+                                                        type="text">
                                                        @if ($errors->has('first_name'))
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('first_name') }}</strong>
@@ -49,7 +49,7 @@
                                       
 
                                         <!-- Text input-->
-                                        <div class="form-group required">
+                                        <div class="form-group">
                                             <label class="col-md-4 control-label">Phone Number <sup>*</sup></label>
 
                                             <div class="col-md-6">
@@ -104,7 +104,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="form-group required">
+                                        <div class="form-group">
                                             <label for="inputEmail3" class="col-md-4 control-label">Email
                                                 <sup>*</sup></label>
 
@@ -115,10 +115,10 @@
                                             <span class="help-block">
                                                 <strong>{{ $errors->first('email') }}</strong>
                                             </span>
-                                    @endif
+                                                @endif
                                             </div>
                                         </div>
-                                        <div class="form-group required">
+                                        <div class="form-group">
                                             <label for="inputPassword3" class="col-md-4 control-label">Password </label>
 
                                             <div class="col-md-6">

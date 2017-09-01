@@ -47,10 +47,13 @@ class AdminController extends Controller
     			->orWhere('province', 'like','%'.$searchItem.'%')
     			->orWhere('featured', 'like','%'.$searchItem.'%')
     			->orWhere('approved', 'like', '%'.$searchItem.'%')->Paginate(11);
+
     			//->toSql();
     			//dd($ads);
+          $mainCategories =  DB::table('categories')->get();
+          $subcategories = DB::table('subcategory')->get();
     			
-    	return view('Admin/adminSearchAds',['ads'=>$ads]);
+    	return view('Admin/adminSearchAds',['ads'=>$ads,'mainCategories'=>$mainCategories,'subcategories'=>$subcategories]);
 
     }
     public function SearchAdsByUserId($searchItem){
@@ -393,7 +396,7 @@ class AdminController extends Controller
         $region = Input::get('regions-select-box');
 
         $suburb = new Surbub();
-        $suburb->surbub =  $suburb_name;
+        $suburb->location =  $suburb_name;
         $suburb->region = $region;
         $suburb->province = $province_name;
         $suburb->save();

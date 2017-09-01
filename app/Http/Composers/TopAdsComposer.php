@@ -19,7 +19,6 @@ class TopAdsComposer{
             ->orWhere('featured', "agent-ad")
             ->limit(8)
             ->get();
-            
             return $ads;
 
     }

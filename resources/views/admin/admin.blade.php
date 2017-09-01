@@ -98,7 +98,7 @@
                                         <th>Main category</th> 
                                         <th>Price</th> 
                                         <th>Township</th> 
-                                        <th>Province</th>
+                                        <th>Amount Due</th>
                                         <th>Promotion Plan</th> 
                                         <th>Status</th>                                  
                                     </tr> 
@@ -118,7 +118,7 @@
                                              <?php $class = "success" ?>
                                         @endif
 
-                                        @if($status == "Pending")
+                                        @if($status == "Pending" || $status == "pending")
                                              <?php $class = "warning" ?>
                                         @endif
                                         <tr class = "{{$class}}"> 
@@ -128,7 +128,7 @@
                                             <td>{{ $ad->main_catagory }}</td>
                                             <td>{{ $ad->price }}</td> 
                                             <td>{{ $ad->location }}</td> 
-                                            <td>{{ $ad->province }}</td> 
+                                            <td>R{{ $ad->amount_due }}</td> 
                                             <td>{{ $promtionPlan }}</td> 
                                             <td>{{ $status }}</td>  
                                         </tr> 

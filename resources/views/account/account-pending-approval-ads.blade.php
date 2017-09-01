@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row">
                
-                @include('account-sidebar')   
+                @include('account/account-sidebar')   
                 <!--/.page-sidebar-->
 
                 <div class="col-sm-9 page-content">
@@ -63,7 +63,7 @@
                                             <p><strong> Posted On </strong>:
                                                  {{ $unApprovedAd->created_at }} </p>
 
-                                            <p><strong>Visitors </strong>: 221 <strong>Located In:</strong>{{$unApprovedAd->township}}
+                                            <p><strong>Visitors </strong>: 221 <strong>Located In:</strong>{{$unApprovedAd->location}}
                                             </p>
                                         </div>
                                     </td>
@@ -120,6 +120,14 @@
 <script src="{{ asset('assets/js/footable.filter.js?v=2-0-1" type="text/javascript') }}"> </script>
 
 <script type="text/javascript">
+
+    $(document).ready(function(){
+          // /  alert('hi');
+        $('.pending-approval').addClass('active');
+            
+    });
+
+
     $(function () {
         $('#addManageTable').footable().bind('footable_filtering', function (e) {
             var selected = $('.filter-status').find(':selected').text();

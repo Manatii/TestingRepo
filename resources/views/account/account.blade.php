@@ -3,7 +3,7 @@
    <div class="main-container">
         <div class="container">
             <div class="row">
-                 @include('account-sidebar')
+                 @include('account/account-sidebar')
                 <!--/.page-sidebar-->
 
                 <div class="col-sm-9 page-content">
@@ -202,6 +202,14 @@
 
 @section('scripts')
 <script type="text/javascript">
+
+     
+
+     $(document).ready(function(){
+      // /  alert('hi');
+        $('#MyClassified li').addClass('active');
+        $('#MyAds li').removeClass('active');
+     });
      $('#update').click(function(){   
        
         var name = $('#username').val();

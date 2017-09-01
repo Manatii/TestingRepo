@@ -27,6 +27,6 @@ class SideBarComposerProvider extends ServiceProvider
     }
 
     public function composeSideBar(){
-        view()->composer('categories','App\Http\Composers\SideBarComposer');
+        view()->composer('partials/categories','App\Http\Composers\SideBarComposer');
     }
 }

@@ -41,7 +41,7 @@
                                     <a href="{{ url('view-categories') }}">View All</a>
                                 </li> 
                                 <li>
-                                     <a href="#selectRegion"  id="dropdownMenu1"  data-toggle="modal">Add Category</a>
+                                     <a href="#selectRegion1"  id="dropdownMenu1"  data-toggle="modal">Add Category</a>
                                 </li>
                             </ul>
                         </div>
@@ -52,7 +52,7 @@
                                     <a href="{{ url ('view-all-sub-categories') }}">View All</a>
                                 </li> 
                                 <li id = "add-sub-category">
-                                    <a href="#selectRegion" data-toggle="modal">Add Sub-Category</a>
+                                    <a href="#selectRegion1" data-toggle="modal">Add Sub-Category</a>
                                 </li>
                             </ul>
                         </div>
@@ -133,12 +133,12 @@
                                             <td>{{ $promtionPlan }}</td> 
                                             <td>{{ $status }}</td>                                                                                     
                                             <td class = "edit">
-                                                <a href="#selectRegion"  id="dropdownMenu1" class = "{{ $ad->adid }}" data-toggle="modal">edit</a>
+                                                <a href="#selectRegion1"  id="dropdownMenu1" class = "{{ $ad->adid }}" data-toggle="modal">edit</a>
                                             </td>                                     
                                             <td class = "delete">
                                                  <a id = "{{ $ad->adid }}" herf ="#"> {{ "delete" }} </a>
                                             </td>
-                                            @if($status == "Pending")
+                                            @if(strtolower($status) == "pending")
                                                  <td id = "approve">
                                                     <a id = "{{ $ad->adid }}" herf ="#"> {{ "approve" }} </a>
                                                  </td> 
@@ -158,7 +158,7 @@
 
     <!-- Modal Change City -->
 
-<div class="modal fade" id="selectRegion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade locations-modal" id="selectRegion1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
      aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -180,23 +180,31 @@
 
                         <form action ="{{ url('/admin-update-ad') }}" method="get" role="form"> 
                             <div class="form-group">
-                                 <input name ="ad-id" type="text" id ="adid" class="form-control hidden"> 
+                                 <input name ="ad-id" type="text" id ="adid" required = "" class="form-control hidden"> 
                                  <label for="name">Title</label> 
                                  <input name ="title" type="text" id ="title" class="form-control" placeholder="Category">
                                  <label for="name">Main Category</label> 
-                                 <input name ="main-category" type="text" id ="main-category" class="form-control" placeholder="Category">  
-                                 <label  for="name">Category</label> 
-                                 <input name ="category" type="text" id ="category" class="form-control" placeholder="Category">                                
+                                 <select name ="main-category" id ="main-category" class="form-control">
+                                    @foreach($mainCategories as $category)
+                                        <option value="{{ $category->category }}">{{ $category->category }}</option>
+                                    @endforeach
+                                 </select>
+                                 <label  for="name">Category</label>                                
+                                 <select name ="category" id ="category" class="form-control">
+                                    @foreach($subcategories as $subCategory)
+                                        <option value="{{ $subCategory->subcategory_name }}">{{ $subCategory->subcategory_name }}</option>
+                                    @endforeach
+                                 </select>
                                  <label  for="name">Price</label> 
-                                 <input name ="price" type="text" id ="price" class="form-control" placeholder="Price">                             
+                                 <input name ="price" type="text" id ="price" class="form-control" required = "" placeholder="Price">                             
                                  <label  for="name">Township</label> 
-                                 <input name ="township" type="text"  id = "township" class="form-control" placeholder="Township">                             
+                                 <input name ="township" type="text"  id = "township" required = "" class="form-control" placeholder="Township">                             
                                  <label  for="province">Province</label> 
-                                 <input name ="province" type="text" id ="province" class="form-control" placeholder="Province">                             
+                                 <input name ="province" type="text" id ="province" class="form-control" required = "" placeholder="Province">                             
                                  <label  for="name">Promotion Plan</label> 
                                  <input name ="promotion-plan" type="text" id ="promotion-plan" class="form-control" placeholder="Promotion Plan">                             
                                  <label for="name">Status</label> 
-                                 <input name ="status" type="text" id = "status" class="form-control" placeholder="Status">
+                                 <input name ="status" type="text" id = "status" class="form-control" required = "" placeholder="Status">
                             </div> 
                             <button type="submit" class="btn btn-success">Update</button>                       
                         </form>
@@ -217,8 +225,17 @@
     @endsection
 
     @section('scripts')
-    <script src="{{ asset('assets/js/jquery/jquery-latest.js') }}"></script>
-    <script src="{{ asset('assets/bootstrap/js/bootstrap.min.js') }}"></script>
+
+  <script src="{{ asset('assets/js/jquery/jquery-latest.js') }}"></script>
+<script src="{{ asset('selectorassets/js/vendors.min.js') }}"></script>
+
+<script src="{{ url('selectorassets/plugins/jquery-nice-select/js/jquery.nice-select.js') }}"></script>
+<script src="{{ url('selectorassets/plugins/jquery-nice-select/js/jquery.nice-select.min.js') }}"></script>
+
+<script src="{{ url('selectorassets/plugins/jquery-nicescroll/jquery-nicescroll.js') }}"></script>
+<script src="{{ url('selectorassets/plugins/jquery-nicescroll/jquery.nicescroll.iframehelper.min.js') }}"></script>
+<script src="{{ url('selectorassets/plugins/jquery-nicescroll/jquery.nicescroll.iframehelper.js') }}"></script>
+<script src="{{ url('selectorassets/plugins/jquery-nicescroll/jquery.nicescroll.min.js') }}"></script>
 
         <script type ="text/javascript">
             $('#approve').on('click', function(){
@@ -311,4 +328,7 @@
 
 
         </script>
+        
+
+<script src="{{ asset('selectorassets/js/script.js') }}"></script>
     @endsection

@@ -1,7 +1,7 @@
-<div class="inner-box relative" style="margin-top:20px;">
+<div class="inner-box relative sponsored-ads-gallery" style="margin-bottom:8px; display:none">
     <h2 class="title-2">Sponsored Ads
-        <a id="nextItem" class="link  pull-right carousel-nav"> <i class="icon-right-open-big"></i></a>
-        <a id="prevItem" class="link pull-right carousel-nav"> <i class="icon-left-open-big"></i>
+        <a id="nextItem" class="link  pull-right carousel-nav nextItem2"> <i class="icon-right-open-big"></i></a>
+        <a id="prevItem" class="link pull-right carousel-nav nextItem2"> <i class="icon-left-open-big"></i>
         </a>
     </h2>
     <div class="row">
